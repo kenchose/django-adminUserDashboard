@@ -29,8 +29,8 @@ def register(request):
             newUser = User.objects.newUser(request.POST)
             request.session['id'] = newUser.id
             if newUser.id == 1:
-                newUser.admin == "Admin"
-                newUser.save()
+                # newUser.admin == "Admin" Code already within models newUser method
+                # newUser.save()
                 return redirect('/dashboard/admin')
             else:
                 return redirect('/dashboard')
