@@ -78,7 +78,7 @@ def admindash(request):
         "curr_user": user,
         "all_users": all_users,
     }
-    return render (request, 'userdash/dashboard.html', context)
+    return render (request, 'userdash/admindash.html', context) #corrected the path of admin path template
     # else: 
     #     return redirect('/signin')
 
