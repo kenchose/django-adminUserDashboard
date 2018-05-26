@@ -3,6 +3,7 @@ from __future__ import unicode_literals
 
 from django.shortcuts import render, redirect, HttpResponse
 from django.contrib.auth import logout
+from django.contrib.messages import get_messages
 from . models import *
 
 
@@ -29,7 +30,7 @@ def register(request):
             newUser = User.objects.newUser(request.POST)
             request.session['id'] = newUser.id
             if newUser.id == 1:
-                # newUser.admin == "Admin" Code already within models newUser method
+                # newUser.admin == "Admin" Code already exixsts within models newUser method
                 # newUser.save()
                 return redirect('/dashboard/admin')
             else:
@@ -59,32 +60,85 @@ def login(request):
 
 
 def dashboard(request):
-    # if 'id' in request.session:
-    user = User.objects.get(id=request.session['id'])
-    all_users = User.objects.all()
-    context = {
-        "curr_user": user,
-        "all_users": all_users,
-    }
-    return render (request, 'userdash/dashboard.html', context)
-    # else: 
-    #     return redirect('/')
+    if 'id' in request.session:
+        user = User.objects.get(id=request.session['id'])
+        all_users = User.objects.all()
+        context = {
+            "curr_user": user,
+            "all_users": all_users,
+        }
+        return render (request, 'userdash/dashboard.html', context)
+    else: 
+        return redirect('/')
 
 def admindash(request):
-    # if 'id' in request.session:
-    user = User.objects.get(id=request.session['id'])
-    all_users = User.objects.all()
+    if 'id' in request.session:
+        user = User.objects.get(id=request.session['id'])
+        all_users = User.objects.all()
+        context = {
+            "curr_user": user,
+            "all_users": all_users,
+        }
+        return render (request, 'userdash/admindash.html', context) #corrected the path of admin path template
+    else: 
+        return redirect('/signin')
+
+def userProfile(request, user_id):
+    users = User.objects.get(id=user_id)
+    curr_user = User.objects.get(id=request.session['id'])
+    msg = Message.objects.filter(recipient=user_id)
     context = {
-        "curr_user": user,
-        "all_users": all_users,
+        "users": users,
+        "curr_user": curr_user,
+        "msg": msg,
     }
-    return render (request, 'userdash/admindash.html', context) #corrected the path of admin path template
-    # else: 
-    #     return redirect('/signin')
+    return render (request, "userdash/profile.html", context)
+
+def messageFor(request, user_id):
+    if request.method == "POST":
+        # try:
+        sender = User.objects.get(id=request.session['id'])
+        recipient = User.objects.get(id=user_id)
+        # except:
+        #     return redirect ("/users/show/{}".format(user_id))
+        message = Message.objects.valMessage(request.POST)
+        print(message)
+        try:
+            if len(message) > 0:
+                for error in message:
+                    messages.error(request, error)
+                    return redirect ("/users/show/{}".format(user_id))
+        except:
+            add_message = Message.objects.addMessage(request.POST, sender, recipient)
+            print (add_message.__dict__)
+            return redirect ("/users/show/{}".format(user_id))
+    else:
+        return redirect ("/users/show/user_id")
 
 
 
-#  
+
+
+
+
+
+
+
+
+
+
+
+
+def usersEdit(request):
+    user = User.objects.get(id=id)
+    context = {
+        "curr_user": user
+    }
+    return render (request, "/userdash/profile.html")
+
+
+
+
 def logout(request):
     request.session.clear()
     return redirect('/')

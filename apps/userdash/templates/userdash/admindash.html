@@ -8,28 +8,36 @@
     <title>Admin Dashboard</title>
 </head>
 <body>
-    <nav class="navbar navbar-light bg-light navbar-expand-lg border border-dark">
+    <nav class="navbar navbar-light bg-light sticky-top navbar-expand-lg border border-dark">
         <div class="navbar-brand pl-5">Test App</div>
             <ul class="navbar-nav mr-auto">
                 <li class="navbar-item">
-                    <a href="/" class="nav-link">Home</a>
+                    <a href="/dashboard" class="nav-link">Dashboard</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="/users/show/{{curr_user.id}}" class="nav-link">Profile</a>
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto">
                 <li class="navbar-item">
-                    <form action="/logout" method="get">
-                        <input type="submit" value="Logout">
+                    <form action="/logout" method="post">
+                        {% csrf_token %}
+                        <button type="submit" class="btn bg-warning">Logout</button>
                     </form>
                 </li>
             </ul>
         </div>
     </nav>
-        
-    <div class="float-right pr-5">
-        <h6 class="mt-3"><a href="/">Go Back</a></h>
-    </div>
+    
+    <h3>Hello, {{curr_user.first_name}} {{curr_user.last_name}}</h3>
+    <!-- <div class = "container style="margin-top:30px;">
+        Manage Users
+    </div> -->
 
     <div class="container border border-dark" style="margin-top:15px">
+        <div class="border border-dark">
+            <h2>Manage Users</h2>
+        </div>
         <table class="table table-striped"> <!--shwoing nth number of rows/page (Bootstrap:Pagination-->
             <th class="table-light">
                 <tr>
@@ -49,7 +57,7 @@
                         <td>{{u.email}}</td>
                         <td>{{u.created_at}}</td>
                         <td>{{u.admin}}</td>
-                        <td><a href="#">Edit</a> <a href="#">Remove</a></td>
+                        <td><a href="#"><u>Edit</u></a> <a href="#"><u>Remove</u></a></td>
                     </tr>
                 {% endfor %}
             </tbody>

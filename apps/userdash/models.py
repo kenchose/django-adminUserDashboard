@@ -76,8 +76,26 @@ class UserManager(models.Manager):
             return error
 
 
-      
+class MessageManager(models.Manager):
+    def valMessage(self, postData):
+        error = []
+        if len(postData['content']) < 1:
+            error.append("You didn't write a message to send!")
+            return error
 
+    def addMessage(self, postData, curr_user, message_to):
+        if len(postData['content']) > 0:
+            add_message = Message.objects.create(content = postData['content'], user=curr_user, recipient=message_to)
+            return add_message
+    
+    # def addMessage(self, postData, user, message_to):
+
+            
+
+
+        
+
+      
 class User(models.Model):
     email = models.CharField(max_length=255)
     first_name = models.CharField(max_length=255)
@@ -95,10 +113,11 @@ class Message(models.Model):
     content = models.TextField()
     user = models.ForeignKey(User, related_name='message_by')
     recipient = models.ForeignKey(User, related_name="message_to")
+    objects = MessageManager()
     created_at=models.DateTimeField(auto_now_add=True)
     updated_at=models.DateTimeField(auto_now=True)
     def __repr__(self):
-        return '<Message: {} {} said {}.>'.format(self.user.first_name, self.user.last_name, self.content, self.message.first_name) 
+        return '<Message: {} and the {}.>'.format(self.content, self.user) 
 
 class Comment(models.Model):
     content = models.TextField()

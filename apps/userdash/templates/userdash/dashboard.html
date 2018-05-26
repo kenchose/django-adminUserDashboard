@@ -8,8 +8,7 @@
     <title>User Dashboard</title>
 </head>
 <body>
-
-    <nav class="navbar navbar-light bg-light navbar-expand-lg border border-dark">
+    <nav class="navbar navbar-light bg-light sticky-top navbar-expand-lg border border-dark">
         <div class="navbar-brand pl-5">Test App</div>
             <ul class="navbar-nav mr-auto">
                 <li class="navbar-item">
@@ -29,9 +28,11 @@
             </ul>
         </div>
     </nav>
-        
 
+    
     <div class="container border border-dark" style="margin-top:15px">
+            <p><h3 style="margin-top:30px;">Hello, {{curr_user.first_name}} {{curr_user.last_name}}</h3></p>
+            <p><h5>All Users</h5></p>
         <table class="table table-striped"> <!--shwoing nth number of rows/page (Bootstrap:Pagination-->
             <th class="table-light">
                 <tr>
