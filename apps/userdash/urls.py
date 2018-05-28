@@ -11,6 +11,8 @@ urlpatterns = [
     url(r'^dashboard/admin$', views.admindash),
     url(r'^users/show/(?P<user_id>\d+)$', views.userProfile),
     url(r'^messageto/(?P<user_id>\d+)$', views.messageFor),
+    url(r'^commentto/(?P<user_id>\d+)/(?P<msg_id>\d+)$', views.commentTo),
+    # url(r'^commentto/(?P<user_id>\d+)$', views.commentTo),
     # url(r'users/edit/(?P<user_id>)$', views.user_edit),
     url(r'^logout$', views.logout),
 ]

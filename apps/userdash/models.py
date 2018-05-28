@@ -88,12 +88,26 @@ class MessageManager(models.Manager):
             add_message = Message.objects.create(content = postData['content'], user=curr_user, recipient=message_to)
             return add_message
     
-    # def addMessage(self, postData, user, message_to):
 
+class CommentManager(models.Manager):
+    def valComment(self, postData):
+        error = []
+        if len(postData['content']) < 1:
+            error.append["You didn't write a comment to send!"]
+            return error
+    def addComment(self, postData, sender, message_id):
+        if len(postData['content']) > 0:
+            add_comment = Comment.objects.create(content = postData['content'], user = sender, reply = message_id)
+            return add_comment
             
 
 
         
+
+
+
+
+
 
       
 class User(models.Model):
@@ -123,7 +137,8 @@ class Comment(models.Model):
     content = models.TextField()
     user = models.ForeignKey(User, related_name = "replied_by")
     reply = models.ForeignKey(Message, related_name = "message")
+    objects = CommentManager()
     created_at=models.DateTimeField(auto_now_add=True)
     updated_at=models.DateTimeField(auto_now=True)
     def __repr__(self):
-        return '<Comment: {} replied {} to {} made by {}'.format(self.user__first_name, self.content, self.reply__content, self.reply__content__first_name)
+        return '<Comment: {} said {}'.format(self.user, self.content)

@@ -4,6 +4,7 @@ from __future__ import unicode_literals
 from django.shortcuts import render, redirect, HttpResponse
 from django.contrib.auth import logout
 from django.contrib.messages import get_messages
+from datetime import datetime
 from . models import *
 
 
@@ -86,7 +87,7 @@ def admindash(request):
 def userProfile(request, user_id):
     users = User.objects.get(id=user_id)
     curr_user = User.objects.get(id=request.session['id'])
-    msg = Message.objects.filter(recipient=user_id)
+    msg = Message.objects.filter(recipient=user_id).order_by("-created_at")
     context = {
         "users": users,
         "curr_user": curr_user,
@@ -96,13 +97,9 @@ def userProfile(request, user_id):
 
 def messageFor(request, user_id):
     if request.method == "POST":
-        # try:
         sender = User.objects.get(id=request.session['id'])
         recipient = User.objects.get(id=user_id)
-        # except:
-        #     return redirect ("/users/show/{}".format(user_id))
         message = Message.objects.valMessage(request.POST)
-        print(message)
         try:
             if len(message) > 0:
                 for error in message:
@@ -114,6 +111,30 @@ def messageFor(request, user_id):
             return redirect ("/users/show/{}".format(user_id))
     else:
         return redirect ("/users/show/user_id")
+
+
+def commentTo(request, user_id, msg_id):
+    if request.method == "POST":
+        commenter = User.objects.get(id=request.session['id'])
+        message = Message.objects.get(id=msg_id)
+        recipient = User.objects.get(id=user_id)
+        comment = Comment.objects.valComment(request.POST)
+        try:
+            if len(comment) > 0:
+                for error in comment:
+                    messages.error(request, error)
+                    return redirect ("/users/show/{}".format(user_id))
+        except:
+            new_comment = Comment.objects.addComment(request.POST, commenter, message)
+            return redirect ("/users/show/{}".format(user_id))
+    else:
+        return redirect ("/users/show/{}".format(user_id))
+
+
+
+
+
+
 
 
 
