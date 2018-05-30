@@ -14,7 +14,7 @@ urlpatterns = [
     url(r'^commentto/(?P<user_id>\d+)/(?P<msg_id>\d+)$', views.commentTo),
     url(r'^edit/(?P<user_id>\d+)$', views.userEdit),
     url(r'^editinfo/(?P<user_id>\d+)$', views.userEditInfo),
-    # url(r'^commentto/(?P<user_id>\d+)$', views.commentTo),
+    url(r'^editpass/(?P<user_id>\d+)$', views.userEditPass),
     # url(r'users/edit/(?P<user_id>)$', views.user_edit),
     url(r'^logout$', views.logout),
 ]

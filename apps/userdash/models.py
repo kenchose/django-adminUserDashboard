@@ -106,10 +106,23 @@ class UserManager(models.Manager):
         return user
 
 
+    def passVal(self, postData):
+        error = []
+        if len(postData['password']) < 8: 
+            error.append("Password must be more than 8 characters.")
+        if postData['password'] != postData['password_confirmation']:
+            error.append('Confirmatin password does not match.')
+        return error
+
+    def newPass(self, postData, curr_user):
+        user = User.objects.get(id=curr_user.id)
+        hashed_pw=bcrypt.hashpw(postData['password'].encode(), bcrypt.gensalt())
+        user.password = hashed_pw
+        user.save()
+        return user
 
 
-
-
+    
 
 
 

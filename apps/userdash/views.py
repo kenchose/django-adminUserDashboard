@@ -163,6 +163,20 @@ def userEditInfo(request, user_id):
         return redirect('/users/show/{}'.format(user_id))
         
 
+def userEditPass(request, user_id):
+    if request.method == "POST":
+        curr_user = User.objects.get(id=request.session['id'])
+        result = User.objects.passVal(request.POST)
+        if len(result) > 0:
+            for error in result:
+                messages.error(request, error)
+                return redirect ('/edit/{}'.format(user_id))
+        else:
+            User.objects.newPass(request.POST, curr_user)
+            messages.success(request, "You have successfully changed your password.")
+            return redirect ('/edit/{}'.format(user_id))
+    else:
+        return redirect ('/edit/show{}'.format(user_id))
 
 
 
@@ -181,12 +195,8 @@ def userEditInfo(request, user_id):
 
 
 
-def usersEdit(request):
-    user = User.objects.get(id=id)
-    context = {
-        "curr_user": user
-    }
-    return render (request, "/userdash/profile.html")
+
+
 
 
 

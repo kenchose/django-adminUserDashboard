@@ -66,7 +66,7 @@
         </div>
         <div class = "border border-dark form-group form-control" style="margin-top:10px">
             <h4>Change Password</h4>
-            <form action="editpass/{{user.id}}" method="post">
+            <form action="/editpass/{{users.id}}" method="post">
                 {% csrf_token %}
                 <div class="w-25">
                     <label for="password">Password:</label>
@@ -86,9 +86,9 @@
             <div class = "border border-dark form-group">
                 <form action="userEditDesc" method="post">
                     {% csrf_token %}
-                    <textarea name="description" id="" cols="120" rows="10"  style="margin:10px;"></textarea>
+                    <textarea name="description" id="" cols="147" rows="10"  style="margin:10px;"></textarea>
                     <div>
-                        <button type="submit" class="btn btn-success ml-1 mb-1" >Save</button>
+                        <button type="submit" class="btn btn-success ml-1 mb-1">Save</button>
                     </div>
                 </form>
             </div>
