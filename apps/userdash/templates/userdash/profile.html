@@ -43,7 +43,7 @@
                 </ul>
             </div>
             <div class = "form-group">
-                <p><h3>{{users.first_name}} {{users.last_name}}</h3></p>
+                <p><h3>{{users.first_name}} {{users.last_name}}</h3><button type="submit"><a href="/edit/{{users.id}}">Edit</a></button></p>
                 <p>Registered at: {{users.created_at}}</p>
                 <p>User ID: {{users.id}}</p>
                 <p>Email address: {{users.email}}</p>
@@ -54,27 +54,28 @@
                 {{msg.message.content}}
                 <form action="/messageto/{{users.id}}" method="post">
                     {% csrf_token %}
-                    <textarea name="content" class="form-control" style="min-width: 100%"></textarea>
+                    <input type="text" name="content" class="form-control" placeholder="Write a message..."></input>
                     <button class = "btn btn-success float-right mt-2" type="submit">Post</button>
                 </form>
             </div>
             <br>
             <div class="form-group" style="margin-top:5px;">  
                 <div class="text-left">
-                    <ul class="list-unstyled">
+                    <!-- <ul class="list-unstyled"> -->
                         {% for msg in msg %}
                         <div class = "messages">
-                            <p><h6>{{msg.user.first_name}} {{msg.user.last_name}} wrote: <span class= "float-right">{{msg.created_at}}</span></h6></p>
+                            <p><h6>{{msg.user.first_name}} {{msg.user.last_name}} left a message writing: <span class= "float-right">{{msg.created_at}}</span></h6></p>
                             <input class="form-control" type="text" name="{{msg.id}}" value="{{msg.content}}">
+                        </div>
                             {% for comment in msg.message.all %}
-                                 <p><h7><a href="/users/show/{{comment.user.id}}">{{comment.user.first_name}} {{comment.user.last_name}}</a> wrote: <span class="float-right">{{comment.created_at}}</span></h7></p>
-                                    <input class="form-control" type="text" name="{{comment.id}}" value="{{comment.content}}">
+
+                                    <p><h7><a href="/users/show/{{comment.user.id}}">{{comment.user.first_name}} {{comment.user.last_name}}</a> left a comment writing: <span class="float-right">{{comment.created_at}}</span></h7></p>
+                                       <input class="form-control" type="text" name="{{comment.id}}" value="{{comment.content}}">
                             {% endfor %}
-                        <!-- maybe a div here -->
                             <div>
                                 <form action="/commentto/{{users.id}}/{{msg.id}}" method="post">
                                     {% csrf_token %}
-                                    <input class = "form-control float-right mt-1 text-secondary bg-light" type="text" name="content"> <!--onClick="this.form.reset()" and/or value="Write a comment."-->
+                                    <input class = "form-control float-right mt-1 text-secondary bg-light" type="text" name="content" placeholder="Write a comment..."> 
                                     <br>
                                     <br>
                                     <button class = "btn btn-success  btn-sm float-right"  type="submit">Post</button>
@@ -82,7 +83,7 @@
                             </div>
                         </div>
                         {% endfor %}
-                    </ul>
+                    <!-- </ul> -->
                 </div>
             </div>
         </div>

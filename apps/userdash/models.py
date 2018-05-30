@@ -76,6 +76,53 @@ class UserManager(models.Manager):
             return error
 
 
+    def editInfoVal(self, postData, user):
+        error = []
+        if len(postData['email']) < 1 or len(postData['first_name']) < 1 or len(postData['last_name']) < 1:
+            error.append("All fields must be filled")
+        try:
+            validate_email(postData['email'])
+        except ValidationError as e:
+            error.append("Email must be a valid email.")
+        if len(postData['email']) < 6:
+            error.append("Email must be more than 6 characters long.")
+        # if User.objects.filter(email__iexact=postData['email']).exclude(user.email):
+        #     error.append('Email is already registered.')
+        if not postData['first_name'].isalpha():
+            error.append("First name cannnot contain numbers or special characters. ")
+        if len(postData['first_name']) < 2:
+            error.append("First name must be more than 2 characters.")
+        if len(postData['last_name']) < 2:
+            error.append("Last name must be more than 2 characters.")
+        return error
+
+
+    def editInfo(self, postData, user_id):
+        user = User.objects.get(id=user_id)
+        user.email = postData['email']
+        user.first_name = postData['first_name']
+        user.last_name = postData['last_name']
+        user.save()
+        return user
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 class MessageManager(models.Manager):
     def valMessage(self, postData):
         error = []
@@ -101,15 +148,6 @@ class CommentManager(models.Manager):
             return add_comment
             
 
-
-        
-
-
-
-
-
-
-      
 class User(models.Model):
     email = models.CharField(max_length=255)
     first_name = models.CharField(max_length=255)
