@@ -140,24 +140,23 @@ def userEdit(request, user_id):
         for error in error:
             messages.error(request, error)
             return redirect ("/users/show/{}".format(user_id))
-    context = {
-        "users": users,
-    }
-    return render (request, "userdash/user_edit.html", context)
+    else:
+        context = {
+            "users": users,
+        }
+        return render (request, "userdash/user_edit.html", context)
 
 
 def userEditInfo(request, user_id):
     if request.method == 'POST':
-        user = User.objects.get(id=user_id)
-        new_info = User.objects.editInfoVal(request.POST, user)
-        # try:
+        curr_user = User.objects.get(id=request.session['id'])
+        new_info = User.objects.editInfoVal(request.POST, curr_user)
         if len(new_info) > 0:
             for error in new_info:
                 messages.error(request, error)
                 return redirect ('/edit/{}'.format(user_id))
-        # except:
         else:
-            update_info = User.objects.editInfo(request.POST, user)
+            update_info = User.objects.editInfo(request.POST, curr_user)
             messages.success(request, "Your information have been successfully updated.")
             return redirect ('/users/show/{}'.format(user_id))
     else:

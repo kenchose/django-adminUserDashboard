@@ -97,8 +97,8 @@ class UserManager(models.Manager):
         return error
 
 
-    def editInfo(self, postData, user_id):
-        user = User.objects.get(id=user_id)
+    def editInfo(self, postData, curr_user):
+        user = User.objects.get(id=curr_user.id)
         user.email = postData['email']
         user.first_name = postData['first_name']
         user.last_name = postData['last_name']
