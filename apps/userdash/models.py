@@ -3,7 +3,6 @@ from __future__ import unicode_literals
 from django.db import models
 from django.core.validators import validate_email
 from django.core.exceptions import ValidationError
-from django.contrib.auth import logout
 from django.contrib import messages
 import bcrypt
 
@@ -41,6 +40,9 @@ class UserManager(models.Manager):
             new_user.admin = "Admin"
             new_user.save()
         return new_user   
+
+    # def adminAddVal(self, postData)
+
 
 
     def loginValid(self,postData):
@@ -122,7 +124,66 @@ class UserManager(models.Manager):
         return user
 
 
+    def userValDesc(self, postData, curr_user):
+        error = []
+        if len(postData['description']) < 1:
+            error.append("Description field must contain at least one character")
+        return error
+
+
+    def userDesc(self, postData, curr_user):
+        user = User.objects.get(id=curr_user.id)
+        user.description = postData['description']
+        user.save()
+        return user
+
+
+    def adminInfoVal(self, postData, user):
+        user_update = User.objects.get(id=user.id)
+        error = []
+        if len(postData['email']) < 1 or len(postData['first_name']) < 1 or len(postData['last_name']) < 1:
+            error.append("All fields must be filled")
+        try:
+            validate_email(postData['email'])
+        except ValidationError as e:
+            error.append("Email must be a valid email.")
+        if len(postData['email']) < 6:
+            error.append("Email must be more than 6 characters long.")
+        # if User.objects.filter(email__iexact=postData['email']).exclude(user.email):
+        #     error.append('Email is already registered.')
+        if not postData['first_name'].isalpha():
+            error.append("First name cannnot contain numbers or special characters. ")
+        if len(postData['first_name']) < 2:
+            error.append("First name must be more than 2 characters.")
+        if len(postData['last_name']) < 2:
+            error.append("Last name must be more than 2 characters.")
+        return error
+
     
+    def adminPassVal(self, postData):
+        error = []
+        if len(postData['password']) < 8:
+            error.append("Password must be 8 characters long.")
+        if postData['password'] != postData['confirmation_password']:
+            error.append("Password and confirmation password don't match.")
+        return error
+
+    def adminPassEdit(self, postData, user):
+        user = User.objects.get(id=user.id)
+        hashed_pw = bcrypt.hashpw(postData['password'].encode(), bcrypt.gensalt())
+        user.password = hashed_pw
+        user.save()
+        return user
+
+    
+    def adminInfoEdit(self, postData, user):
+        user = User.objects.get(id=user.id)
+        user.email = postData['email']
+        user.first_name = postData['first_name']
+        user.last_name = postData['last_name']
+        user.admin = postData['admin']
+        user.save()
+        return user
 
 
 

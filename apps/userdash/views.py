@@ -72,6 +72,18 @@ def dashboard(request):
     else: 
         return redirect('/')
 
+
+def addminAdduser(request):
+    result = User.objects.addUserVal(request.POST)
+    if len(result) > 0:
+        for error in result:
+            messages.error(request, error)
+            return redirect ('/dashboard/admin')
+    else:
+        User.objects.newUser(request.POST)
+    return render (request, "userdash/add_user.html")
+
+
 def admindash(request):
     if 'id' in request.session:
         user = User.objects.get(id=request.session['id'])
@@ -133,8 +145,12 @@ def commentTo(request, user_id, msg_id):
 
 def userEdit(request, user_id):
     users = User.objects.get(id=user_id)
+    curr_user = User.objects.get(id=request.session['id'])
+    admin = User.objects.get(id=1)
     error = []
-    if request.session['id'] != users.id:
+    if curr_user != users:
+    # if request.session['id'].exclude(admin.id)!= users.id:
+    # if not request.session['id'] or not admin.id: #!= users.id:
         error.append("You cannot edit other user's profile information.") 
     if error:
         for error in error:
@@ -174,11 +190,71 @@ def userEditPass(request, user_id):
         else:
             User.objects.newPass(request.POST, curr_user)
             messages.success(request, "You have successfully changed your password.")
-            return redirect ('/edit/{}'.format(user_id))
+            return redirect ('/users/show/{}'.format(user_id))
     else:
-        return redirect ('/edit/show{}'.format(user_id))
+        return redirect ('/edit/show/{}'.format(user_id))
 
 
+def UserEditDesc(request, user_id):
+    if request.method == 'POST':
+        curr_user = User.objects.get(id=request.session['id'])
+        result = User.objects.userValDesc(request.POST, curr_user)
+        if len(result) > 0:
+            for error in (result):
+                messages.error(request, error)
+                return redirect('/edit/{}'.format(user_id))
+        else: 
+            User.objects.userDesc(request.POST, curr_user)
+            messages.success(request, 'You have successfully updated your description information')
+            return redirect ('/users/show/{}'.format(user_id))
+    else:
+        return redirect ('/edit/{}'.format(user_id))
+
+
+def adminEdit(request, user_id):
+    if not request.session['id'] == 1:
+        messages.error(request, ("You do not have authorization to visit the web page"))
+        # error.append("You do not have authority to go into that page")
+        return redirect ('/dashboard/admin')
+    else:
+        users = User.objects.get(id=user_id)
+        admin = User.objects.get(id=1)
+        context = {
+            "users": users,
+            "admin": admin,
+        }
+        return render (request, "userdash/adminedit.html", context)
+
+def adminInfoUpdate(request, user_id):
+    if request.method == "POST":
+        user = User.objects.get(id=user_id)
+        result = User.objects.adminInfoVal(request.POST, user)
+        if len(result) > 0:
+            for error in result:
+                messages.error(request, error)
+                return redirect ("/users/edit/{}".format(user_id))
+        else:
+            User.objects.adminInfoEdit(request.POST, user)
+            messages.success(request, "You've successfully edited the user's information.")
+            return redirect ("/dashboard/admin")
+    else:
+        return redirect ("/users/edit/{}".format(user_id))
+
+
+def adminPassUpdate(request, user_id):
+    if request.method == "POST":
+        result = User.objects.adminPassVal(request.POST)
+        user = User.objects.get(id=user_id)
+        if len(result) > 0:
+            for error in result:
+                messages.error(request, error)
+                return redirect ("/users/edit/{}".format(user_id))
+        else:
+            User.objects.adminPassEdit(request.POST, user)
+            messages.success(request, "Password has been updated.")
+            return redirect ("/users/edit/{}".format(user_id))
+    else:
+        return redirect ("/users/edit/{}".format(user_id))
 
 
 
@@ -203,4 +279,5 @@ def userEditPass(request, user_id):
 
 def logout(request):
     request.session.clear()
+    messages.success(request, "You've been successfully logged out.")
     return redirect('/')

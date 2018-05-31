@@ -15,7 +15,7 @@
                     <a href="/dashboard" class="nav-link">Dashboard</a>
                 </li>
                 <li class="navbar-item">
-                    <a href="/users/show/{{curr_user.id}}" class="nav-link">Profile</a>
+                    <a href="/users/show/{{users.id}}" class="nav-link">Profile</a>
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto">
@@ -84,7 +84,7 @@
         <div class = "border border-dark form-group form-control">
             <h4>Edit Description</h4>
             <div class = "border border-dark form-group">
-                <form action="userEditDesc" method="post">
+                <form action="/editdescription/{{users.id}}" method="post">
                     {% csrf_token %}
                     <textarea name="description" id="" cols="147" rows="10"  style="margin:10px;"></textarea>
                     <div>

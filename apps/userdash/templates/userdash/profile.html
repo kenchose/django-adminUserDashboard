@@ -59,31 +59,30 @@
                 </form>
             </div>
             <br>
-            <div class="form-group" style="margin-top:5px;">  
-                <div class="text-left">
-                    <!-- <ul class="list-unstyled"> -->
-                        {% for msg in msg %}
-                        <div class = "messages">
-                            <p><h6>{{msg.user.first_name}} {{msg.user.last_name}} left a message writing: <span class= "float-right">{{msg.created_at}}</span></h6></p>
-                            <input class="form-control" type="text" name="{{msg.id}}" value="{{msg.content}}">
-                        </div>
-                            {% for comment in msg.message.all %}
-
-                                    <p><h7><a href="/users/show/{{comment.user.id}}">{{comment.user.first_name}} {{comment.user.last_name}}</a> left a comment writing: <span class="float-right">{{comment.created_at}}</span></h7></p>
-                                       <input class="form-control" type="text" name="{{comment.id}}" value="{{comment.content}}">
-                            {% endfor %}
-                            <div>
-                                <form action="/commentto/{{users.id}}/{{msg.id}}" method="post">
-                                    {% csrf_token %}
-                                    <input class = "form-control float-right mt-1 text-secondary bg-light" type="text" name="content" placeholder="Write a comment..."> 
-                                    <br>
-                                    <br>
-                                    <button class = "btn btn-success  btn-sm float-right"  type="submit">Post</button>
-                                </form>
+            <div class="form-group" style="margin-top:50px;">  
+<!--row-->      <div class="text-left"> 
+                    {% for msg in msg %}
+<!--col-12-->       <div class = "messages" style="margin-top:100px;">  
+                        <p><h6>{{msg.user.first_name}} {{msg.user.last_name}} left a message saying: <span class= "float-right">{{msg.created_at}}</span></h6></p>
+                        <input class="form-control" type="text" name="{{msg.id}}" value="{{msg.content}}">
+                    </div>
+                        {% for comment in msg.message.all %}
+<!--col-9 -->               <div class = "comments" style="margin-top:20px;"> 
+                                <p><h7><a href="/users/show/{{comment.user.id}}">{{comment.user.first_name}} {{comment.user.last_name}}</a> left a comment saying: <span class="float-right">{{comment.created_at}}</span></h7></p>
+                                <input class="form-control" type="text" name="{{comment.id}}" value="{{comment.content}}">
                             </div>
-                        </div>
                         {% endfor %}
-                    <!-- </ul> -->
+                        <div class="form-group">
+                            <form action="/commentto/{{users.id}}/{{msg.id}}" method="post">
+                                {% csrf_token %}
+                                <input class = "form-control float-right mt-1 text-secondary bg-light" type="text" name="content" placeholder="Write a comment..."> 
+                                <br>
+                                <br>
+                                <button class = "btn btn-success  btn-sm float-right"  type="submit">Post</button>
+                            </form>
+                        </div>
+                    </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>
