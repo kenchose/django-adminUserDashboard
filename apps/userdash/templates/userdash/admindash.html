@@ -8,6 +8,28 @@
     <title>Admin Dashboard</title>
 </head>
 <body>
+    {% for u in all_users%}
+    <div class="modal fade" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Delete User</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to remove this user?</p>
+                </div>
+                <div class="modal-footer">
+                    <form action="/remove/{{u.id}}" method="post">
+                        {% csrf_token %}
+                        <button class="btn btn-danger" type="submit" id="myModal">Yes</button>
+                    </form>
+                    <button class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
     <nav class="navbar navbar-light bg-light sticky-top navbar-expand-lg border border-dark">
         <div class="navbar-brand pl-5">Test App</div>
             <ul class="navbar-nav mr-auto">
@@ -44,11 +66,19 @@
             </div>
         </div>
     </div>
+
+
     <div>
         <h2 class = "text-center" style="margin-top:30px;">Hello, {{curr_user.first_name}} {{curr_user.last_name}}</h2>
     </div>
-    <div class = "container pl-1"><h4>Manage Users</h4></div>
-    <div></div><button><a class = "btn btn-primary" href="/users/new">Add user</a></button></div>
+    <div class="d-flex justify-content-between pt-4">
+        <div class="pl-5">
+            <h2 class="pl-5">Manage Users</h2>
+        </div>
+        <div>
+            <button class="btn bg-primary"><a href="#" data-href="{{u.id}}" class="text-white">Add new</a></button>
+        </div>
+    </div>
     <div class="container border border-dark" style="margin-top:15px">
         <table class="table table-striped table-hover"> <!--shwoing nth number of rows/page (Bootstrap:Pagination-->
             <thead> 
@@ -65,11 +95,11 @@
                 {% for u in all_users%}
                     <tr>
                         <td>{{u.id}}</td>
-                        <td><a href="users/show/{{u.id}}">{{u.first_name}} {{u.last_name}}</a></td>
+                        <td><a href="/users/show/{{u.id}}">{{u.first_name}} {{u.last_name}}</a></td>
                         <td>{{u.email}}</td>
                         <td>{{u.created_at}}</td>
                         <td>{{u.admin}}</td>
-                        <td><a href="/users/edit/{{u.id}}"><u>Edit</u></a> <a href="#"><u>Remove</u></a></td>
+                        <td><a href="/users/edit/{{u.id}}"><u>Edit</u></a> <a data-toggle="modal" data-target="#myModal" href="#"><u>Remove</u></a>
                     </tr>
                 {% endfor %}
             </tbody>

@@ -41,7 +41,37 @@ class UserManager(models.Manager):
             new_user.save()
         return new_user   
 
-    # def adminAddVal(self, postData)
+    def adminAddUserVal(self, postData):
+        error = []
+        if len(postData['email']) < 1 or len(postData['first_name']) < 1 or len(postData['last_name']) < 1 or len(postData['password']) < 1:
+            error.append("All fields must be filled")
+        try:
+            validate_email(postData['email'])
+        except ValidationError as e:
+            error.append("Email must be a valid email.")
+        if len(postData['email']) < 6:
+            error.append("Email must be more than 6 characters long.")
+        if User.objects.filter(email__iexact=postData['email']):
+            error.append('Email is already registered.')
+        if not postData['first_name'].isalpha():
+            error.append("First name cannnot contain numbers or special characters. ")
+        if len(postData['first_name']) < 2:
+            error.append("First name must be more than 2 characters.")
+        if len(postData['last_name']) < 2:
+            error.append("Last name must be more than 2 characters.")
+        if len(postData['password']) < 8: 
+            error.append("Password must be more than 8 characters.")
+        if postData['password'] != postData['password_confirmation']:
+            error.append('Confirmatin password does not match.')
+        return error
+
+
+    def adminNewUser(self, postData):
+        new_user = User.objects.create(email = postData['email'], first_name = postData['first_name'], last_name = postData['last_name'], password = postData['password'])
+        hashed_pw = bcrypt.hashpw(postData['password'].encode(), bcrypt.gensalt())
+        new_user.admin = "Normal"
+        new_user.save()
+        return new_user
 
 
 
@@ -64,12 +94,10 @@ class UserManager(models.Manager):
         if len(retrieved_users) > 0:
             retrieved_user = retrieved_users[0]
             if bcrypt.checkpw(postData['password'].encode(), retrieved_user.password.encode()):
-                if retrieved_user.id == 1:
+                if  retrieved_user.id == 1:
                     retrieved_user.admin = "Admin"
                     retrieved_user.save()
-                    return retrieved_user
-                else:
-                    return retrieved_user
+                return retrieved_user
             else:
                 error.append("Email/password is invalid.")
                 return error
@@ -115,6 +143,7 @@ class UserManager(models.Manager):
         if postData['password'] != postData['password_confirmation']:
             error.append('Confirmatin password does not match.')
         return error
+
 
     def newPass(self, postData, curr_user):
         user = User.objects.get(id=curr_user.id)

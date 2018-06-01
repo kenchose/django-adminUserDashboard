@@ -12,7 +12,11 @@
         <div class="navbar-brand pl-5">Test App</div>
             <ul class="navbar-nav mr-auto">
                 <li class="navbar-item">
-                    <a href="/dashboard" class="nav-link">Dashboard</a>
+                    {% if curr_user.admin == "Admin" %}
+                        <a href="/dashboard/admin" class="nav-link">Dashboard</a>
+                    {% else %}
+                        <a href="/dashboard" class="nav-link">Dashboard</a>
+                    {% endif %}
                 </li>
                 <li class="navbar-item">
                     <a href="/users/show/{{users.id}}" class="nav-link">Profile</a>
@@ -22,7 +26,11 @@
                 <li class="navbar-item">
                     <form action="/logout" method="post">
                         {% csrf_token %}
-                        <button type="submit" class="btn btn-outline-success">Logout</button>
+                        {% if curr_user.admin == "Admin" %}
+                            <button type="submit" class="btn bg-warning">Logout</button>
+                        {% else %}
+                            <button type="submit" class="btn btn-outline-success">Logout</button>
+                        {% endif %}
                     </form>
                 </li>
             </ul>

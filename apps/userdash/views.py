@@ -51,7 +51,7 @@ def login(request):
         except:
             retrieved_user = User.objects.loginUser(request.POST)
             request.session['id'] = retrieved_user.id
-            if retrieved_user.id == 1:
+            if retrieved_user.admin == "Admin":
                 return redirect ('/dashboard/admin')
             else:
                 return redirect ('/dashboard')
@@ -73,15 +73,22 @@ def dashboard(request):
         return redirect('/')
 
 
-def addminAdduser(request):
-    result = User.objects.addUserVal(request.POST)
-    if len(result) > 0:
-        for error in result:
-            messages.error(request, error)
+def adminAdd(request):
+    return render (request, "userdash/add_user.html")
+
+
+def adminAddUser(request):
+    if request.method == "POST":
+        result = User.objects.adminAddUserVal(request.POST)
+        if len(result) > 0:
+            for error in result:
+                messages.error(request, error)
+                return redirect ('/users/new')
+        else:
+            User.objects.adminNewUser(request.POST)
             return redirect ('/dashboard/admin')
     else:
-        User.objects.newUser(request.POST)
-    return render (request, "userdash/add_user.html")
+        return redirect ('/users/new')
 
 
 def admindash(request):
@@ -92,7 +99,7 @@ def admindash(request):
             "curr_user": user,
             "all_users": all_users,
         }
-        return render (request, 'userdash/admindash.html', context) #corrected the path of admin path template
+        return render (request, 'userdash/admindash.html', context) 
     else: 
         return redirect('/signin')
 
@@ -146,21 +153,19 @@ def commentTo(request, user_id, msg_id):
 def userEdit(request, user_id):
     users = User.objects.get(id=user_id)
     curr_user = User.objects.get(id=request.session['id'])
-    admin = User.objects.get(id=1)
     error = []
-    if curr_user != users:
-    # if request.session['id'].exclude(admin.id)!= users.id:
-    # if not request.session['id'] or not admin.id: #!= users.id:
-        error.append("You cannot edit other user's profile information.") 
-    if error:
-        for error in error:
-            messages.error(request, error)
-            return redirect ("/users/show/{}".format(user_id))
-    else:
+    if curr_user == users or curr_user.admin == "Admin":
         context = {
             "users": users,
+            "curr_user": curr_user,
         }
         return render (request, "userdash/user_edit.html", context)
+    else:
+        error.append("You cannot edit other user's profile information.")
+        if error:
+            for error in error:
+                messages.error(request, error)
+                return redirect ("/users/show/{}".format(user_id))
 
 
 def userEditInfo(request, user_id):
@@ -212,16 +217,14 @@ def UserEditDesc(request, user_id):
 
 
 def adminEdit(request, user_id):
-    if not request.session['id'] == 1:
+    user = User.objects.get(id=request.session['id'])
+    if not user.admin == "Admin":
         messages.error(request, ("You do not have authorization to visit the web page"))
-        # error.append("You do not have authority to go into that page")
         return redirect ('/dashboard/admin')
     else:
         users = User.objects.get(id=user_id)
-        admin = User.objects.get(id=1)
         context = {
             "users": users,
-            "admin": admin,
         }
         return render (request, "userdash/adminedit.html", context)
 
@@ -257,24 +260,18 @@ def adminPassUpdate(request, user_id):
         return redirect ("/users/edit/{}".format(user_id))
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+def remove(request, user_id):
+    if request.method == "POST":
+        user = User.objects.get(id=user_id)
+        curr_user = User.objects.get(id=request.session['id'])
+        if not curr_user.admin == "Admin":
+            messages.error(request, "You don't have authorization to remove users.")
+            return redirect ("/dashboard/admin")
+        else:
+            user.delete()
+            return redirect ("/dashboard/admin")
+    else:
+        return redirect ("/dashboard/admin")
 
 
 def logout(request):
