@@ -10,12 +10,12 @@ import bcrypt
 class UserManager(models.Manager):
     def register(self, postData):
         error = []
-        if len(postData['email']) < 1 or len(postData['first_name']) < 1 or len(postData['last_name']) < 1 or len(postData['password']) < 1:
-            error.append("All fields must be filled")
         try:
             validate_email(postData['email'])
         except ValidationError as e:
             error.append("Email must be a valid email.")
+        if len(postData['email']) < 1 or len(postData['first_name']) < 1 or len(postData['last_name']) < 1 or len(postData['password']) < 1:
+            error.append("All fields must be filled")
         if len(postData['email']) < 6:
             error.append("Email must be more than 6 characters long.")
         if User.objects.filter(email__iexact=postData['email']):
@@ -72,7 +72,6 @@ class UserManager(models.Manager):
         new_user.admin = "Normal"
         new_user.save()
         return new_user
-
 
 
     def loginValid(self,postData):
@@ -215,16 +214,19 @@ class UserManager(models.Manager):
         return user
 
 
+    def removeVal(self, curr_user):
+        curr_user=User.objects.get(id=curr_user.id)
+        error=[]
+        if not curr_user.admin == 'Admin':
+            error.append("You don't have authorization to remove users." )
+        return error
 
 
-
-
-
-
-
-
-
-
+    def remove(self, user):
+        user=User.objects.get(id=user.id)
+        user.delete()
+        return user
+        
 
 class MessageManager(models.Manager):
     def valMessage(self, postData):

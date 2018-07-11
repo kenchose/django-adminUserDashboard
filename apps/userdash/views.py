@@ -31,8 +31,6 @@ def register(request):
             newUser = User.objects.newUser(request.POST)
             request.session['id'] = newUser.id
             if newUser.id == 1:
-                # newUser.admin == "Admin" Code already exixsts within models newUser method
-                # newUser.save()
                 return redirect('/dashboard/admin')
             else:
                 return redirect('/dashboard')
@@ -58,7 +56,6 @@ def login(request):
     else:
         return redirect('/signin')
     
-
 
 def dashboard(request):
     if 'id' in request.session:
@@ -103,6 +100,7 @@ def admindash(request):
     else: 
         return redirect('/signin')
 
+
 def userProfile(request, user_id):
     users = User.objects.get(id=user_id)
     curr_user = User.objects.get(id=request.session['id'])
@@ -113,6 +111,7 @@ def userProfile(request, user_id):
         "msg": msg,
     }
     return render (request, "userdash/profile.html", context)
+
 
 def messageFor(request, user_id):
     if request.method == "POST":
@@ -228,6 +227,7 @@ def adminEdit(request, user_id):
         }
         return render (request, "userdash/adminedit.html", context)
 
+
 def adminInfoUpdate(request, user_id):
     if request.method == "POST":
         user = User.objects.get(id=user_id)
@@ -264,11 +264,14 @@ def remove(request, user_id):
     if request.method == "POST":
         user = User.objects.get(id=user_id)
         curr_user = User.objects.get(id=request.session['id'])
-        if not curr_user.admin == "Admin":
-            messages.error(request, "You don't have authorization to remove users.")
-            return redirect ("/dashboard/admin")
+        result=User.objects.removeVal(curr_user)
+        if len(result) > 0:
+            for error in result:
+                messages.error(request, error)
+                return redirect ("/dashboard/admin")
         else:
-            user.delete()
+            User.objects.remove(user)
+            messages.success(request, "You've successfully deleted the user, {} {}".format(user.first_name, user.last_name))
             return redirect ("/dashboard/admin")
     else:
         return redirect ("/dashboard/admin")

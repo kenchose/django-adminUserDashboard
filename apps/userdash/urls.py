@@ -21,6 +21,6 @@ urlpatterns = [
     url(r'^adminPassUpdate/(?P<user_id>\d+)$', views.adminPassUpdate),
     url(r'^users/new$', views.adminAdd),
     url(r'^admin/add$', views.adminAddUser),
-    url(r'^remove$', views.remove),
+    url(r'^remove/(?P<user_id>\d+)$', views.remove),
     url(r'^logout$', views.logout),
 ]

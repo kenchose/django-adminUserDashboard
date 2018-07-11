@@ -1,66 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-    <title>User Dashboard</title>
-</head>
-<body>
-    <nav class="navbar navbar-light bg-light sticky-top navbar-expand-lg border border-dark">
-        <div class="navbar-brand pl-5">Test App</div>
-            <ul class="navbar-nav mr-auto">
-                <li class="navbar-item">
-                    <a href="/dashboard" class="nav-link">Dashboard</a>
-                </li>
-                <li class="navbar-item">
-                    <a href="/users/show/{{curr_user.id}}" class="nav-link">Profile</a>
-                </li>
-            </ul>
-            <ul class="navbar-nav ml-auto">
-                <li class="navbar-item">
-                    <form action="/logout" method="post">
-                        {% csrf_token %}
-                        <button type="submit" class="btn btn-outline-success">Logout</button>
-                    </form>
-                </li>
-            </ul>
-        </div>
-    </nav>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+        <title>User Dashboard</title>
+    </head>
+    <body>
+        <nav class="navbar navbar-light bg-light sticky-top navbar-expand-lg border border-dark">
+            <div class="navbar-brand pl-5">Test App</div>
+                <ul class="navbar-nav mr-auto">
+                    <li class="navbar-item">
+                        <a href="/dashboard" class="nav-link">Dashboard</a>
+                    </li>
+                    <li class="navbar-item">
+                        <a href="/users/show/{{curr_user.id}}" class="nav-link">Profile</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ml-auto">
+                    <li class="navbar-item">
+                        <form action="/logout" method="post">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-outline-success">Logout</button>
+                        </form>
+                    </li>
+                </ul>
+            </div>
+        </nav>
 
-    
-    <div class="container border border-dark" style="margin-top:15px">
-            <p><h3 style="margin-top:30px;">Hello, {{curr_user.first_name}} {{curr_user.last_name}}</h3></p>
-            <p><h5>All Users</h5></p>
-        <table class="table table-striped"> <!--shwoing nth number of rows/page (Bootstrap:Pagination-->
-            <thead class="table-light">
-                <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Created At</th>
-                    <th>User Level</th>
-                </tr>
-            </th>
-            <tbody>
-                {% for u in all_users%}
+        <div class="container border border-dark" style="margin-top:15px">
+                <p><h3 style="margin-top:30px;">Hello, {{curr_user.first_name}} {{curr_user.last_name}}</h3></p>
+                <p><h5>All Users</h5></p>
+            <table class="table table-striped"> <!--shwoing nth number of rows/page (Bootstrap:Pagination-->
+                <thead class="table-light">
                     <tr>
-                        <td>{{u.id}}</td>
-                        <td><a href="users/show/{{u.id}}">{{u.first_name}} {{u.last_name}}</a></td>
-                        <td>{{u.email}}</td>
-                        <td>{{u.created_at}}</td>
-                        <td>{{u.admin}}</td>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Created At</th>
+                        <th>User Level</th>
                     </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    </div>
-    
-
+                </th>
+                <tbody>
+                    {% for u in all_users%}
+                        <tr>
+                            <td>{{u.id}}</td>
+                            <td><a href="users/show/{{u.id}}">{{u.first_name}} {{u.last_name}}</a></td>
+                            <td>{{u.email}}</td>
+                            <td>{{u.created_at}}</td>
+                            <td>{{u.admin}}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>   
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>    
-
-</body>
+    </body>
 </html>
