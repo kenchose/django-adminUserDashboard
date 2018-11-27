@@ -115,8 +115,8 @@ class UserManager(models.Manager):
             error.append("Email must be a valid email.")
         if len(postData['email']) < 6:
             error.append("Email must be more than 6 characters long.")
-        # if User.objects.filter(email__iexact=postData['email']).exclude(user.email):
-        #     error.append('Email is already registered.')
+        if User.objects.filter(email__iexact=postData['email']):
+            error.append('Email is already registered.')
         if not postData['first_name'].isalpha():
             error.append("First name cannnot contain numbers or special characters. ")
         if len(postData['first_name']) < 2:
