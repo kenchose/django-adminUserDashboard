@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <script src= 'http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
         <title>Edit Profile</title>
     </head>
@@ -19,7 +20,7 @@
                         {% endif %}
                     </li>
                     <li class="navbar-item">
-                        <a href="/users/show/{{users.id}}" class="nav-link">Profile</a>
+                        <a href="/users/show/{{curr_user.id}}" class="nav-link">Profile</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav ml-auto">
@@ -52,48 +53,48 @@
             <h4>Edit profile</h4>
             <div class = "border border-dark form-control" style="margin-top:10px">
                 <h3 class="form-group">Edit Information</h3>
-                <form action="/editinfo/{{users.id}}" method="post">
+                <form action="/editinfo/{{user.id}}" method="post">
                     {% csrf_token %}
-                    <div class="w-25">
+                    <div class="w-25 mb-3">
                         <label for="email">Email Address:</label>
-                        <input type="email" name="email" value ="{{users.email}}" id="email" class="form-control" >
+                        <input type="email" name="email" value ="{{user.email}}" id="email" class="form-control" >
                     </div>
-                    <div class="w-25">
+                    <div class="w-25 mb-3">
                         <label for="first_name">First Name</label>
-                        <input type="text" name="first_name" value = "{{users.first_name}}" id="first_name" class="form-control">
+                        <input type="text" name="first_name" value = "{{user.first_name}}" id="first_name" class="form-control">
                     </div>
-                    <div class="w-25">
+                    <div class="w-25 mb-3">
                         <label for="last_name">Last Name:</label>
-                        <input type="text" name="last_name" value="{{users.last_name}}" id="last_name" class="form-control">
+                        <input type="text" name="last_name" value="{{user.last_name}}" id="last_name" class="form-control">
                     </div>
                     <div>
-                        <button type="submit" class="btn btn-success">Save</button>
+                        <button type="submit" class="btn btn-success mb-2">Save</button>
                     </div>
                 </form> 
             </div>
             <div class = "border border-dark form-group form-control" style="margin-top:10px">
                 <h4>Change Password</h4>
-                <form action="/editpass/{{users.id}}" method="post">
+                <form action="/editpass/{{user.id}}" method="post">
                     {% csrf_token %}
-                    <div class="w-25">
+                    <div class="w-25 mb-3">
                         <label for="password">Password:</label>
                         <input type="password" name="password" id="password" class="form-control" >
                     </div>
-                    <div class="w-25">
+                    <div class="w-25 mb-3">
                         <label for="password_confirmation">Password Confirmation</label>
                         <input type="password" name="password_confirmation" id="password_confirmation" class="form-control">
                     </div>
                     <div>
-                        <button type="submit" class="btn btn-success">Update Password</button>
+                        <button type="submit" class="btn btn-success mb-2">Update Password</button>
                     </div>
                 </form> 
             </div>
             <div class = "border border-dark form-group form-control">
                 <h4>Edit Description</h4>
-                <div class = "border border-dark form-group">
-                    <form action="/editdescription/{{users.id}}" method="post">
+                <div class = "form-group">
+                    <form action="/editdescription/{{user.id}}" method="post">
                         {% csrf_token %}
-                        <textarea name="description" id="" cols="147" rows="10"  style="margin:10px;"></textarea>
+                        <textarea name="description" cols="147" rows="10" style="margin:10px;">{{user.description}}</textarea>
                         <div>
                             <button type="submit" class="btn btn-success ml-1 mb-1">Save</button>
                         </div>

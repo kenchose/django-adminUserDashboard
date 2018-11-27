@@ -72,6 +72,13 @@ def dashboard(request):
 
 def adminAdd(request):
     return render (request, "userdash/add_user.html")
+# def adminAdd(request):
+#     if 'id' in request.session:
+#         user = User.objects.get(id=request.session['id'])
+#         context = {
+#             "curr_user": user
+#         }
+#     return render (request, "userdash/add_user.html", context)
 
 
 def adminAddUser(request):
@@ -82,7 +89,8 @@ def adminAddUser(request):
                 messages.error(request, error)
                 return redirect ('/users/new')
         else:
-            User.objects.adminNewUser(request.POST)
+            new_user = User.objects.adminNewUser(request.POST)
+            messages.success(request, "You've successfully added {} {}".format(new_user.first_name, new_user.last_name))
             return redirect ('/dashboard/admin')
     else:
         return redirect ('/users/new')
@@ -150,12 +158,12 @@ def commentTo(request, user_id, msg_id):
 
 
 def userEdit(request, user_id):
-    users = User.objects.get(id=user_id)
+    user = User.objects.get(id=user_id)
     curr_user = User.objects.get(id=request.session['id'])
     error = []
-    if curr_user == users or curr_user.admin == "Admin":
+    if curr_user == user or curr_user.admin == "Admin":
         context = {
-            "users": users,
+            "user": user,
             "curr_user": curr_user,
         }
         return render (request, "userdash/user_edit.html", context)
@@ -261,19 +269,16 @@ def adminPassUpdate(request, user_id):
 
 
 def remove(request, user_id):
-    if request.method == "POST":
-        user = User.objects.get(id=user_id)
-        curr_user = User.objects.get(id=request.session['id'])
-        result=User.objects.removeVal(curr_user)
-        if len(result) > 0:
-            for error in result:
-                messages.error(request, error)
-                return redirect ("/dashboard/admin")
-        else:
-            User.objects.remove(user)
-            messages.success(request, "You've successfully deleted the user, {} {}".format(user.first_name, user.last_name))
-            return redirect ("/dashboard/admin")
+    user = User.objects.get(id=user_id)
+    curr_user = User.objects.get(id=request.session['id'])
+    result=User.objects.removeVal(curr_user)
+    if len(result) > 0:
+        for error in result:
+            messages.error(request, error)
+        return redirect ("/dashboard/admin")
     else:
+        User.objects.remove(user)
+        messages.success(request, "You've successfully deleted the user, {} {}".format(user.first_name, user.last_name))
         return redirect ("/dashboard/admin")
 
 

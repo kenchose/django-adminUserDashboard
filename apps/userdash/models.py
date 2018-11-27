@@ -34,7 +34,7 @@ class UserManager(models.Manager):
 
 
     def newUser(self, postData):
-        hashed_pw=bcrypt.hashpw(postData['password'].encode(), bcrypt.gensalt())
+        hashed_pw = bcrypt.hashpw(postData['password'].encode(), bcrypt.gensalt())
         new_user = User.objects.create(email = postData['email'], first_name = postData['first_name'], last_name = postData['last_name'], password = hashed_pw)
         if new_user.id == 1:
             new_user.admin = "Admin"
@@ -67,8 +67,8 @@ class UserManager(models.Manager):
 
 
     def adminNewUser(self, postData):
-        new_user = User.objects.create(email = postData['email'], first_name = postData['first_name'], last_name = postData['last_name'], password = postData['password'])
         hashed_pw = bcrypt.hashpw(postData['password'].encode(), bcrypt.gensalt())
+        new_user = User.objects.create(email = postData['email'], first_name = postData['first_name'], last_name = postData['last_name'], password = hashed_pw)
         new_user.admin = "Normal"
         new_user.save()
         return new_user
@@ -155,7 +155,7 @@ class UserManager(models.Manager):
     def userValDesc(self, postData, curr_user):
         error = []
         if len(postData['description']) < 1:
-            error.append("Description field must contain at least one character")
+            error.append("Description field is empty")
         return error
 
 
@@ -177,8 +177,9 @@ class UserManager(models.Manager):
             error.append("Email must be a valid email.")
         if len(postData['email']) < 6:
             error.append("Email must be more than 6 characters long.")
-        # if User.objects.filter(email__iexact=postData['email']).exclude(user.email):
-        #     error.append('Email is already registered.')
+        if not user.email:
+            if User.objects.filter(email__iexact=postData['email']):
+                error.append('Email is already registered.')
         if not postData['first_name'].isalpha():
             error.append("First name cannnot contain numbers or special characters. ")
         if len(postData['first_name']) < 2:
