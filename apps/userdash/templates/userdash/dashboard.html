@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="stylesheet/sass/css/index.css">
         <script src= 'http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
         <title>User Dashboard</title>
@@ -30,10 +31,9 @@
                 </ul>
             </div>
         </nav>
-
         <!-- DASHBOARD & TABLE -->
-        <div class="container border border-dark" style="margin-top:15px">
-                <p><h3 style="margin-top:30px;">Hello, {{curr_user.first_name}} {{curr_user.last_name}}</h3></p>
+        <p><h3 class="text-center mt-5">Hello, {{curr_user.first_name}} {{curr_user.last_name}}</h3></p>
+        <div class="container border border-dark" style="margin-top:15px; ">
                 <p><h5>All Users</h5></p>
             <table class="table table-striped"> <!--shwoing nth number of rows/page (Bootstrap:Pagination-->
                 <thead class="table-light">

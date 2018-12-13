@@ -12,11 +12,14 @@ body{
     margin:0;
     background-color:#222;
     font-weight:400;
+    background-image: url(//unsplash.it/1000/100);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
 .content{
     height:200vh;
-    background-image: url(//unsplash.it/1000/100);
     background-color:#333;
     background-blend-mode: multiply;
     background-size: cover;
