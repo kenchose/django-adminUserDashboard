@@ -10,14 +10,15 @@
 
 body{
     margin:0;
-    background-color:#222;
     font-weight:400;
-    background-image: url(//unsplash.it/1000/100);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+    background-image:url('../../static/img/admin-page.jpeg'); background-repeat:no-repeat; background-position:center;  background-size:cover; color:white;
 }
-
+.container {
+    background-image:url('../../static/img/admin-page.jpeg'); background-repeat:no-repeat; background-position:center;  background-size:cover; color:white; color:blue;
+}
+.jumbotron {
+    color: blue;
+}
 .content{
     height:200vh;
     background-color:#333;
