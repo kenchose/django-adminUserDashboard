@@ -1,1 +1,9 @@
-This project gives total authorization on the app to all admins where they can add, edit, and delete a user's profile. An user can only edit their profile while others cannot. Users are also allowed to post new messages and comment to those messages on others page where all users are able to see on user's main profile page.
+This project gives full authorization to all admins whom can add, edit, and delete a user's profile. Only the user may edit their profile while others cannot. Any user can post and reply to any messages on each others profile page. Validations and authenticity are implemented for creating a user, during login, editing, posting messages.
+
+Technicals:
+- Python
+- MySQL
+- Django
+- HTML
+- Bootstrap
+- CSS
