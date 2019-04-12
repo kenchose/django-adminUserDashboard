@@ -1,4 +1,4 @@
-*, *::before, *::after {
+* {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   padding: 0;
@@ -13,14 +13,6 @@ body {
   overflow-x: hidden;
 }
 
-.container {
-  max-width: 960px;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  margin: auto;
-  text-align: center;
-}
-
 .v-header {
   height: 100vh;
   display: -webkit-box;
@@ -32,22 +24,32 @@ body {
   color: #fff;
 }
 
+.wrapper {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin: auto;
+  text-align: center;
+  margin: -39px;
+}
+
 .fullscreen-video-wrap {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   overflow: hidden;
 }
 
 .fullscreen-video-wrap video {
-  min-width: 100vw;
-  min-height: 100%;
+  min-width: 100%;
+  min-height: 100vh;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
-.overlay {
-  height: 100vh;
+.body-overlay {
+  height: 100%;
   width: 100vw;
   position: absolute;
   top: 0;
@@ -57,19 +59,55 @@ body {
   opacity: 0.85;
 }
 
-.jumbotron {
+.body-content {
   z-index: 2;
 }
 
-.jumbotron p {
-  color: orange;
+.jumbotron {
+  background: none;
 }
 
-.jumbotron p h1 {
-  color: red;
+hr {
+  background: #eee;
 }
 
-nav {
+.nav-index {
   z-index: 99;
+}
+
+footer {
+  z-index: 99;
+  background: #eee;
+}
+
+footer .fa-copyright {
+  color: black;
+}
+
+footer #email {
+  color: #ed7b7b;
+  opacity: 1;
+  float: left;
+  padding: 5px 10px 10px;
+}
+
+footer #github {
+  color: #ed7b7b;
+  opacity: 1;
+  float: left;
+  padding: 5px 10px 10px;
+}
+
+footer #linkedin {
+  color: #ed7b7b;
+  opacity: 1;
+  float: left;
+  padding: 5px 10px 10px;
+}
+
+@media only screen and (max-width: 991px) {
+  .wrapper {
+    margin: -49px;
+  }
 }
 /*# sourceMappingURL=index.css.map */

@@ -4,21 +4,145 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet"  type="text/css" href="./../../static/stylesheet/css/index.css">
         <title>Home Page</title>
     </head>
     <body>
-        <!-- <div class="text-center text-success">
-            {% if messages %}
-            {% for message in messages %}
-            {{ message }}
-            {% endfor %}
-            {% endif %}
-        </div>   -->
-        <div class="container v-header">
-                <nav class="navbar navbar-light bg-light navbar-expand-lg border border-dark"> <!--add toggle button-->
-                    <div class="navbar-brand pl-5">Admin App</div>
+        <!-- <nav class="navbar navbar-light bg-light navbar-expand-lg border border-dark"> add toggle button
+            <div class="navbar-brand pl-5">Cockpit</div>
+            <ul class="navbar-nav mr-auto">
+                <li class="navbar-item">
+                    <a href="/" class="nav-link navbar-brand">Cockpit</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <li class="navbar-item">
+                    <a href="/signin" class="nav-link pr-5">Sign in</a>
+                </li>
+            </ul>
+        </nav> -->
+
+        <!--add toggle button-->
+        <!-- <nav class="navbar nav-index navbar-expand-lg navbar-light bg-light">
+            <a href="/" class="nav-link navbar-brand"><img src="./../../static/img/cockpit-brand.png" alt="Brand" class="d-inline-block align-top" width="50" height="50"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a href="/signin" class="nav-link pr-5">Sign in</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/registration" class="nav-link pr-5">Create Account</a>
+                    </li>
+                </ul>
+            </div>
+        </nav> -->
+        <nav class="navbar nav-index navbar-light bg-light navbar-expand-lg border border-dark"> 
+            <ul class="navbar-nav ">
+                <li class="navbar-item">
+                    <a href="/" class="nav-link navbar-brand"><img src="./../../static/img/cockpit-brand.png" alt="Brand" class="d-inline-block align-top" width="50" height="50"></a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <li class="navbar-item">
+                    <a href="/signin" class="nav-link pr-5">Sign in</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="/registration" class="nav-link pr-5">Create Account</a>
+                </li>
+            </ul>
+        </nav>
+
+        <section class='v-header wrapper'>
+            <div class="fullscreen-video-wrap embed-responsive">
+                <video  src="../../static/videos/home-cover.mp4" controls autoplay loop muted></video> 
+            </div>
+            <div class="body-overlay"></div>
+            <div class="body-content container">
+                <div class="jumbotron">
+                    <h1>Welcome to Cockpit</h1>
+                    <p class='lead'>Finally get down and take care of business easier with Cockpit</p>
+                    <hr class=my-4>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h2>You're in control!</h2>
+                            <p>Being an admin will give you the authorization to add, remove, and edit Users for the application</p>        
+                        </div>
+                        <div class="col-md-4">
+                            <h2>Always be connect!</h2>
+                            <p>Everyone will be connected 24/7 and able to send or reply to messages.</p>        
+                        </div>
+                        <div class="col-md-4">
+                            <h2>Edit User Information</h2>
+                            <p>Admins will be able to edit any User information (email address, first name, last name, etc.)</p>        
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <a href="#"><i id="linkedin" class="fab fa-linkedin fa-2x"></i></a> 
+                        <a href="#"><i id="email" class="fas fa-envelope fa-2x"></i></a> 
+                        <a href="#"><i id="github" class="fab fa-github fa-2x"></i></a> 
+                        <p class="h5 ml-5 pt-2 float-right text-light"><i class="far fa-copyright mr-3"> 2019 Cockpit Crew</i></p> 
+                    </div>
+                </div>
+            </div>
+        </footer>
+    
+        <!-- <header class='v-header container'>
+            <div class=" fullscreen-video-wrap">
+                <video src="../../static/videos/home-screen.mp4"  controls autoplay loop='true'></video> 
+                <div class="overlay"></div> 
+                <div class="jumbotron text-center border border-secondary">
+                    <div class="row">
+                        <div class="col">
+                            <h1>Welcome to Cockpit</h1>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="cols">
+                            <p>This is designed on building an application using a MVC framework! This application was built with the Village88 folks!</p> 
+                        </div>
+                    </div>
+                 </div> -->
+                <!-- <div class="row" >
+                    <div class="col-md-4">
+                        <h2>Manage Users</h2>
+                        <p>Using this application, you'll be able to add, remove, and edit users for the application</p>
+                    </div>
+                    <div class="col-md-4">
+                        <h2>Leave Messages</h2>
+                        <p>Users will be able to leave messages to another user using this application.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <h2>Edit User Information</h2>
+                        <p>Admins will be able to edit another user's information (email address, first name, last name, etc.)</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <a href="/signin" class="btn btn-primary border border-dark">Start</a>
+                    </div>
+                </div>
+            </div>
+        </header>  -->
+
+
+
+
+        <!-- <div class="container v-header">
+                <nav class="navbar navbar-light bg-light navbar-expand-lg border border-dark"> add toggle button
+                    <div class="navbar-brand pl-5">Cockpit</div>
                     <ul class="navbar-nav mr-auto">
                         <li class="navbar-item">
                             <a href="/" class="nav-link">Home</a>
@@ -31,13 +155,13 @@
                     </ul>
                 </nav>
         
-            <div class="fullscreen-video-wrap">
-                <video src="../../static/videos/home.mp4" autoplay='true' loop='true'></video>
-                <div class="overlay"></div>
-                <div class="jumbotron text-center border border-secondary">
+                <div class="fullscreen-video-wrap">
+                    <video src="../../static/videos/home.mp4" autoplay='true' loop='true'></video>
+                    <div class="overlay"></div>
+                    <div class="jumbotron text-center border border-secondary">
                     <div class="row">
                         <div class="col">
-                            <h1>Welcome to the Admin</h1>
+                            <h1>Welcome to Cockpit</h1>
                         </div>
                     </div>
                     <div class="row">
@@ -66,9 +190,9 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>  
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     </body>
 </html>
