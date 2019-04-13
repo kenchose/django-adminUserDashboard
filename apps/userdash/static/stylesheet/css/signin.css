@@ -1,0 +1,64 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  height: 100vh;
+  font-size: 1rem;
+  margin: 0px !important;
+  line-height: 1.5;
+  color: #eee;
+  overflow-x: hidden;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.2)), to(rgba(0, 0, 0, 0.2))), url("../../img/signin-dashboard.jpg") no-repeat center center fixed;
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("../../img/signin-dashboard.jpg") no-repeat center center fixed;
+  background-size: cover;
+}
+
+.form-container {
+  float: right;
+  margin-top: 10%;
+}
+
+.register-link {
+  color: #ed7b7b;
+}
+
+.container {
+  height: 100%;
+}
+
+footer {
+  z-index: 99;
+  background: #eee;
+  padding-top: 5px;
+}
+
+footer .fa-copyright {
+  color: black;
+}
+
+footer #email {
+  color: #ed7b7b;
+  opacity: 1;
+  float: left;
+  padding: 5px 10px 10px;
+}
+
+footer #github {
+  color: #ed7b7b;
+  opacity: 1;
+  float: left;
+  padding: 5px 10px 10px;
+}
+
+footer #linkedin {
+  color: #ed7b7b;
+  opacity: 1;
+  float: left;
+  padding: 5px 10px 10px;
+}
+/*# sourceMappingURL=signin.css.map */

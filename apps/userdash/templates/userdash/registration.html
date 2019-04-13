@@ -4,75 +4,92 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <link rel="stylesheet" href="../../stylesheet/css/index.css">
         <script src= 'http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+        <link rel="stylesheet" href="./../../static/stylesheet/css/registration.css">
         <title>Register</title>
     </head>
-    <body style="background-image:url('../../static/img/register-validation-dashboard.jpg'); background-repeat:no-repeat; background-position:center;  background-size:cover; color:white;">
-        <nav class="navbar navbar-light bg-light navbar-expand-lg border border-dark sticky-top">
-            <div class="navbar-brand pl-5">Test App</div>
-                <ul class="navbar-nav mr-auto">
-                    <li class="navbar-item">
-                        <a href="/" class="nav-link">Home</a>
-                    </li>
-                </ul>
-                <ul class="navbar-nav ml-auto">
-                    <li class="navbar-item">
-                        <a href="/signin" class="nav-link pr-5">Sign in</a>
-                    </li>
-                </ul>
-            </div>
+    <body >
+        <nav class="navbar nav-index navbar-light bg-light navbar-expand-lg border border-dark"> 
+            <ul class="navbar-nav ">
+                <li class="navbar-item">
+                    <a href="/" class="nav-link navbar-brand"><img src="./../../static/img/cockpit-brand.png" alt="Brand" class="d-inline-block align-top" width="50" height="50"></a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <li class="navbar-item">
+                    <a href="/signin" class="nav-link pr-5">Sign in</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="/registration" class="nav-link pr-5">Create Account</a>
+                </li>
+            </ul>
         </nav>
-        <div class="float-right pr-5">
-            <h6 class="mt-3"><a href="/">Go Back</a></h>
+        
+        <div class="wrapper">
+            <div class="container" >  
+                <div class="d-inline">
+                    <div class="text-danger text-left">
+                        <ul class="list-unstyled">
+                            {% if messages %}
+                                {% for message in messages %}
+                                <li class= "form-group row">
+                                    <h6>{{message}}</h6>
+                                </li>
+                                {% endfor %}
+                            {% endif %}
+                        </ul>
+                    </div>
+                    <h3 class="form-group row">Register</h3>
+                    <div style="margin-top:40px; ">
+                        <form action="/register" method="post">
+                            {% csrf_token %}
+                            <div class="form-group row w-25">
+                                <label for="email">Email Address:</label>
+                                <input type="email" name="email" id="email" class="form-control" >
+                            </div>
+                            <div class="form-group row w-25">
+                                <label for="first_name">First Name</label>
+                                <input type="text" name="first_name" id="first_name" class="form-control">
+                            </div>
+                            <div class="form-group row w-25">
+                                <label for="last_name">Last Name:</label>
+                                <input type="text" name="last_name" id="last_name" class="form-control">
+                            </div>
+                            <div class="form-group row w-25">
+                                <label for="password">Password:</label>
+                                <input type="password" name="password" id="password" class="form-control">
+                            </div>
+                            <div class="form-group row w-25">
+                                <label for="password_confirmation">Password Confirmation:</label>
+                                <input type="password" name="password_confirmation" id="password_confirmation" class="form-control">
+                            </div>
+                            <div>
+                                <button type="submit" class="btn btn-success form-group row">Register</button>
+                            </div>
+                        </form> 
+                    </div>
+                </div>
+                <a href="/signin" class="form-group row"><u>Already have an account? Login</u></a>
+            </div> 
         </div>
         
-        <div class="container" >  
-            <div class="d-inline">
-                <div class="text-danger text-left">
-                    <ul class="list-unstyled">
-                        {% if messages %}
-                            {% for message in messages %}
-                            <li class= "form-group row">
-                                <h6>{{message}}</h6>
-                            </li>
-                            {% endfor %}
-                        {% endif %}
-                    </ul>
-                </div>
-                <h3 class="form-group row">Register</h3>
-                <div style="margin-top:40px; ">
-                    <form action="/register" method="post">
-                        {% csrf_token %}
-                        <div class="form-group row w-25">
-                            <label for="email">Email Address:</label>
-                            <input type="email" name="email" id="email" class="form-control" >
-                        </div>
-                        <div class="form-group row w-25">
-                            <label for="first_name">First Name</label>
-                            <input type="text" name="first_name" id="first_name" class="form-control">
-                        </div>
-                        <div class="form-group row w-25">
-                            <label for="last_name">Last Name:</label>
-                            <input type="text" name="last_name" id="last_name" class="form-control">
-                        </div>
-                        <div class="form-group row w-25">
-                            <label for="password">Password:</label>
-                            <input type="password" name="password" id="password" class="form-control">
-                        </div>
-                        <div class="form-group row w-25">
-                            <label for="password_confirmation">Password Confirmation:</label>
-                            <input type="password" name="password_confirmation" id="password_confirmation" class="form-control">
-                        </div>
-                        <div>
-                            <button type="submit" class="btn btn-success form-group row">Register</button>
-                        </div>
-                    </form> 
+
+        <footer>
+            <div class="container footer-container">
+                <div class="row footer-row">
+                    <div class="col footer-col">
+                        <a href="#"><i id="linkedin" class="fab fa-linkedin fa-2x"></i></a> 
+                        <a href="#"><i id="email" class="fas fa-envelope fa-2x"></i></a> 
+                        <a href="#"><i id="github" class="fab fa-github fa-2x"></i></a> 
+                        <p class="h5 ml-5 pt-2 float-right text-light"><i class="far fa-copyright mr-3"> 2019 Cockpit Crew</i></p> 
+                    </div>
                 </div>
             </div>
-            <a href="/signin" class="form-group row"><u>Already have an account? Login</u></a>
-        </div>  
+        </footer>
+        
+     
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>   
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>                  

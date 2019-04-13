@@ -5,7 +5,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
         <script type="text/javascript" src= 'http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+        <link rel="stylesheet" href="./../../static/stylesheet/css/admindash.css">
         <title>Admin Dashboard</title>
     </head>
     <body style="background-image:url('../../static/img/admin-user-dashboard.jpg');  background-repeat:no-repeat; background-position: center;">
@@ -31,7 +33,32 @@
                 </div>
             </div>
         </div> -->
-        <nav class="navbar navbar-light bg-light sticky-top navbar-expand-lg border border-dark">
+        <nav class="navbar nav-index navbar-light bg-light navbar-expand-lg border border-dark"> 
+            <ul class="navbar-nav ">
+                <li class="navbar-item">
+                    <a href="/" class="nav-link navbar-brand"><img src="./../../static/img/cockpit-brand.png" alt="Brand" class="d-inline-block align-top" width="50" height="50"></a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <li class="navbar-item">
+                    <a href="/dashboard/admin" class="nav-link">Dashboard</a>
+                </li>
+                <li class='navbar-item'>
+                    <a href="/users/show/{{curr_user.id}}" class="nav-link">Profile</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="/registration" class="nav-link pr-5">Create Account</a>
+                </li>
+                <li class = "navbar-item">
+                    <form action="/logout" method="post">
+                        {% csrf_token %}
+                        <button type="submit" class="btn bg-warning">Logout</button>
+                    </form>
+                </li>
+            </ul>
+        </nav>
+    
+        <!-- <nav class="navbar navbar-light bg-light sticky-top navbar-expand-lg border border-dark">
             <div class="navbar-brand pl-5">Test App</div>
                 <ul class="navbar-nav mr-auto">
                     <li class="navbar-item">
@@ -50,7 +77,7 @@
                     </li>
                 </ul>
             </div>
-        </nav>
+        </nav> -->
         
         <!-- MESSAGES -->
         <div class="container" style="margin-top:15px;">  
@@ -70,44 +97,59 @@
         </div>
 
 
-
-        <h2 class = "text-center" style="margin-top:30px;">Hello, {{curr_user.first_name}} {{curr_user.last_name}}</h2>
-        <div class="container mt-5">
-            <div class="row">
-                <div class="col-sm-3">
-                    <h2>Manage Users</h2>
-                </div>
-                <div class="col-sm-1 offset-sm-8 pl-2">
-                    <button class="btn bg-primary "><a href="/users/new" class= "text-white ">Add new</a></button>
+        <div class="wrapper">
+            <h2 class = "text-center mt-5">Hello, {{curr_user.first_name}} {{curr_user.last_name}}</h2>
+            <div class="container mt-5">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <h2>Manage Users</h2>
+                    </div>
+                    <div class="col-sm-1 offset-sm-8 pl-2">
+                        <button class="btn bg-primary "><a href="/users/new" class= "text-white ">Add User</a></button>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="container border border-dark" style="margin-top:15px;">
-            <table class="table table-striped table-hover"> <!--shwoing nth number of rows/page (Bootstrap:Pagination-->
-                <thead> 
-                    <tr>
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Created At</th>
-                        <th>User Level</th>
-                        <th>Actions</th>
-                    </tr>
-                </th>
-                <tbody>
-                    {% for u in all_users%}
+            <div class="container border border-dark container-table" style="margin-top:15px;">
+                <table class="table table-striped table-hover"> <!--shwoing nth number of rows/page (Bootstrap:Pagination-->
+                    <thead> 
                         <tr>
-                            <td>{{u.id}}</td>
-                            <td><a href="/users/show/{{u.id}}">{{u.first_name}} {{u.last_name}}</a></td>
-                            <td>{{u.email}}</td>
-                            <td>{{u.created_at}}</td>
-                            <td>{{u.admin}}</td>
-                            <td><a href="/users/edit/{{u.id}}"><u>Edit</u></a> <a href="/remove/{{u.id}}"><u>Remove</u></a></td> 
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Created At</th>
+                            <th>User Level</th>
+                            <th>Actions</th>
                         </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
+                    </th>
+                    <tbody>
+                        {% for u in all_users%}
+                            <tr>
+                                <td>{{u.id}}</td>
+                                <td><a href="/users/show/{{u.id}}">{{u.first_name}} {{u.last_name}}</a></td>
+                                <td>{{u.email}}</td>
+                                <td>{{u.created_at}}</td>
+                                <td>{{u.admin}}</td>
+                                <td><a href="/users/edit/{{u.id}}"><u>Edit</u></a> <a href="/remove/{{u.id}}"><u>Remove</u></a></td> 
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
         </div>
+
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <a href="#"><i id="linkedin" class="fab fa-linkedin fa-2x"></i></a> 
+                        <a href="#"><i id="email" class="fas fa-envelope fa-2x"></i></a> 
+                        <a href="#"><i id="github" class="fab fa-github fa-2x"></i></a> 
+                        <p class="h5 ml-5 pt-2 float-right text-light"><i class="far fa-copyright mr-3"> 2019 Cockpit Crew</i></p> 
+                    </div>
+                </div>
+            </div>
+        </footer>
+    
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>   
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>    

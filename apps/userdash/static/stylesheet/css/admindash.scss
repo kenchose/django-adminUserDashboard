@@ -1,0 +1,49 @@
+* {
+    padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body { 
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    height:100vh;
+    font-size:1rem;
+    line-height: 1.5;
+    color:#eee;
+    overflow-x:hidden;
+}
+
+.container-table {
+    height: 100vh;
+    overflow: scroll;
+    background: #efefef
+}
+
+footer {
+    z-index:99;
+    background: #eee;
+    padding-top:5px;
+    .fa-copyright {
+        color:black;
+    }
+    #email {
+        color:#ed7b7b;
+        opacity:1;
+        float:left;
+        padding: 5px 10px 10px;    
+    }
+    
+    #github {
+        color:#ed7b7b;
+        opacity:1;
+        float:left;
+        padding: 5px 10px 10px;
+    }
+    
+    #linkedin {
+        color:#ed7b7b;
+        opacity:1;
+        float:left;
+        padding: 5px 10px 10px;
+    }
+}
