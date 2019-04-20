@@ -13,18 +13,37 @@ body {
   line-height: 1.5;
   color: #eee;
   overflow-x: hidden;
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.2)), to(rgba(0, 0, 0, 0.2))), url("../../img/signin-dashboard.jpg") no-repeat center center fixed;
-  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("../../img/signin-dashboard.jpg") no-repeat center center fixed;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.2)), to(rgba(0, 0, 0, 0.2))), url("../../img/singin.jpg") no-repeat center;
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("../../img/singin.jpg") no-repeat center;
   background-size: cover;
 }
 
-.form-container {
-  float: right;
-  margin-top: 10%;
+.nav-index {
+  position: absolute;
+  z-index: 99;
+  width: 100%;
+  top: 0;
 }
 
-.register-link {
-  color: #ed7b7b;
+.form-container {
+  text-align: center;
+}
+
+.form-container form {
+  padding: 50px;
+  padding-top: 300px;
+}
+
+.form-container form input {
+  opacity: 0.7;
+}
+
+.form-container .reg-link {
+  color: #F3EFE0;
+}
+
+.wrapper {
+  height: 100%;
 }
 
 .container {
@@ -61,4 +80,8 @@ footer #linkedin {
   float: left;
   padding: 5px 10px 10px;
 }
-/*# sourceMappingURL=signin.css.map */
+
+.asterisk {
+  color: red;
+}
+/*# sourceMappingURL=sign.css.map */

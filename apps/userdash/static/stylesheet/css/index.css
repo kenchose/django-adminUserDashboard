@@ -13,6 +13,11 @@ body {
   overflow-x: hidden;
 }
 
+.cockpit-logo {
+  width: 30px;
+  height: 30px;
+}
+
 .v-header {
   height: 100vh;
   display: -webkit-box;
@@ -60,6 +65,12 @@ body {
   background: #225470;
   z-index: 1;
   opacity: 0.85;
+}
+
+@media (min-height: 111vh) {
+  .body-overlay .body-overlay {
+    height: 108.5vh;
+  }
 }
 
 .alert {

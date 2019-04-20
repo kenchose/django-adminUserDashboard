@@ -45,7 +45,7 @@
 
         
         <section class='v-header wrapper'>
-            <div class="fullscreen-video-wrap embed-responsive">
+            <div class="fullscreen-video-wrap embed-responsive"> <!--Create responsive video or slideshow embeds based on the width of the parent by creating an intrinsic ratio that scales on any device.-->
                 <div class="container">
                     {% if messages %}
                         {% for message in messages %}
@@ -60,7 +60,7 @@
             <div class="body-overlay"></div>
             <div class="body-content container">
                 <div class="jumbotron">
-                    <h1>Welcome to Cockpit</h1>
+                    <h1>Welcome to C<span><img  class='cockpit-logo' src="../../static/img/cockpit-logo.png" alt="brand-logo"></span>ckpit</h1>
                     <p class='lead'>Finally get down and take care of business easier with Cockpit</p>
                     <hr class=my-4>
                     <div class="row">
