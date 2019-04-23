@@ -1,22 +1,96 @@
 * {
-    padding: 0;
     box-sizing: border-box;
+    padding: 0;
     margin: 0;
 }
 
-body { 
+body {
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    height:100vh;
     font-size:1rem;
     line-height: 1.5;
-    color:#eee;
     overflow-x:hidden;
 }
 
+.wrapper {
+    margin-top: 100px;
+    height:100vh;
+}
+
+nav {
+    background: #eee !important;
+    .navbar-nav {
+        .nav-link {
+            margin-left: 20px
+        }
+    }
+}
+    
+.navbar{
+    .navbar-nav {
+        .nav-link {
+            position: relative; //needs relative for psuedo element to work
+            text-decoration: none;
+            display:inline-block;
+        }
+        .nav-link:hover {
+            color: #5bc0eb !important;
+        }
+        .nav-link:before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #5bc0eb;
+            visibility: hidden;
+            -webkit-transform: scaleX(0);
+            transform: scaleX(0);
+            -webkit-transition: all 0.3s ease-in-out 0s;
+            transition: all 0.3s ease-in-out 0s;
+        }
+        .nav-link:hover:before {
+            visibility: visible;
+            -webkit-transform: scaleX(1);
+            transform: scaleX(1);
+        }
+    }
+}
+
+.nav-index {
+    position:absolute;
+    z-index: 99;
+    width:100%;
+}
+
+.logout {
+    margin-left:1rem;
+}
+
+.add-btn:hover {
+    text-decoration: none;
+}
+
+.fa-edit {
+    text-align: center;
+}
+
 .container-table {
-    height: 100vh;
+    height: 90vh;
     overflow: scroll;
-    background: #efefef
+    background: #efefef;
+    margin-top:15px;
+    border-radius:5px;
+    .fa-trash {
+        cursor:pointer;
+        text-align: center;
+        margin-left: 1.5rem;
+    }
+}
+
+.modal-body p{
+    margin-top:1rem !important;
+    margin-bottom:1rem !important;
 }
 
 footer {

@@ -71,14 +71,12 @@ def dashboard(request):
 
 
 def adminAdd(request):
-    return render (request, "userdash/add_user.html")
-# def adminAdd(request):
-#     if 'id' in request.session:
-#         user = User.objects.get(id=request.session['id'])
-#         context = {
-#             "curr_user": user
-#         }
-#     return render (request, "userdash/add_user.html", context)
+    if 'id' in request.session:
+        user = User.objects.get(id=request.session['id'])
+        context = {
+            "curr_user": user
+        }
+    return render (request, "userdash/add_user.html", context)
 
 
 def adminAddUser(request):

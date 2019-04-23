@@ -10,15 +10,6 @@ body {
   font-size: 1rem;
   line-height: 1.5;
   overflow-x: hidden;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-}
-
-.wrapper {
-  min-height: 100vh;
-  min-width: 100%;
-  padding-top: 100px;
 }
 
 nav {
@@ -27,6 +18,16 @@ nav {
 
 nav .navbar-nav .nav-link {
   margin-left: 20px;
+}
+
+.form {
+  margin-top: 200px;
+}
+
+.wrapper {
+  margin-top: 76px;
+  height: 100vh;
+  width: 60%;
 }
 
 .navbar .navbar-nav .nav-link {
@@ -66,24 +67,20 @@ nav .navbar-nav .nav-link {
   width: 100%;
 }
 
-.form-container {
-  width: 500px;
+.logout {
+  margin-left: 1rem;
 }
 
-.form-container a {
-  color: black;
-}
-
-.form-container .create-btn {
-  margin-bottom: 20px;
-}
-
-.form-container .form-row {
-  padding-bottom: 10px;
-}
-
-.form-container .asterisk {
+.asterisk {
   color: red;
+}
+
+.form-container {
+  padding-left: 0px;
+}
+
+.message {
+  margin-left: 0px;
 }
 
 footer {
@@ -116,4 +113,4 @@ footer #linkedin {
   float: left;
   padding: 5px 10px 10px;
 }
-/*# sourceMappingURL=registration.css.map */
+/*# sourceMappingURL=add_user.css.map */

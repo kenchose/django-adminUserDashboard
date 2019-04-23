@@ -39,16 +39,15 @@ nav {
 
 .navbar{
     .navbar-nav {
-        a {
+        .nav-link {
             position: relative; //needs relative for psuedo element to work
-            color: #5bc0eb;
             text-decoration: none;
             display:inline-block;
         }
-        a:hover {
+        .nav-link:hover {
             color: #5bc0eb !important;
         }
-        a:before {
+        .nav-link:before {
             content: "";
             position: absolute;
             width: 100%;
@@ -62,7 +61,7 @@ nav {
             -webkit-transition: all 0.3s ease-in-out 0s;
             transition: all 0.3s ease-in-out 0s;
         }
-        a:hover:before {
+        .nav-link:hover:before {
             visibility: visible;
             -webkit-transform: scaleX(1);
             transform: scaleX(1);
@@ -74,7 +73,7 @@ nav {
     text-align: center;
     form {
       padding: 50px;
-      padding-top:300px;
+      padding-top:200px;
       input {
           opacity:0.7;
       }
@@ -88,8 +87,12 @@ nav {
 .wrapper {
     min-height: 100vh;
     min-width: 100%;
+    margin-top:100px;
 }
 
+.container-message {
+    margin-top:-24px;
+}
 
 .container {
     height: 100%;
