@@ -1,6 +1,6 @@
-// :root {
-//     --background: rgba(0, 214, 175, .5);
-// }
+:root {
+    --background: rgba(0, 214, 175, .5); 
+}
 
 *{
     box-sizing: border-box;
@@ -17,13 +17,63 @@ body {
     overflow-x:hidden;
 }
 
+nav {
+    background: #eee !important;
+    .navbar-nav {
+        .nav-link {
+            margin-left: 20px
+        }
+    }
+}
+    
+
+.nav-index {
+    position:absolute;
+    z-index: 99;
+    width:100%;
+    top:0;
+}
+
+
+.navbar{
+    .navbar-nav {
+        a {
+            position: relative; //needs relative for psuedo element to work
+            color: #5bc0eb;
+            text-decoration: none;
+            display:inline-block;
+        }
+        a:hover {
+            color: #5bc0eb !important;
+        }
+        a:before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #5bc0eb;
+            visibility: hidden;
+            -webkit-transform: scaleX(0);
+            transform: scaleX(0);
+            -webkit-transition: all 0.3s ease-in-out 0s;
+            transition: all 0.3s ease-in-out 0s;
+        }
+        a:hover:before {
+            visibility: visible;
+            -webkit-transform: scaleX(1);
+            transform: scaleX(1);
+        }
+    }
+}
+
 .cockpit-logo {
     width:30px;
     height:30px
 }
 
 .v-header {
-    // height: 100%;
     height: 100vh;
     display:flex;
     align-items:center;
@@ -32,13 +82,10 @@ body {
 
 
 .wrapper {
-    // max-width:960px;
     padding-left:1rem;
     padding-right:1rem;
     margin:auto;
-    // text-align:left;
     text-align:center;
-    // margin: -39px;
 }
 
 
@@ -46,7 +93,7 @@ body {
     position:absolute;
     top:0;
     left:0;
-    margin-top:-31px;
+    // margin-top:-31px;
     background-position: center;
     background-size: contain;
     width: 100%;
@@ -62,20 +109,14 @@ body {
 }
 
 .body-overlay {
-    height:110vh;
+    height:100vh;
     width:100vw;
     position:absolute;
-    top:0;
+    top:1;
     left:0;
     background:#225470;
     z-index:1;
     opacity:0.85;
-    @media (min-height:111vh) {
-        .body-overlay {
-            height: 108.5vh;
-        }
-    }
-    
 }
 
 .alert {
@@ -96,11 +137,6 @@ hr {
     background:#eee;
 }
 
-.nav-index {
-    z-index:99;
-    position:absolute;
-    width:100%;
-}
 
 @media (min-width: 992px) {
     .nav-index {
@@ -164,7 +200,6 @@ footer {
         margin-top:31px;
     }
 }
-
 // .wrapper {
 //     // background-image:url('./../../../static/img/home.jpg'); 
 //     background-repeat:no-repeat; 
