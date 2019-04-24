@@ -66,6 +66,10 @@ nav .navbar-nav .nav-link {
   margin-left: 1rem;
 }
 
+.header {
+  margin-top: 100px;
+}
+
 .add-btn:hover {
   text-decoration: none;
 }
@@ -124,4 +128,4 @@ footer #linkedin {
   float: left;
   padding: 5px 10px 10px;
 }
-/*# sourceMappingURL=admindash.css.map */
+/*# sourceMappingURL=dashboard.css.map */

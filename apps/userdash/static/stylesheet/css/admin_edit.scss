@@ -11,20 +11,21 @@ body {
     overflow-x:hidden;
 }
 
-.wrapper {
-    margin-top: 100px;
-    height:100vh;
-}
-
 nav {
     background: #eee !important;
     .navbar-nav {
         .nav-link {
-            margin-left: 20px
+            margin-left: 20px;
         }
     }
 }
-    
+
+.wrapper {
+    padding-top: 100px;
+    min-height:100vh;
+    width:100%;
+}
+
 .navbar{
     .navbar-nav {
         .nav-link {
@@ -67,31 +68,24 @@ nav {
     margin-left:1rem;
 }
 
-.add-btn:hover {
-    text-decoration: none;
+.asterisk {
+    color:red;
 }
 
-.fa-edit {
-    text-align: center;
+.edit-form {
+    padding:20px;
 }
 
-.container-table {
-    height: 90vh;
-    overflow: scroll;
-    background: #efefef;
-    margin-top:30px;
-    margin-bottom:30px;
-    border-radius:5px;
-    .fa-trash {
-        cursor:pointer;
-        text-align: center;
-        margin-left: 1.5rem;
+.message {
+    margin-left:0px;
+}
+
+.form-container {
+    border: black solid 1px;
+    border-radius: 5px;
+    @media (max-width:991px) {
+        margin-bottom:35px;
     }
-}
-
-.modal-body p{
-    margin-top:1rem !important;
-    margin-bottom:1rem !important;
 }
 
 footer {

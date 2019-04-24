@@ -230,6 +230,7 @@ def adminEdit(request, user_id):
         users = User.objects.get(id=user_id)
         context = {
             "users": users,
+            "curr_user": user
         }
         return render (request, "userdash/adminedit.html", context)
 
