@@ -22,7 +22,11 @@
             <div class="collapse navbar-collapse menu" id="navbarSupportedContent" >
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a href="/dashboard/admin" class="nav-link">Home</a>
+                        {% if curr_user.admin == "Admin" %}
+                            <a href="/dashboard/admin" class="nav-link">Home</a>
+                        {% else %}
+                            <a href="/dashboard" class="nav-link">Home</a>
+                        {% endif %}
                     </li>
                     <li class="nav-item">
                         <a href="/users/show/{{curr_user.id}}" class="nav-link">{{curr_user.first_name}}</a>
@@ -42,10 +46,11 @@
                 </ul>
             </div>
         </nav>
-            <!-- DASHBOARD & TABLE -->
-            <p><h3 class="text-center header">Hello, {{curr_user.first_name}} {{curr_user.last_name}}</h3></p>
-            <div class="container border border-dark container-table">
-                <p><h5>All Users</h5></p>
+
+        <!-- DASHBOARD & TABLE -->
+        <p><h3 class="text-center header">Hello, {{curr_user.first_name}} {{curr_user.last_name}}</h3></p>
+        <div class="container border border-dark container-table">
+            <p><h5>All Users</h5></p>
             <table class="table table-striped"> <!--shwoing nth number of rows/page (Bootstrap:Pagination-->
                 <thead class="table-light" style="background-color: #d3d3d3">
                     <tr>

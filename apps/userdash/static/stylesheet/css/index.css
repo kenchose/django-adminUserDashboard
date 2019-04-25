@@ -68,6 +68,11 @@ nav .navbar-nav .nav-link {
   height: 30px;
 }
 
+.cockpit-p {
+  width: 15px;
+  height: 15px;
+}
+
 .v-header {
   min-height: 100vh;
   display: -webkit-box;
@@ -77,12 +82,17 @@ nav .navbar-nav .nav-link {
       -ms-flex-align: center;
           align-items: center;
   color: #fff;
+  max-width: 960px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin: auto;
+  text-align: center;
 }
 
 .wrapper {
   padding-left: 1rem;
   padding-right: 1rem;
-  min-height: 100vh;
+  min-height: 90vh;
   margin: auto;
   text-align: center;
 }
@@ -94,7 +104,7 @@ nav .navbar-nav .nav-link {
   background-position: center;
   background-size: contain;
   width: 100%;
-  min-height: 110vh;
+  height: 103vh;
   overflow: hidden;
 }
 
@@ -106,35 +116,72 @@ nav .navbar-nav .nav-link {
   z-index: -2;
 }
 
-.body-overlay {
-  min-height: 100vh;
+.header-overlay {
+  height: 100vh;
   width: 100vw;
   position: absolute;
-  top: 1;
+  top: 0;
   left: 0;
   background: #225470;
   z-index: 1;
   opacity: 0.85;
 }
 
+@media (max-width: 991px) {
+  .header-overlay {
+    height: 90vh;
+  }
+}
+
 .alert {
   z-index: 99;
-  margin-top: 44px;
+  margin-top: 76px;
 }
 
-.body-content {
+.header-content {
   z-index: 2;
-  min-height: 100vh;
 }
 
-.jumbotron {
-  background: none;
+.header-content h1 {
+  font-size: 50px;
+  margin-bottom: 0;
+}
+
+.header-content p {
+  font-size: 1.5rem;
   display: block;
-  min-height: 100vh;
+  padding-bottom: 2rem;
 }
 
-hr {
-  background: #eee;
+.header-content .btn {
+  color: #fff;
+  background: #34b3a0;
+  font-size: 1.2rem;
+  padding: 10px 20px;
+  text-decoration: none;
+}
+
+@media (max-width: 960px) {
+  .header-content {
+    padding-right: 3rem;
+    padding-left: 3rem;
+  }
+}
+
+@media (max-width: 662px) {
+  .header-content {
+    padding-top: 4rem;
+  }
+}
+
+.section {
+  padding: 3rem 0;
+  background: #333;
+  color: #fff;
+}
+
+.section .section-content {
+  padding: 1rem;
 }
 
 @media (min-width: 992px) {
@@ -172,32 +219,5 @@ footer #linkedin {
   opacity: 1;
   float: left;
   padding: 5px 10px 10px;
-}
-
-@media (max-width: 768px) {
-  .jumbotron {
-    margin-top: 170px;
-  }
-  .jumbotron .content-item {
-    padding-top: 25px;
-  }
-}
-
-@media (max-width: 992px) {
-  .fullscreen-video-wrap {
-    margin-top: -31px;
-  }
-  .body-overlay {
-    height: 100vh;
-  }
-  .alert {
-    margin-top: 107px;
-  }
-}
-
-@media (min-width: 993px) {
-  .fullscreen-video-wrap {
-    margin-top: 31px;
-  }
 }
 /*# sourceMappingURL=index.css.map */

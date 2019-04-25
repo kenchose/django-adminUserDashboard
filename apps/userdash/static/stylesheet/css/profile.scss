@@ -13,7 +13,7 @@ body {
 
 .wrapper {
     margin-top: 100px;
-    height:100vh;
+    height:auto;
 }
 
 nav {
@@ -75,7 +75,11 @@ nav {
     text-align: center;
 }
 
-.container-table {
+.user-info-wrap {
+    margin-left:0 auto;
+}
+
+.container-message {
     height: 90vh;
     overflow: scroll;
     background: #efefef;
@@ -89,6 +93,31 @@ nav {
     }
 }
 
+#user-messages {
+    margin:200px 0;
+}
+
+.created-message {
+    margin:0px;
+}
+
+.comment-container {
+    height:60vh;
+    overflow:scroll;
+    border: solid black 1px;
+    border-radius: 5px;
+    overflow-x:hidden;
+}
+.comment {
+    padding:1rem 2rem;
+}
+.comment-input {
+    padding:0px;
+    margin:1rem 0 6rem;
+}
+.comment-message {
+    margin:0px;
+}
 .modal-body p{
     margin-top:1rem !important;
     margin-bottom:1rem !important;

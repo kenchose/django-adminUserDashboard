@@ -72,18 +72,27 @@ nav {
     height:30px
 }
 
+.cockpit-p {
+    width:15px;
+    height:15px;
+}
 .v-header {
     min-height: 100vh;
     display:flex;
     align-items:center;
     color:#fff;
+    max-width: 960px;
+    padding-left:1rem;
+    padding-right:1rem;
+    margin:auto;
+    text-align:center;
 }
 
 
 .wrapper {
     padding-left:1rem;
     padding-right:1rem;
-    min-height:100vh;
+    min-height:90vh; 
     margin:auto;
     text-align:center;
 }
@@ -93,59 +102,79 @@ nav {
     position:absolute;
     top:0;
     left:0;
-    // margin-top:-31px;
     background-position: center;
     background-size: contain;
     width: 100%;
-    min-height: 110vh;
+    height: 103vh;
     overflow: hidden;
     video {
         min-width:100%;
         min-height:100%;
         object-fit: cover;
-        // margin-top:300px;
         z-index:-2
     }
 }
 
-.body-overlay {
-    min-height:100vh;
+.header-overlay {
+    height:100vh;
     width:100vw;
     position:absolute;
-    top:1;
+    top:0;
     left:0;
     background:#225470;
     z-index:1;
     opacity:0.85;
+    @media (max-width:991px) {
+        height:90vh;
+    }
 }
 
 .alert {
     z-index:99;
-    margin-top:44px;
+    margin-top:76px;
 }
 
-.body-content {
+.header-content {
     z-index:2;
-    min-height:100vh;
+    h1 {
+        font-size:50px;
+        margin-bottom:0;
+    }
+    p {
+        font-size:1.5rem;
+        display:block;
+        padding-bottom:2rem;
+    }
+    .btn {
+        color:#fff;
+        background:#34b3a0;
+        font-size:1.2rem;
+        padding: 10px 20px;
+        text-decoration: none;
+    }
+    @media (max-width:960px) {
+        padding-right:3rem;
+        padding-left:3rem;
+    }
+    @media (max-width:662px) {
+        padding-top:4rem;
+    }
 }
 
-.jumbotron {
-    background:none;
-    display:block;
-    min-height:100vh;
+.section {
+    padding:3rem 0;
+    background:#333;
+    color:#fff;
+    .section-content {
+        padding:1rem;
+    }
 }
-
-hr {
-    background:#eee;
-}
-
 
 @media (min-width: 992px) {
     .nav-index {
         position: relative; 
     }
 }
-
 
 footer {
     z-index:99;
@@ -176,144 +205,3 @@ footer {
     }
 }
 
-
-@media (max-width: 768px) {
-    .jumbotron {
-        margin-top:170px;
-        .content-item {
-            padding-top: 25px;
-        }
-    }
-}
-
-@media (max-width: 992px) {
-    .fullscreen-video-wrap{
-        margin-top:-31px;
-    }
-    .body-overlay {
-        height:100vh;
-    }
-    .alert {
-        margin-top:107px;
-    }
-}
-@media (min-width: 993px) {
-    .fullscreen-video-wrap{
-        margin-top:31px;
-    }
-}
-// .wrapper {
-//     // background-image:url('./../../../static/img/home.jpg'); 
-//     background-repeat:no-repeat; 
-//     background-position:center;  
-//     background-size:cover; 
-//     padding-top: 50px;
-//     height: 100vh;
-//     color:black
-// }
-
-
-
-
-// .content{
-//     height:200vh;
-//     background-color:#333;
-//     background-blend-mode: multiply;
-//     background-size: cover;
-//     display:grid;
-//     place-content: center;
-// }
-
-// header{
-//     background: var(--background);
-//     text-align: center;
-//     position: fixed;
-//     width:100%;
-//     z-index: 999;
-// }
-
-// nav {
-//     position: absolute;
-//     text-align: left;
-//     top: 100%;
-//     left :0;
-//     background: var(--background);
-//     width: 100%;
-//     transform: scale(1, 0);
-//     transform-origin: top;
-//     z-index:99;
-//     transition: transform 400ms ease-in-out;
-// }
-
-// nav ul{
-//     margin:0;
-//     padding:0;
-//     list-style: none;
-// }
-
-// nav li{
-//     margin-bottom: 1em;
-//     margin-left: 1em;
-// }
-
-// nav a{
-//     color:white;
-//     text-decoration: none; 
-//     font-size: 1.2rem;
-//     text-transform: uppercase;
-//     opacity: 0;
-//     transition: opacity 150ms ease-in-out; //2nd 250 is an annamation where it fades in
-// }
-
-// nav a:hover{
-//     color:#000;
-// }
-
-// // the ~ looks for any proceeding sibling, it doesn't have to be immediately after
-// .nav-toggle:checked ~ nav {
-//     transform: scale(1, 1)
-// }
-
-// .nav-toggle {
-//     display:none;
-// }
-
-// .nav-toggle-label {
-//     position: absolute;
-//     top: 0;
-//     left: 0;
-//     margin-left: 1em;
-//     height: 100%;
-//     display: flex;
-//     align-items: center;
-// }
-
-// .nav-toggle-label span,
-// .nav-toggle-label span::before,
-// .nav-toggle-label span::after {
-//     display: block;
-//     background: white;
-//     height: 2px;
-//     width: 2em;
-//     border-radius: 2px;
-//     position: relative;
-// }
-
-// .nav-toggle-label span::before,
-// .nav-toggle-label span::after {
-//     content:'';
-//     position: absolute;
-// }
-
-// .nav-toggle-label span::before {
-//     bottom: 7px;
-// }
-
-// .nav-toggle-label span::after {
-//     top: 7px;
-// }
-
-// .nav-toggle:checked ~ nav a {
-//     opacity: 1;
-//     transition: opacity 250ms ease-in-out 250ms;
-// }
