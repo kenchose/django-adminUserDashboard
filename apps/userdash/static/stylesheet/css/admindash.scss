@@ -9,15 +9,12 @@ body {
     font-size:1rem;
     line-height: 1.5;
     overflow-x:hidden;
-    height:100vh;
 }
 
 .wrapper {
     margin-top: 100px;
-    min-height:100vh;
-    @media (max-width:576px) {
-        padding: 0 1rem;
-    }
+    height:100vh;
+    margin-bottom:30px;
 }
 
 nav {
@@ -71,49 +68,25 @@ nav {
     margin-left:1rem;
 }
 
-.fa-pencil-alt {
-    text-align: center;
+.add-btn:hover {
+    text-decoration: none;
 }
 
-.user-info-wrap {
-    margin-left:0 auto;
+.container-table {
+    height: 90vh;
+    overflow: scroll;
+    background: #efefef;
+    border-radius:5px;
+    .fa-trash {
+        cursor:pointer;
+        text-align: center;
+        margin-left: 1.5rem;
+    }
 }
 
-#user-header {
-    margin-top:100px;
-}
-
-.message-container {
-    .comment {
-        padding:1rem 2rem;
-    }
-    .comment-container {
-        height:60vh;
-        overflow:scroll;
-        border: solid black 1px;
-        border-radius: 5px;
-        overflow-x:hidden;
-        .comment-message {
-            margin:0px;
-        }        
-    }
-    .comment-input {
-        padding:0px;
-        margin:1rem 0 6rem;
-    }
-    hr {
-        height:1px;
-        background-color:#eee;
-        margin:45px 0;
-    }
-    .created-message {
-        margin-bottom:6px;
-    }
-    
-}
-
-#user-messages {
-    margin:100px 0;
+.modal-body p{
+    margin-top:1rem !important;
+    margin-bottom:1rem !important;
 }
 
 footer {

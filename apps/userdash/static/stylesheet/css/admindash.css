@@ -15,6 +15,7 @@ body {
 .wrapper {
   margin-top: 100px;
   height: 100vh;
+  margin-bottom: 30px;
 }
 
 nav {
@@ -70,10 +71,6 @@ nav .navbar-nav .nav-link {
   text-decoration: none;
 }
 
-.fa-edit {
-  text-align: center;
-}
-
 .container-table {
   height: 90vh;
   overflow: scroll;
@@ -122,4 +119,4 @@ footer #linkedin {
   float: left;
   padding: 5px 10px 10px;
 }
-/*# sourceMappingURL=admin-dash.css.map */
+/*# sourceMappingURL=admindash.css.map */

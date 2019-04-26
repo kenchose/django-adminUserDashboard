@@ -21,7 +21,7 @@
             <div class="collapse navbar-collapse menu" id="navbarSupportedContent" >
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        {% if curr_user.admion == 'Admin'%}
+                        {% if curr_user.admin == 'Admin'%}
                             <a href="/dashboard/admin" class="nav-link">Home</a>
                         {% else %}
                             <a href="/dashboard" class='nav-link'>Home</a>
@@ -39,7 +39,11 @@
                     <li class = "navbar-item">
                         <form action="/logout" method="post">
                             {% csrf_token %}
-                            <button type="submit" class="btn btn-outline-success logout">Logout</button>
+                            {% if curr_user.admin == 'Admin' %}
+                                <button type="submit" class="btn bg-warning logout">Logout</button>
+                            {% else %}
+                                <button type="submit" class="btn btn-outline-success logout">Logout</button>
+                            {% endif %}
                         </form>
                     </li>           
                 </ul>
@@ -49,13 +53,13 @@
         <div class="wrapper">  
             <section id='user-header'>
                 <div class="container">  
-                    <div class="text-danger text-left">
+                    <div class=" text-left">
                         <ul class="list-unstyled">
                             {% if messages %}
                                 {% for message in messages %}
-                                <li class= "form-group row message">
-                                    <h6><span class='asterisk'>*</span>{{message}}</h6>
-                                </li>
+                                    <li class= "form-group row message text-danger">
+                                        <h6>{{message}}</h6>
+                                    </li>
                                 {% endfor %}
                             {% endif %}
                         </ul>
@@ -64,13 +68,13 @@
                 <div class="container user-info-wrap">
                     <div class="row">
                         <div class="col-md mb-3">
-                            <a href="/edit/{{users.id}}" class='mr-2'><i class="fas fa-edit fa-lg"></i></a>
+                            <a href="/edit/{{users.id}}" class='mr-2'><i class="fas fa-pencil-alt fa-lg"></i></a>
                             <h3 class='d-inline'>{{users.first_name}} {{users.last_name}}</h3> 
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md">
-                            <p>Hired on: {{users.created_at}}</p>
+                            <p>Hired: {{users.created_at}}</p>
                         </div>
                     </div>
                     <div class="row">
@@ -80,7 +84,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md">
-                            <p>Email address: {{users.email}}</p>
+                            <p>Email: {{users.email}}</p>
                         </div>
                     </div>
                     <div class="row">
@@ -106,7 +110,7 @@
             </section>
 
             <section id='user-messages'>
-                <div class="container">  
+                <div class="container message-container">  
                     {% for msg in msg %}
                         <div class="row">
                             <div class="col comment">
@@ -117,7 +121,6 @@
                                         <small class='float-right'>@{{msg.created_at}}</small>
                                     </div>
                                 </div>                                
-                                <!-- <input class="form-control" type="text" name="{{msg.id}}" value="{{msg.content}}"> -->
                             </div>
                         </div>
                         <div class="comment-container">
@@ -125,7 +128,6 @@
                             <div class="row">
                                 <div class="col comment">
                                     <h5><a href="/users/show/{{comment.user.id}}">{{comment.user.first_name}} {{comment.user.last_name}}</a> replied:</h5>
-                                    <!-- <input class="form-control" type="text" name="{{comment.id}}" value="{{comment.content}}"> -->
                                     <h5 class="text-left comment-message">{{comment.content}}</h5>
                                     <small>@{{comment.created_at}}</small>
                                 </div>
@@ -146,6 +148,7 @@
                                 </div>
                             </form>
                         </div>
+                        <hr>
                     {% endfor %}
                 </div>
             </section>

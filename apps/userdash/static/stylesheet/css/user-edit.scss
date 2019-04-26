@@ -11,22 +11,26 @@ body {
     overflow-x:hidden;
 }
 
-.wrapper {
-    margin-top: 100px;
-    height:100vh;
-}
-
 nav {
     background: #eee !important;
     .navbar-nav {
         .nav-link {
-            margin-left: 20px
+            margin-left: 20px;
         }
     }
 }
-    
+
+.wrapper {
+    padding-top: 80px;
+    min-height:100vh;
+    width:100%;
+}
+
 .navbar{
     .navbar-nav {
+        .logout {
+            margin-left:1rem;
+        }
         .nav-link {
             position: relative; //needs relative for psuedo element to work
             text-decoration: none;
@@ -63,33 +67,34 @@ nav {
     width:100%;
 }
 
-.logout {
-    margin-left:1rem;
+
+.asterisk {
+    color:red;
 }
 
-.add-btn:hover {
-    text-decoration: none;
-}
-
-.fa-edit {
-    text-align: center;
-}
-
-.container-table {
-    height: 90vh;
-    overflow: scroll;
-    background: #efefef;
-    border-radius:5px;
-    .fa-trash {
-        cursor:pointer;
-        text-align: center;
-        margin-left: 1.5rem;
+.body-container {
+    padding:60px 0;
+    .edit-form {
+        padding:20px;
     }
 }
 
-.modal-body p{
-    margin-top:1rem !important;
-    margin-bottom:1rem !important;
+.message {
+    margin-left:0px;
+}
+
+.form-container {
+    .form-row {
+        padding-bottom:10px;
+    }
+    .save-btn {
+        padding-bottom: 20px;
+    }
+    border: black solid 1px;
+    border-radius: 5px;
+    @media (max-width:991px) {
+        margin-bottom:35px;
+    }
 }
 
 footer {

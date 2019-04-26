@@ -107,15 +107,16 @@ class UserManager(models.Manager):
 
     def editInfoVal(self, postData, user):
         error = []
+        success = []
         if len(postData['email']) < 1 or len(postData['first_name']) < 1 or len(postData['last_name']) < 1:
-            error.append("All fields must be filled")
+            error.append("Must have an email, first name, and last name.")
         try:
             validate_email(postData['email'])
         except ValidationError as e:
             error.append("Email must be a valid email.")
         if len(postData['email']) < 6:
             error.append("Email must be more than 6 characters long.")
-        if User.objects.filter(email__iexact=postData['email']):
+        if user.email != postData['email'] and User.objects.filter(email__iexact=postData['email']):
             error.append('Email is already registered.')
         if not postData['first_name'].isalpha():
             error.append("First name cannnot contain numbers or special characters. ")
@@ -131,6 +132,7 @@ class UserManager(models.Manager):
         user.email = postData['email']
         user.first_name = postData['first_name']
         user.last_name = postData['last_name']
+        user.description = postData['description']
         user.save()
         return user
 
@@ -150,13 +152,6 @@ class UserManager(models.Manager):
         user.password = hashed_pw
         user.save()
         return user
-
-
-    def userValDesc(self, postData, curr_user):
-        error = []
-        if len(postData['description']) < 1:
-            error.append("Description field is empty")
-        return error
 
 
     def userDesc(self, postData, curr_user):

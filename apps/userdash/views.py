@@ -183,7 +183,7 @@ def userEditInfo(request, user_id):
                 return redirect ('/edit/{}'.format(user_id))
         else:
             update_info = User.objects.editInfo(request.POST, curr_user)
-            messages.success(request, "Your information have been successfully updated.")
+            messages.success(request, "Information successfully updated.")
             return redirect ('/users/show/{}'.format(user_id))
     else:
         return redirect('/users/show/{}'.format(user_id))
@@ -203,22 +203,6 @@ def userEditPass(request, user_id):
             return redirect ('/users/show/{}'.format(user_id))
     else:
         return redirect ('/edit/show/{}'.format(user_id))
-
-
-def UserEditDesc(request, user_id):
-    if request.method == 'POST':
-        curr_user = User.objects.get(id=request.session['id'])
-        result = User.objects.userValDesc(request.POST, curr_user)
-        if len(result) > 0:
-            for error in (result):
-                messages.error(request, error)
-                return redirect('/edit/{}'.format(user_id))
-        else: 
-            User.objects.userDesc(request.POST, curr_user)
-            messages.success(request, 'You have successfully updated your description information')
-            return redirect ('/users/show/{}'.format(user_id))
-    else:
-        return redirect ('/edit/{}'.format(user_id))
 
 
 def adminEdit(request, user_id):

@@ -82,7 +82,7 @@ nav .navbar-nav .nav-link {
   height: 90vh;
   overflow: scroll;
   background: #efefef;
-  margin: 30px 0;
+  margin-bottom: 60px;
   border-radius: 5px;
 }
 

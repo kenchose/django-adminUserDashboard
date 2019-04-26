@@ -15,7 +15,6 @@ urlpatterns = [
     url(r'^edit/(?P<user_id>\d+)$', views.userEdit),
     url(r'^editinfo/(?P<user_id>\d+)$', views.userEditInfo),
     url(r'^editpass/(?P<user_id>\d+)$', views.userEditPass),
-    url(r'^editdescription/(?P<user_id>\d+)$', views.UserEditDesc),
     url(r'^users/edit/(?P<user_id>\d+)$', views.adminEdit),
     url(r'^adminInfoUpdate/(?P<user_id>\d+)$', views.adminInfoUpdate),
     url(r'^adminPassUpdate/(?P<user_id>\d+)$', views.adminPassUpdate),
