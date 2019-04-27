@@ -69,8 +69,26 @@ nav .navbar-nav .nav-link {
   width: 100%;
 }
 
-.logout {
+.admin-logout {
   margin-left: 1rem;
+}
+
+.admin-logout:hover {
+  color: #5bc0eb;
+  background-color: #eee;
+  border-color: #5bc0eb;
+}
+
+.btn-logout {
+  color: #5bc0eb;
+  border: solid 1px #5bc0eb;
+  margin-left: 1rem;
+}
+
+.btn-logout:hover {
+  color: black;
+  border-color: gold;
+  background-color: gold;
 }
 
 .fa-pencil-alt {
@@ -79,6 +97,14 @@ nav .navbar-nav .nav-link {
 
 .user-info-wrap {
   margin-left: 0 auto;
+}
+
+.user-info-wrap p {
+  word-wrap: break-word;
+}
+
+.user-info-wrap .post-input {
+  margin: 1rem 0;
 }
 
 #user-header {
@@ -124,6 +150,12 @@ footer {
   z-index: 99;
   background: #eee;
   padding-top: 5px;
+  position: fixed;
+  bottom: 0px;
+}
+
+footer .footer-container {
+  min-width: 90vw;
 }
 
 footer .fa-copyright {

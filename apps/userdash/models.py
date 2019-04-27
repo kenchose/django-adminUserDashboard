@@ -23,9 +23,11 @@ class UserManager(models.Manager):
         if not postData['first_name'].isalpha():
             error.append("First name cannnot contain numbers or special characters. ")
         if len(postData['first_name']) < 2:
-            error.append("First name must be more than 2 characters.")
+            error.append("First name must be at least 2 characters long.")
+        if not postData['last_name'].isalpha():
+            error.append("Last name cannnot contain numbers or special characters. ")
         if len(postData['last_name']) < 2:
-            error.append("Last name must be more than 2 characters.")
+            error.append("Last name must be at least 2 characters long.")
         if len(postData['password']) < 8: #put in password must cocntain at least one special character, number, and upppercase letter
             error.append("Password must be more than 8 characters.")
         if postData['password'] != postData['password_confirmation']:

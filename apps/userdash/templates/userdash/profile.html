@@ -13,7 +13,11 @@
     </head>
     <body>
         <nav class="navbar nav-index navbar-light navbar-expand-lg sticky-top">
-            <a href="/dashboard" class="nav-link navbar-brand"><img src="./../../static/img/cockpit-brand.png" alt="Brand" class="d-inline-block align-top" width="50" height="50"></a>
+            {% if curr_user.admin == 'Admin' %}
+                <a href="/dashboard/admin" class="nav-link navbar-brand"><img src="./../../static/img/cockpit-brand.png" alt="Brand" class="d-inline-block align-top" width="50" height="50"></a>
+            {% else %}
+                <a href="/dashboard" class="nav-link navbar-brand"><img src="./../../static/img/cockpit-brand.png" alt="Brand" class="d-inline-block align-top" width="50" height="50"></a>
+            {% endif %}
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -40,9 +44,9 @@
                         <form action="/logout" method="post">
                             {% csrf_token %}
                             {% if curr_user.admin == 'Admin' %}
-                                <button type="submit" class="btn bg-warning logout">Logout</button>
+                                <button type="submit" class="btn btn-warning admin-logout">Logout</button>
                             {% else %}
-                                <button type="submit" class="btn btn-outline-success logout">Logout</button>
+                                <button type="submit" class="btn btn-outline-success btn-logout">Logout</button>
                             {% endif %}
                         </form>
                     </li>           
@@ -53,7 +57,7 @@
         <div class="wrapper">  
             <section id='user-header'>
                 <div class="container">  
-                    <div class=" text-left">
+                    <div class="text-left">
                         <ul class="list-unstyled">
                             {% if messages %}
                                 {% for message in messages %}
@@ -68,28 +72,36 @@
                 <div class="container user-info-wrap">
                     <div class="row">
                         <div class="col-md mb-3">
-                            <a href="/edit/{{users.id}}" class='mr-2'><i class="fas fa-pencil-alt fa-lg"></i></a>
+                            {% if curr_user.id == users.id or curr_user.admin == 'Admin' %}
+                                <a href="/edit/{{users.id}}" class='mr-2'><i class="fas fa-pencil-alt fa-lg"></i></a>
+                            {% endif %}
                             <h3 class='d-inline'>{{users.first_name}} {{users.last_name}}</h3> 
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md">
-                            <p>Hired: {{users.created_at}}</p>
+                            <p><span  class='font-weight-bold'>Hired:</span> {{users.created_at}}</p>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md">
-                            <p>User ID: {{users.id}}</p>
+                            <p><span  class='font-weight-bold'>User ID:</span> {{users.id}}</p>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md">
-                            <p>Email: {{users.email}}</p>
+                            <p><span class='font-weight-bold'>Email:</span> {{users.email}}</p>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md">
-                            <p>Description: {{users.description}}</p>
+                        <div class="col-md row-description">
+                            {% if users.description %}
+                                <p><span class='font-weight-bold'>Description:</span> {{users.description}}</p>
+                            {% elif not users.description and curr_user.id != users.id%}
+                                <p class='font-weight-bold'>Description:</p>
+                            {% else %}
+                                <p><span class='font-weight-bold'>Description:</span> Tell us about yourself.</p>
+                            {% endif %}
                         </div>
                     </div>
                     <div class="form-group">
@@ -97,7 +109,7 @@
                             {{msg.message.content}}
                             {% csrf_token %}
                             <div class="col-sm-8 form-group float-right">
-                                <div class="input-group">
+                                <div class="input-group post-input">
                                     <input type="text" name="content" class="form-control" placeholder="Write a message..."></input>
                                     <div class="input-group-append">
                                         <button class ="btn btn-secondary" type="submit">Post</button>
@@ -114,7 +126,7 @@
                     {% for msg in msg %}
                         <div class="row">
                             <div class="col comment">
-                                <h5 class='font-weight-bold text-right'>{{msg.user.first_name}} {{msg.user.last_name}} says:</h5>
+                                <a href='/users/show/{{msg.user.id}}'><h5 class='font-weight-bold text-right'>{{msg.user.first_name}} {{msg.user.last_name}}</a> says:</h5>
                                 <div class="row">
                                     <div class="col-sm">
                                         <h5 class='text-right created-message'>{{msg.content}}</h5>
@@ -139,10 +151,9 @@
                                 {% csrf_token %}
                                 <div class="col comment-input">
                                     <div class="input-group">
-                                        <input class="form-control text-secondary bg-light" type="text" name="content" placeholder="Write a comment..."> 
-                                        <!-- <input class = "form-control float-right mt-1 text-secondary bg-light" type="text" name="content" placeholder="Write a comment...">  -->
-                                        <div class="input-group-appendx">
-                                            <button class ="btn btn-success" type="submit">Post</button>
+                                        <input class="form-control text-secondary bg-light" type="text" name="content" placeholder='Reply' > 
+                                        <div class="input-group-append">
+                                            <button class ="btn btn-success" type="submit">Send</button>
                                         </div>
                                     </div>
                                 </div>
@@ -155,7 +166,7 @@
         </div>
 
         <footer>
-            <div class="container">
+            <div class="container footer-container">
                 <div class="row">
                     <div class="col">
                         <a href="#"><i id="linkedin" class="fab fa-linkedin fa-2x"></i></a> 

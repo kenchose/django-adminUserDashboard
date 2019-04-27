@@ -13,7 +13,11 @@
     </head>
     <body>
         <nav class="navbar nav-index navbar-light navbar-expand-lg sticky-top">
-            <a href="/dashboard/admin" class="nav-link navbar-brand"><img src="./../../static/img/cockpit-brand.png" alt="Brand" class="d-inline-block align-top" width="50" height="50"></a>
+            {% if curr_user.admin == 'Admin' %}
+                <a href="/dashboard/admin" class="nav-link navbar-brand"><img src="./../../static/img/cockpit-brand.png" alt="Brand" class="d-inline-block align-top" width="50" height="50"></a>
+            {% else %}
+                <a href="/dashboard" class="nav-link navbar-brand"><img src="./../../static/img/cockpit-brand.png" alt="Brand" class="d-inline-block align-top" width="50" height="50"></a>
+            {% endif %}
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -40,9 +44,9 @@
                         <form action="/logout" method="post">
                             {% csrf_token %}
                             {% if curr_user.admin == 'Admin' %}
-                                <button type="submit" class="btn bg-warning logout">Logout</button>
+                                <button type="submit" class="btn btn-warning admin-logout">Logout</button>
                             {% else %}
-                                <button type='submit' class='btn btn-outline-success logout'>Logout</button>
+                                <button type='submit' class='btn btn-outline-success btn-logout'>Logout</button>
                             {% endif %}
                         </form>
                     </li>           
@@ -56,7 +60,7 @@
                     <ul class="list-unstyled">
                         {% if messages %}
                             {% for message in messages %}
-                            <li class= "form-group row message">
+                            <li class= "form-group row message validation-container">
                                 <h6><span class='asterisk'>*</span>{{message}}</h6>
                             </li>
                             {% endfor %}
@@ -131,7 +135,7 @@
             </div>
         </div>
         <footer>
-            <div class="container">
+            <div class="container footer-container">
                 <div class="row">
                     <div class="col">
                         <a href="#"><i id="linkedin" class="fab fa-linkedin fa-2x"></i></a> 

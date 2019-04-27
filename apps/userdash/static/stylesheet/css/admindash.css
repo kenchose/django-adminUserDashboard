@@ -10,12 +10,20 @@ body {
   font-size: 1rem;
   line-height: 1.5;
   overflow-x: hidden;
+  background: url("../../img/admindash.jpg") no-repeat center;
+  background-size: cover;
 }
 
 .wrapper {
   margin-top: 100px;
   height: 100vh;
   margin-bottom: 30px;
+}
+
+@media (max-width: 575px) {
+  .wrapper {
+    padding: 0 1.5rem;
+  }
 }
 
 nav {
@@ -63,8 +71,14 @@ nav .navbar-nav .nav-link {
   width: 100%;
 }
 
-.logout {
+.admin-logout {
   margin-left: 1rem;
+}
+
+.admin-logout:hover {
+  color: #5bc0eb;
+  background-color: #eee;
+  border-color: #5bc0eb;
 }
 
 .add-btn:hover {
@@ -84,6 +98,35 @@ nav .navbar-nav .nav-link {
   margin-left: 1.5rem;
 }
 
+@media (max-width: 991px) {
+  .container-table .fa-trash {
+    margin: 0px;
+    padding-left: 14px;
+  }
+}
+
+.container-table th {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+  z-index: 1;
+  border-top: 1px;
+  margin: 0px;
+}
+
+@media (max-width: 767px) {
+  .container-table table .th-user-created_at, .container-table table .td-user-created_at {
+    display: none;
+  }
+}
+
+@media (max-width: 556px) {
+  .container-table table .th-user-email, .container-table table .td-user-email {
+    display: none;
+  }
+}
+
 .modal-body p {
   margin-top: 1rem !important;
   margin-bottom: 1rem !important;
@@ -93,6 +136,10 @@ footer {
   z-index: 99;
   background: #eee;
   padding-top: 5px;
+}
+
+footer .footer-container {
+  min-width: 90vw;
 }
 
 footer .fa-copyright {

@@ -87,6 +87,11 @@ footer {
     z-index:99;
     background: #eee;
     padding-top:5px;
+    position: fixed;
+    bottom:0px;
+    .footer-container {
+        min-width:90vw;
+    }
     .fa-copyright {
         color:black;
     }

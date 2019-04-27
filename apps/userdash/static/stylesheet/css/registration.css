@@ -90,6 +90,12 @@ footer {
   z-index: 99;
   background: #eee;
   padding-top: 5px;
+  position: fixed;
+  bottom: 0px;
+}
+
+footer .footer-container {
+  min-width: 90vw;
 }
 
 footer .fa-copyright {

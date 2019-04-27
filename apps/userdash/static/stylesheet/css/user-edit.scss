@@ -58,6 +58,17 @@ nav {
             -webkit-transform: scaleX(1);
             transform: scaleX(1);
         }
+        .btn-logout {
+            color:#5bc0eb;
+            border:solid 1px #5bc0eb;
+            margin-left:1rem;
+        
+        }
+        .btn-logout:hover {
+            color:black;
+            border-color: gold;
+            background-color:gold;
+        }        
     }
 }
 
@@ -72,11 +83,25 @@ nav {
     color:red;
 }
 
+.validation-container {
+    margin-top: 1rem;
+}
+
 .body-container {
-    padding:60px 0;
+    padding:1rem 0 2rem;
     .edit-form {
         padding:20px;
     }
+}
+
+.admin-logout {
+    margin-left:1rem;
+}
+
+.admin-logout:hover {
+    color: #5bc0eb;
+    background-color: #eee;
+    border-color: #5bc0eb; 
 }
 
 .message {
@@ -101,6 +126,11 @@ footer {
     z-index:99;
     background: #eee;
     padding-top:5px;
+    position:fixed;
+    bottom:0px;
+    .footer-container {
+        min-width:90vw;
+    }
     .fa-copyright {
         color:black;
     }

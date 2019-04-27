@@ -9,12 +9,17 @@ body {
     font-size:1rem;
     line-height: 1.5;
     overflow-x:hidden;
+    background:url('../../img/admindash.jpg') no-repeat center;
+    background-size:cover;
 }
 
 .wrapper {
     margin-top: 100px;
     height:100vh;
     margin-bottom:30px;
+    @media (max-width:575px) {
+        padding:0 1.5rem;
+    }
 }
 
 nav {
@@ -64,13 +69,20 @@ nav {
     width:100%;
 }
 
-.logout {
+.admin-logout {
     margin-left:1rem;
+}
+
+.admin-logout:hover {
+    color: #5bc0eb;
+    background-color: #eee;
+    border-color: #5bc0eb; 
 }
 
 .add-btn:hover {
     text-decoration: none;
 }
+
 
 .container-table {
     height: 90vh;
@@ -81,6 +93,30 @@ nav {
         cursor:pointer;
         text-align: center;
         margin-left: 1.5rem;
+        @media (max-width:991px) {
+            margin:0px;
+            padding-left:14px;
+        }
+    }
+    th {
+        position: sticky;
+        top:0;
+        background-color:#fff;
+        z-index: 1;
+        border-top:1px;
+        margin: 0px;
+    }
+    table {
+        @media (max-width:767px) {
+            .th-user-created_at, .td-user-created_at{
+                display:none;
+            }
+        }
+        @media (max-width:556px) {
+            .th-user-email, .td-user-email {
+                display:none;
+            }
+        }
     }
 }
 
@@ -93,6 +129,9 @@ footer {
     z-index:99;
     background: #eee;
     padding-top:5px;
+    .footer-container {
+        min-width:90vw;
+    }
     .fa-copyright {
         color:black;
     }

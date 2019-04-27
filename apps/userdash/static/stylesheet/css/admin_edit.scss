@@ -64,8 +64,14 @@ nav {
     width:100%;
 }
 
-.logout {
+.admin-logout {
     margin-left:1rem;
+}
+
+.admin-logout:hover {
+    color: #5bc0eb;
+    background-color: #eee;
+    border-color: #5bc0eb; 
 }
 
 .asterisk {
@@ -92,6 +98,11 @@ footer {
     z-index:99;
     background: #eee;
     padding-top:5px;
+    position:fixed;
+    bottom:0px;
+    .footer-container {
+        min-width:90vw;
+    }
     .fa-copyright {
         color:black;
     }
