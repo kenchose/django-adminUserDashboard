@@ -9,28 +9,28 @@ body {
     font-size:1rem;
     line-height: 1.5;
     overflow-x:hidden;
-    height:100vh;
-}
-
-.wrapper {
-    margin-top: 100px;
-    min-height:100vh;
-    @media (max-width:576px) {
-        padding: 0 1rem;
-    }
 }
 
 nav {
     background: #eee !important;
     .navbar-nav {
         .nav-link {
-            margin-left: 20px
+            margin-left: 20px;
         }
     }
 }
-    
+
+.wrapper {
+    padding-top: 80px;
+    min-height:100vh;
+    width:100%;
+}
+
 .navbar{
     .navbar-nav {
+        .logout {
+            margin-left:1rem;
+        }
         .nav-link {
             position: relative; //needs relative for psuedo element to work
             text-decoration: none;
@@ -58,6 +58,17 @@ nav {
             -webkit-transform: scaleX(1);
             transform: scaleX(1);
         }
+        .btn-logout {
+            color:#5bc0eb;
+            border:solid 1px #5bc0eb;
+            margin-left:1rem;
+        
+        }
+        .btn-logout:hover {
+            color:black;
+            border-color: gold;
+            background-color:gold;
+        }        
     }
 }
 
@@ -65,6 +76,22 @@ nav {
     position:absolute;
     z-index: 99;
     width:100%;
+}
+
+
+.asterisk {
+    color:red;
+}
+
+.validation-container {
+    margin-top: 1rem;
+}
+
+.body-container {
+    padding:1rem 0 2rem;
+    .edit-form {
+        padding:20px;
+    }
 }
 
 .admin-logout {
@@ -77,67 +104,22 @@ nav {
     border-color: #5bc0eb; 
 }
 
-.btn-logout {
-    color:#5bc0eb;
-    border:solid 1px #5bc0eb;
-    margin-left:1rem;
-
-}
-.btn-logout:hover {
-    color:black;
-    border-color: gold;
-    background-color:gold;
+.message {
+    margin-left:0px;
 }
 
-.fa-pencil-alt {
-    text-align: center;
-}
-
-.user-info-wrap {
-    margin-left:0 auto;
-    p{
-        word-wrap: break-word; 
+.form-container {
+    .form-row {
+        padding-bottom:10px;
     }
-    .post-input {
-        margin: 1rem 0;
+    .save-btn {
+        padding-bottom: 20px;
     }
-}
-
-#user-header {
-    margin-top:100px;
-}
-
-.message-container {
-    .comment {
-        padding:1rem 2rem;
+    border: black solid 1px;
+    border-radius: 5px;
+    @media (max-width:991px) {
+        margin-bottom:35px;
     }
-    .comment-container {
-        height:60vh;
-        overflow:scroll;
-        border: solid black 1px;
-        border-radius: 5px;
-        overflow-x:hidden;
-        .comment-message {
-            margin:0px;
-        }        
-    }
-    .comment-input {
-        padding:0px;
-        margin:1rem 0 6rem;
-    }
-    hr {
-        height:1px;
-        background-color:#eee;
-        margin:45px 0;
-    }
-    .created-message {
-        margin-bottom:6px;
-    }
-    
-}
-
-#user-messages {
-    margin:100px 0;
 }
 
 footer {
@@ -146,6 +128,7 @@ footer {
     padding-top:5px;
     position:fixed;
     bottom:0px;
+    min-width:100%;
     .footer-container {
         min-width:90vw;
     }

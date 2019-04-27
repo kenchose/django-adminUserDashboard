@@ -10,18 +10,6 @@ body {
   font-size: 1rem;
   line-height: 1.5;
   overflow-x: hidden;
-  height: 100vh;
-}
-
-.wrapper {
-  margin-top: 100px;
-  min-height: 100vh;
-}
-
-@media (max-width: 576px) {
-  .wrapper {
-    padding: 0 1rem;
-  }
 }
 
 nav {
@@ -30,6 +18,12 @@ nav {
 
 nav .navbar-nav .nav-link {
   margin-left: 20px;
+}
+
+.wrapper {
+  padding-top: 100px;
+  min-height: 100vh;
+  width: 100%;
 }
 
 .navbar .navbar-nav .nav-link {
@@ -79,71 +73,27 @@ nav .navbar-nav .nav-link {
   border-color: #5bc0eb;
 }
 
-.btn-logout {
-  color: #5bc0eb;
-  border: solid 1px #5bc0eb;
-  margin-left: 1rem;
+.asterisk {
+  color: red;
 }
 
-.btn-logout:hover {
-  color: black;
-  border-color: gold;
-  background-color: gold;
+.edit-form {
+  padding: 20px;
 }
 
-.fa-pencil-alt {
-  text-align: center;
+.message {
+  margin-left: 0px;
 }
 
-.user-info-wrap {
-  margin-left: 0 auto;
-}
-
-.user-info-wrap p {
-  word-wrap: break-word;
-}
-
-.user-info-wrap .post-input {
-  margin: 1rem 0;
-}
-
-#user-header {
-  margin-top: 100px;
-}
-
-.message-container .comment {
-  padding: 1rem 2rem;
-}
-
-.message-container .comment-container {
-  height: 60vh;
-  overflow: scroll;
-  border: solid black 1px;
+.form-container {
+  border: black solid 1px;
   border-radius: 5px;
-  overflow-x: hidden;
 }
 
-.message-container .comment-container .comment-message {
-  margin: 0px;
-}
-
-.message-container .comment-input {
-  padding: 0px;
-  margin: 1rem 0 6rem;
-}
-
-.message-container hr {
-  height: 1px;
-  background-color: #eee;
-  margin: 45px 0;
-}
-
-.message-container .created-message {
-  margin-bottom: 6px;
-}
-
-#user-messages {
-  margin: 100px 0;
+@media (max-width: 991px) {
+  .form-container {
+    margin-bottom: 35px;
+  }
 }
 
 footer {
@@ -152,6 +102,7 @@ footer {
   padding-top: 5px;
   position: fixed;
   bottom: 0px;
+  min-width: 100%;
 }
 
 footer .footer-container {
@@ -182,4 +133,4 @@ footer #linkedin {
   float: left;
   padding: 5px 10px 10px;
 }
-/*# sourceMappingURL=profile.css.map */
+/*# sourceMappingURL=admin-edit.css.map */

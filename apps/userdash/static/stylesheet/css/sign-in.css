@@ -7,16 +7,15 @@
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  height: 100vh;
   font-size: 1rem;
+  margin: 0px !important;
   line-height: 1.5;
+  color: #eee;
   overflow-x: hidden;
-  background: url("../../img/dashboard.jpg") no-repeat center;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.2)), to(rgba(0, 0, 0, 0.2))), url("../../img/singin.jpg") no-repeat center;
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("../../img/singin.jpg") no-repeat center;
   background-size: cover;
-}
-
-.wrapper {
-  margin-top: 150px;
-  min-height: 100%;
 }
 
 nav {
@@ -25,6 +24,13 @@ nav {
 
 nav .navbar-nav .nav-link {
   margin-left: 20px;
+}
+
+.nav-index {
+  position: absolute;
+  z-index: 99;
+  width: 100%;
+  top: 0;
 }
 
 .navbar .navbar-nav .nav-link {
@@ -58,63 +64,35 @@ nav .navbar-nav .nav-link {
   transform: scaleX(1);
 }
 
-.navbar .btn-logout {
-  color: #5bc0eb;
-  border: solid 1px #5bc0eb;
-  margin-left: 1rem;
+.form-container {
+  text-align: center;
 }
 
-.navbar .btn-logout:hover {
-  color: black;
-  border-color: gold;
-  background-color: gold;
+.form-container form {
+  padding: 50px;
+  padding-top: 200px;
 }
 
-.nav-index {
-  position: absolute;
-  z-index: 99;
-  width: 100%;
+.form-container form input {
+  opacity: 0.7;
 }
 
-.header {
+.form-container .reg-link {
+  color: #F3EFE0;
+}
+
+.wrapper {
+  min-height: 100vh;
+  min-width: 100%;
   margin-top: 100px;
 }
 
-.add-btn:hover {
-  text-decoration: none;
+.container-message {
+  margin-top: -24px;
 }
 
-.fa-edit {
-  text-align: center;
-}
-
-.container-table {
-  height: 70vh;
-  overflow: auto;
-  background: #efefef;
-  margin-bottom: 60px;
-  border-radius: 5px;
-}
-
-.container-table .fa-trash {
-  cursor: pointer;
-  text-align: center;
-  margin-left: 1.5rem;
-}
-
-.container-table th {
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
-  background-color: #fff;
-  z-index: 1;
-  border-top: 1px;
-  margin: 0px;
-}
-
-.modal-body p {
-  margin-top: 1rem !important;
-  margin-bottom: 1rem !important;
+.container {
+  height: 100%;
 }
 
 footer {
@@ -154,4 +132,8 @@ footer #linkedin {
   float: left;
   padding: 5px 10px 10px;
 }
-/*# sourceMappingURL=dashboard.css.map */
+
+.asterisk {
+  color: red;
+}
+/*# sourceMappingURL=sign-in.css.map */

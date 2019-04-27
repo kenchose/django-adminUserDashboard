@@ -1,30 +1,41 @@
-* {
+*{
     box-sizing: border-box;
     padding: 0;
     margin: 0;
 }
 
-body {
+body { 
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    height:100vh;
     font-size:1rem;
+    margin:0px !important;
     line-height: 1.5;
+    color:#eee;
     overflow-x:hidden;
-}
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('../../img/singin.jpg') no-repeat center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
 
 nav {
     background: #eee !important;
     .navbar-nav {
         .nav-link {
-            margin-left: 20px;
+            margin-left: 20px
         }
     }
 }
+    
 
-.wrapper {
-    padding-top: 100px;
-    min-height:100vh;
+.nav-index {
+    position:absolute;
+    z-index: 99;
     width:100%;
+    top:0;
 }
+
 
 .navbar{
     .navbar-nav {
@@ -58,48 +69,42 @@ nav {
     }
 }
 
-.nav-index {
-    position:absolute;
-    z-index: 99;
-    width:100%;
-}
-
-.admin-logout {
-    margin-left:1rem;
-}
-
-.admin-logout:hover {
-    color: #5bc0eb;
-    background-color: #eee;
-    border-color: #5bc0eb; 
-}
-
-.asterisk {
-    color:red;
-}
-
-.edit-form {
-    padding:20px;
-}
-
-.message {
-    margin-left:0px;
-}
-
 .form-container {
-    border: black solid 1px;
-    border-radius: 5px;
-    @media (max-width:991px) {
-        margin-bottom:35px;
+    text-align: center;
+    form {
+      padding: 50px;
+      padding-top:200px;
+      input {
+          opacity:0.7;
+      }
     }
+    .reg-link{
+        color:#F3EFE0;
+    }
+    
+}
+
+.wrapper {
+    min-height: 100vh;
+    min-width: 100%;
+    margin-top:100px;
+}
+
+.container-message {
+    margin-top:-24px;
+}
+
+.container {
+    height: 100%;
 }
 
 footer {
     z-index:99;
     background: #eee;
     padding-top:5px;
-    position:fixed;
+    position: fixed;
     bottom:0px;
+    min-width:100%;
     .footer-container {
         min-width:90vw;
     }
@@ -126,4 +131,8 @@ footer {
         float:left;
         padding: 5px 10px 10px;
     }
+}
+
+.asterisk {
+    color: red;
 }

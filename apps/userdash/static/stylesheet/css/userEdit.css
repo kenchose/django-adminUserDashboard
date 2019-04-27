@@ -7,15 +7,9 @@
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  height: 100vh;
   font-size: 1rem;
-  margin: 0px !important;
   line-height: 1.5;
-  color: #eee;
   overflow-x: hidden;
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.2)), to(rgba(0, 0, 0, 0.2))), url("../../img/singin.jpg") no-repeat center;
-  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("../../img/singin.jpg") no-repeat center;
-  background-size: cover;
 }
 
 nav {
@@ -26,11 +20,14 @@ nav .navbar-nav .nav-link {
   margin-left: 20px;
 }
 
-.nav-index {
-  position: absolute;
-  z-index: 99;
+.wrapper {
+  padding-top: 80px;
+  min-height: 100vh;
   width: 100%;
-  top: 0;
+}
+
+.navbar .navbar-nav .logout {
+  margin-left: 1rem;
 }
 
 .navbar .navbar-nav .nav-link {
@@ -64,35 +61,71 @@ nav .navbar-nav .nav-link {
   transform: scaleX(1);
 }
 
+.navbar .navbar-nav .btn-logout {
+  color: #5bc0eb;
+  border: solid 1px #5bc0eb;
+  margin-left: 1rem;
+}
+
+.navbar .navbar-nav .btn-logout:hover {
+  color: black;
+  border-color: gold;
+  background-color: gold;
+}
+
+.nav-index {
+  position: absolute;
+  z-index: 99;
+  width: 100%;
+}
+
+.asterisk {
+  color: red;
+}
+
+.validation-container {
+  margin-top: 1rem;
+}
+
+.body-container {
+  padding: 1rem 0 2rem;
+}
+
+.body-container .edit-form {
+  padding: 20px;
+}
+
+.admin-logout {
+  margin-left: 1rem;
+}
+
+.admin-logout:hover {
+  color: #5bc0eb;
+  background-color: #eee;
+  border-color: #5bc0eb;
+}
+
+.message {
+  margin-left: 0px;
+}
+
 .form-container {
-  text-align: center;
+  border: black solid 1px;
+  border-radius: 5px;
 }
 
-.form-container form {
-  padding: 50px;
-  padding-top: 200px;
+.form-container .form-row {
+  padding-bottom: 10px;
 }
 
-.form-container form input {
-  opacity: 0.7;
+.form-container .save-btn {
+  padding-bottom: 20px;
 }
 
-.form-container .reg-link {
-  color: #F3EFE0;
-}
-
-.wrapper {
-  min-height: 100vh;
-  min-width: 100%;
-  margin-top: 100px;
-}
-
-.container-message {
-  margin-top: -24px;
-}
-
-.container {
-  height: 100%;
+@media (max-width: 991px) {
+  .form-container {
+    margin-bottom: 35px;
+  }
 }
 
 footer {
@@ -101,6 +134,7 @@ footer {
   padding-top: 5px;
   position: fixed;
   bottom: 0px;
+  min-width: 100%;
 }
 
 footer .footer-container {
@@ -131,8 +165,4 @@ footer #linkedin {
   float: left;
   padding: 5px 10px 10px;
 }
-
-.asterisk {
-  color: red;
-}
-/*# sourceMappingURL=signin.css.map */
+/*# sourceMappingURL=userEdit.css.map */

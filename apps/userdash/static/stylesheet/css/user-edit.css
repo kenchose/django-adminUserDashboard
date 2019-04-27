@@ -134,6 +134,7 @@ footer {
   padding-top: 5px;
   position: fixed;
   bottom: 0px;
+  min-width: 100%;
 }
 
 footer .footer-container {

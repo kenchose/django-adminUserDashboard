@@ -95,6 +95,7 @@ footer {
   padding-top: 5px;
   position: fixed;
   bottom: 0px;
+  min-width: 100%;
 }
 
 footer .footer-container {
@@ -125,4 +126,4 @@ footer #linkedin {
   float: left;
   padding: 5px 10px 10px;
 }
-/*# sourceMappingURL=add_user.css.map */
+/*# sourceMappingURL=add-user.css.map */

@@ -191,15 +191,12 @@ nav .navbar-nav .nav-link {
 }
 
 footer {
+  min-width: 100%;
   z-index: 99;
   background: #eee;
   padding-top: 5px;
   position: fixed;
   bottom: 0px;
-}
-
-footer .footer-container {
-  min-width: 90vw;
 }
 
 footer .fa {
@@ -231,4 +228,4 @@ footer #linkedin {
   float: left;
   padding: 5px 10px 10px;
 }
-/*# sourceMappingURL=index.css.map */
+/*# sourceMappingURL=welcome.css.map */
