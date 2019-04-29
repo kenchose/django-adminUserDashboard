@@ -112,6 +112,18 @@ nav .navbar-nav .nav-link {
   margin: 0px;
 }
 
+@media (max-width: 767px) {
+  .container-table table .th-user-created_at, .container-table table .td-user-created_at {
+    display: none;
+  }
+}
+
+@media (max-width: 556px) {
+  .container-table table .th-user-email, .container-table table .td-user-email {
+    display: none;
+  }
+}
+
 .modal-body p {
   margin-top: 1rem !important;
   margin-bottom: 1rem !important;
@@ -122,7 +134,6 @@ footer {
   background: #eee;
   padding-top: 5px;
   position: fixed;
-  bottom: 0px;
   min-width: 100%;
 }
 

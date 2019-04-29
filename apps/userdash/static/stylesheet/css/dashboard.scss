@@ -107,6 +107,18 @@ nav {
         border-top:1px;
         margin: 0px;
     }
+    table {
+        @media (max-width:767px) {
+            .th-user-created_at, .td-user-created_at{
+                display:none;
+            }
+        }
+        @media (max-width:556px) {
+            .th-user-email, .td-user-email {
+                display:none;
+            }
+        }
+    }
 }
 
 .modal-body p{
@@ -119,7 +131,6 @@ footer {
     background: #eee;
     padding-top:5px;
     position: fixed;
-    bottom:0px;
     min-width:100%;
     .footer-container {
         min-width:90vw;

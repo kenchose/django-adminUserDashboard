@@ -52,15 +52,15 @@
         </nav>
 
         <!-- DASHBOARD & TABLE -->
-        <div class="wrapper">
+        <section class="wrapper">
             <div class="container border border-dark container-table">
                 <table class="table table-striped text-center"> <!--shwoing nth number of rows/page (Bootstrap:Pagination-->
                     <thead class="table-light">
                         <tr>
                             <th>ID</th>
                             <th>Name</th>
-                            <th>Email</th>
-                            <th>Created At</th>
+                            <th class='th-user-email'>Email</th>
+                            <th class='th-user-created_at'>Hired</th>
                             <th>User Level</th>
                         </tr>
                     </th>
@@ -69,15 +69,15 @@
                             <tr>
                                 <td>{{u.id}}</td>
                                 <td><a href="users/show/{{u.id}}">{{u.first_name}} {{u.last_name}}</a></td>
-                                <td>{{u.email}}</td>
-                                <td>{{u.created_at}}</td>
+                                <td class='td-user-email'>{{u.email}}</td>
+                                <td class='td-user-created_at'>{{u.created_at}}</td>
                                 <td>{{u.admin}}</td>
                             </tr>
                         {% endfor %}
                     </tbody>
                 </table>
             </div>
-        </div>
+        </section>
         <footer>
             <div class="container footer-container">
                 <div class="row">

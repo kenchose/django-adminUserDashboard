@@ -14,9 +14,9 @@ body {
 }
 
 .wrapper {
-    margin-top: 100px;
-    height:100vh;
-    margin-bottom:30px;
+    margin-top: 130px;
+    min-height:100%;
+    margin-bottom:50px;
     @media (max-width:575px) {
         padding:0 1.5rem;
     }
@@ -85,7 +85,7 @@ nav {
 
 
 .container-table {
-    height: 90vh;
+    height: 70vh;
     overflow: scroll;
     background: #efefef;
     border-radius:5px;

@@ -88,7 +88,8 @@ nav .navbar-nav .nav-link {
 }
 
 .body-container {
-  padding: 1rem 0 2rem;
+  margin-top: 2rem;
+  margin-bottom: 5rem;
 }
 
 .body-container .edit-form {
