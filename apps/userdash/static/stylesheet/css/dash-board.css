@@ -16,6 +16,7 @@ body {
 
 .wrapper {
   margin-top: 150px;
+  margin-bottom: 110px;
   min-height: 100%;
 }
 
@@ -135,6 +136,7 @@ footer {
   padding-top: 5px;
   position: fixed;
   min-width: 100%;
+  bottom: 0;
 }
 
 footer .footer-container {
@@ -165,4 +167,4 @@ footer #linkedin {
   float: left;
   padding: 5px 10px 10px;
 }
-/*# sourceMappingURL=dashboard.css.map */
+/*# sourceMappingURL=dash-board.css.map */
