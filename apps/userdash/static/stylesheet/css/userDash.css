@@ -76,6 +76,17 @@ body, html {
   }
 }
 
+.navbar-container .nav-index .navbar-nav .user-logout {
+  background-color: #5bc0eb;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.navbar-container .nav-index .navbar-nav .user-logout:hover {
+  border-color: #5bc0eb;
+  background-color: #eee;
+  color: #5bc0eb;
+}
+
 .main-wrapper {
   margin-top: 85px;
   padding: 0 5rem;

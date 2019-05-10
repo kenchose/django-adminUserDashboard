@@ -83,6 +83,15 @@ body, html {
                     margin-top:8px;
                 }
             }
+            .user-logout {
+                background-color:#5bc0eb;
+                color:rgba(0,0,0,.5);
+                &:hover {
+                    border-color:#5bc0eb;
+                    background-color:#eee;
+                    color:#5bc0eb;
+                }
+            }
         }
     }
 }

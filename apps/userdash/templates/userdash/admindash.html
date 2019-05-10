@@ -48,7 +48,11 @@
                             <li class = "navbar-item">
                                 <form action="/logout" method="post">
                                     {% csrf_token %}
-                                    <button type="submit" class="btn btn-warning admin-logout">Logout</button>
+                                    {% if curr_user.admin == Admin %}
+                                        <button type="submit" class="btn btn-warning admin-logout">Logout</button>
+                                    {% else %}
+                                        <button type="submit" class="btn user-logout">Logout</button>
+                                    {% endif %}
                                 </form>
                             </li>           
                         </ul>
