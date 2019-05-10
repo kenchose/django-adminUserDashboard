@@ -8,53 +8,54 @@
         <link rel="shortcut icon" href="{% static 'favicon/favicon.ico' %}" type="image/x-icon"> 
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet" type='text/css' href="../../static/stylesheet/css/profile.css">
+        <link rel="stylesheet" type='text/css' href="../../static/stylesheet/css/user_profile.css">
         <title>User Profile</title>
     </head>
     <body>
-        <nav class="navbar nav-index navbar-light navbar-expand-lg sticky-top">
-            {% if curr_user.admin == 'Admin' %}
-                <a href="/dashboard/admin" class="nav-link navbar-brand"><img src="./../../static/img/cockpit-brand.png" alt="Brand" class="d-inline-block align-top" width="50" height="50"></a>
-            {% else %}
-                <a href="/dashboard" class="nav-link navbar-brand"><img src="./../../static/img/cockpit-brand.png" alt="Brand" class="d-inline-block align-top" width="50" height="50"></a>
-            {% endif %}
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            
-            <div class="collapse navbar-collapse menu" id="navbarSupportedContent" >
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        {% if curr_user.admin == 'Admin'%}
-                            <a href="/dashboard/admin" class="nav-link">Home</a>
-                        {% else %}
-                            <a href="/dashboard" class='nav-link'>Home</a>
-                        {% endif %}
-                    </li>
-                    <li class="nav-item">
-                        <a href="/users/show/{{curr_user.id}}" class="nav-link">{{curr_user.first_name}}</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">Contact Us</a>
-                    </li>
-                    <li class="navbar-item">
-                        <a href="#" class="nav-link">About Us</a>
-                    </li>     
-                    <li class = "navbar-item">
-                        <form action="/logout" method="post">
-                            {% csrf_token %}
-                            {% if curr_user.admin == 'Admin' %}
-                                <button type="submit" class="btn btn-warning admin-logout">Logout</button>
-                            {% else %}
-                                <button type="submit" class="btn btn-outline-success btn-logout">Logout</button>
-                            {% endif %}
-                        </form>
-                    </li>           
-                </ul>
+        <div class="wrapper">
+            <div class="container navbar-container">
+                <nav class="navbar nav-index navbar-light navbar-expand-lg sticky-top">
+                    {% if curr_user.admin == 'Admin' %}
+                        <a href="/dashboard/admin" class="nav-link navbar-brand"><img src="./../../static/img/cockpit-brand.png" alt="Brand" class="d-inline-block align-top" width="50" height="50"></a>
+                    {% else %}
+                        <a href="/dashboard" class="nav-link navbar-brand"><img src="./../../static/img/cockpit-brand.png" alt="Brand" class="d-inline-block align-top" width="50" height="50"></a>
+                    {% endif %}
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    
+                    <div class="collapse navbar-collapse menu" id="navbarSupportedContent" >
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                {% if curr_user.admin == 'Admin'%}
+                                    <a href="/dashboard/admin" class="nav-link">Home</a>
+                                {% else %}
+                                    <a href="/dashboard" class='nav-link'>Home</a>
+                                {% endif %}
+                            </li>
+                            <li class="nav-item">
+                                <a href="/users/show/{{curr_user.id}}" class="nav-link">{{curr_user.first_name}}</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/users/new" class="nav-link">Add User</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">Contact Us</a>
+                            </li>
+                            <li class="navbar-item">
+                                <a href="#" class="nav-link">About Us</a>
+                            </li>     
+                            <li class = "navbar-item">
+                                <form action="/logout" method="post">
+                                    {% csrf_token %}
+                                    <button type="submit" class="btn btn-warning admin-logout">Logout</button>
+                                </form>
+                            </li>           
+                        </ul>
+                    </div>
+                </nav>
             </div>
-        </nav>
-            
-        <div class="wrapper">  
+                        
             <section id='user-header'>
                 <div class="container">  
                     <div class="text-left">
@@ -127,10 +128,10 @@
                     {% for msg in msg %}
                         <div class="row">
                             <div class="col comment">
-                                <a href='/users/show/{{msg.user.id}}'><h5 class='font-weight-bold text-right'>{{msg.user.first_name}} {{msg.user.last_name}}</a> says:</h5>
+                                <a href='/users/show/{{msg.user.id}}'><h6 class='font-weight-bold text-right'>{{msg.user.first_name}} {{msg.user.last_name}}</a> says:</h6>
                                 <div class="row">
                                     <div class="col-sm">
-                                        <h5 class='text-right created-message'>{{msg.content}}</h5>
+                                        <p class='text-right created-message'>{{msg.content}}</p>
                                         <small class='float-right'>@{{msg.created_at}}</small>
                                     </div>
                                 </div>                                
@@ -140,8 +141,8 @@
                             {% for comment in msg.message.all %}
                             <div class="row">
                                 <div class="col comment">
-                                    <h5><a href="/users/show/{{comment.user.id}}">{{comment.user.first_name}} {{comment.user.last_name}}</a> replied:</h5>
-                                    <h5 class="text-left comment-message">{{comment.content}}</h5>
+                                    <h6><a href="/users/show/{{comment.user.id}}">{{comment.user.first_name}} {{comment.user.last_name}}</a> replied:</h6>
+                                    <p class="text-left comment-message">{{comment.content}}</p>
                                     <small>@{{comment.created_at}}</small>
                                 </div>
                             </div>
@@ -166,7 +167,7 @@
             </section>
         </div>
 
-        <footer>
+        <footer id="footer-normal">
             <div class="container footer-container">
                 <div class="row">
                     <div class="col">
@@ -178,7 +179,26 @@
                 </div>
             </div>
         </footer>
-    
+        <footer id="footer-small">
+            <div class="container footer-container">
+                <div class="row">
+                    <div class="col">
+                        <div class="btn-group dropup">
+                            <button type="button" class="btn btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Contacts
+                            </button>
+                            <div class="dropdown-menu">
+                                <a href="#"><i id="linkedin" class="fab fa-linkedin fa-2x"></i></a> 
+                                <a href="#"><i id="email" class="fas fa-envelope fa-2x"></i></a> 
+                                <a href="#"><i id="github" class="fab fa-github fa-2x"></i></a> 
+                            </div>
+                        </div>
+                        <p class="h5 pt-2 float-right text-light"><i class="far fa-copyright"> 2019 Cockpit Crew</i></p> 
+                    </div>
+                </div>
+            </div>
+        </footer>        
+        
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>   

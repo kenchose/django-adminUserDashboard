@@ -8,77 +8,83 @@
         <link rel="shortcut icon" href="{% static 'favicon/favicon.ico' %}" type="image/x-icon"> 
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet" type='text/css' href="../../static/stylesheet/css/dash-board.css">
+        <link rel="stylesheet" type='text/css' href="../../static/stylesheet/css/userDash.css">
         <title>User Dashboard</title>
     </head>
     <body>
-        <!-- NAVBAR -->
-        <nav class="navbar nav-index navbar-light navbar-expand-lg sticky-top">
-            {% if curr_user.admin == 'Admin' %}
-                <a href="/dashboard/admin" class="nav-link navbar-brand"><img src="./../../static/img/cockpit-brand.png" alt="Brand" class="d-inline-block align-top" width="50" height="50"></a>
-            {% else %}
-                <a href="/dashboard" class="nav-link navbar-brand"><img src="./../../static/img/cockpit-brand.png" alt="Brand" class="d-inline-block align-top" width="50" height="50"></a>
-            {% endif %}
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            
-            <div class="collapse navbar-collapse menu" id="navbarSupportedContent" >
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        {% if curr_user.admin == "Admin" %}
-                            <a href="/dashboard/admin" class="nav-link">Home</a>
-                        {% else %}
-                            <a href="/dashboard" class="nav-link">Home</a>
-                        {% endif %}
-                    </li>
-                    <li class="nav-item">
-                        <a href="/users/show/{{curr_user.id}}" class="nav-link">{{curr_user.first_name}}</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">Contact Us</a>
-                    </li>
-                    <li class="navbar-item">
-                        <a href="#" class="nav-link">About Us</a>
-                    </li>     
-                    <li class = "navbar-item">
-                        <form action="/logout" method="post">
-                            {% csrf_token %}
-                            <button type="submit" class="btn btn-logout btn-logout">Logout</button>
-                        </form>
-                    </li>           
-                </ul>
+        <div class="wrapper">
+            <div class="container navbar-container">
+                <nav class="navbar nav-index navbar-light navbar-expand-lg sticky-top">
+                    {% if curr_user.admin == 'Admin' %}
+                        <a href="/dashboard/admin" class="nav-link navbar-brand"><img src="./../../static/img/cockpit-brand.png" alt="Brand" class="d-inline-block align-top" width="50" height="50"></a>
+                    {% else %}
+                        <a href="/dashboard" class="nav-link navbar-brand"><img src="./../../static/img/cockpit-brand.png" alt="Brand" class="d-inline-block align-top" width="50" height="50"></a>
+                    {% endif %}
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    
+                    <div class="collapse navbar-collapse menu" id="navbarSupportedContent" >
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                {% if curr_user.admin == 'Admin'%}
+                                    <a href="/dashboard/admin" class="nav-link">Home</a>
+                                {% else %}
+                                    <a href="/dashboard" class='nav-link'>Home</a>
+                                {% endif %}
+                            </li>
+                            <li class="nav-item">
+                                <a href="/users/show/{{curr_user.id}}" class="nav-link">{{curr_user.first_name}}</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/users/new" class="nav-link">Add User</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">Contact Us</a>
+                            </li>
+                            <li class="navbar-item">
+                                <a href="#" class="nav-link">About Us</a>
+                            </li>     
+                            <li class = "navbar-item">
+                                <form action="/logout" method="post">
+                                    {% csrf_token %}
+                                    <button type="submit" class="btn btn-warning admin-logout">Logout</button>
+                                </form>
+                            </li>           
+                        </ul>
+                    </div>
+                </nav>
             </div>
-        </nav>
-
-        <!-- DASHBOARD & TABLE -->
-        <section class="wrapper">
-            <div class="container border border-dark container-table">
-                <table class="table table-striped text-center"> <!--shwoing nth number of rows/page (Bootstrap:Pagination-->
-                    <thead class="table-light">
-                        <tr>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th class='th-user-email'>Email</th>
-                            <th class='th-user-created_at'>Hired</th>
-                            <th>User Level</th>
-                        </tr>
-                    </th>
-                    <tbody>
-                        {% for u in all_users%}
+        
+            <!-- DASHBOARD & TABLE -->
+            <section class="main-wrapper">
+                <div class="container border border-dark container-table">
+                    <table class="table table-striped text-center"> <!--shwoing nth number of rows/page (Bootstrap:Pagination-->
+                        <thead class="table-light">
                             <tr>
-                                <td>{{u.id}}</td>
-                                <td><a href="users/show/{{u.id}}">{{u.first_name}} {{u.last_name}}</a></td>
-                                <td class='td-user-email'>{{u.email}}</td>
-                                <td class='td-user-created_at'>{{u.created_at}}</td>
-                                <td>{{u.admin}}</td>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th class='th-user-email'>Email</th>
+                                <th class='th-user-created_at'>Hired</th>
+                                <th>User Level</th>
                             </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
-            </div>
-        </section>
-        <footer>
+                        </th>
+                        <tbody>
+                            {% for u in all_users%}
+                                <tr>
+                                    <td>{{u.id}}</td>
+                                    <td><a href="users/show/{{u.id}}">{{u.first_name}} {{u.last_name}}</a></td>
+                                    <td class='td-user-email'>{{u.email}}</td>
+                                    <td class='td-user-created_at'>{{u.created_at}}</td>
+                                    <td>{{u.admin}}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+        <footer id="footer-normal">
             <div class="container footer-container">
                 <div class="row">
                     <div class="col">
@@ -90,7 +96,25 @@
                 </div>
             </div>
         </footer>
-    
+        <footer id="footer-small">
+            <div class="container footer-container">
+                <div class="row">
+                    <div class="col">
+                        <div class="btn-group dropup">
+                            <button type="button" class="btn btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Contacts
+                            </button>
+                            <div class="dropdown-menu">
+                                <a href="#"><i id="linkedin" class="fab fa-linkedin fa-2x"></i></a> 
+                                <a href="#"><i id="email" class="fas fa-envelope fa-2x"></i></a> 
+                                <a href="#"><i id="github" class="fab fa-github fa-2x"></i></a> 
+                            </div>
+                        </div>
+                        <p class="h5 pt-2 float-right text-light"><i class="far fa-copyright"> 2019 Cockpit Crew</i></p> 
+                    </div>
+                </div>
+            </div>
+        </footer>        
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>   

@@ -5,41 +5,35 @@
   margin: 0;
 }
 
-body {
+body, html {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 1rem;
   line-height: 1.5;
   overflow-x: hidden;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
+  height: 100%;
 }
 
 .wrapper {
-  min-height: 100vh;
-  min-width: 100%;
-  padding-top: 100px;
+  min-height: 100%;
 }
 
-nav {
+.navbar-container {
   background: #eee !important;
+  z-index: 99;
+  min-width: 100%;
 }
 
-nav .navbar-nav .nav-link {
-  margin-left: 20px;
-}
-
-.navbar .navbar-nav .nav-link {
+.navbar-container .nav-index .navbar-nav .nav-link {
   position: relative;
   text-decoration: none;
   display: inline-block;
 }
 
-.navbar .navbar-nav .nav-link:hover {
+.navbar-container .nav-index .navbar-nav .nav-link:hover {
   color: #5bc0eb !important;
 }
 
-.navbar .navbar-nav .nav-link:before {
+.navbar-container .nav-index .navbar-nav .nav-link:before {
   content: "";
   position: absolute;
   width: 100%;
@@ -54,42 +48,65 @@ nav .navbar-nav .nav-link {
   transition: all 0.3s ease-in-out 0s;
 }
 
-.navbar .navbar-nav .nav-link:hover:before {
+.navbar-container .nav-index .navbar-nav .nav-link:hover:before {
   visibility: visible;
   -webkit-transform: scaleX(1);
   transform: scaleX(1);
 }
 
-.nav-index {
-  position: absolute;
-  z-index: 99;
-  width: 100%;
-  top: 0;
+.navbar-container .nav-index .navbar-nav .admin-logout:hover {
+  color: #5bc0eb;
+  background-color: #eee;
+  border-color: #5bc0eb;
 }
 
-.form-container a {
-  color: black;
+@media (min-height: 1281px) {
+  .navbar-container .nav-index .navbar-nav .admin-logout {
+    margin-left: 1rem;
+  }
 }
 
-.form-container .create-btn {
-  margin-bottom: 20px;
+@media (min-width: 1025px) and (max-width: 1280px) {
+  .navbar-container .nav-index .navbar-nav .admin-logout {
+    margin-left: 1rem;
+  }
 }
 
-.form-container .form-row {
-  padding-bottom: 10px;
-}
-
-.form-container .asterisk {
+.asterisk {
   color: red;
+}
+
+.edit-form {
+  padding: 20px;
+}
+
+.message {
+  margin-left: 0px;
+}
+
+.form-container {
+  border: black solid 1px;
+  border-radius: 5px;
+}
+
+@media (max-width: 991px) {
+  .form-container {
+    margin-bottom: 35px;
+  }
 }
 
 #footer-small {
   min-width: 100%;
-  z-index: 99;
   background: #eee;
-  padding-top: 5px;
-  position: fixed;
   bottom: 0px;
+  display: none;
+}
+
+@media (min-width: 320px) and (max-width: 479px) {
+  #footer-small {
+    padding-top: 5px;
+    padding-bottom: 13px;
+  }
 }
 
 #footer-small .fa {
@@ -127,9 +144,9 @@ nav .navbar-nav .nav-link {
   padding: 5px 10px 10px;
 }
 
-@media (min-width: 427px) {
+@media (min-width: 320px) and (max-width: 479px) {
   #footer-small {
-    display: none;
+    display: block;
   }
 }
 
@@ -138,8 +155,14 @@ nav .navbar-nav .nav-link {
   z-index: 99;
   background: #eee;
   padding-top: 5px;
-  position: fixed;
   bottom: 0px;
+}
+
+@media (min-width: 320px) and (max-width: 479px) {
+  #footer-normal {
+    padding-top: 5px;
+    padding-bottom: 13px;
+  }
 }
 
 #footer-normal .fa {
@@ -172,9 +195,9 @@ nav .navbar-nav .nav-link {
   padding: 5px 10px 10px;
 }
 
-@media (max-width: 426px) {
+@media (min-width: 320px) and (max-width: 479px) {
   #footer-normal {
     display: none;
   }
 }
-/*# sourceMappingURL=register.css.map */
+/*# sourceMappingURL=adminEdit.css.map */

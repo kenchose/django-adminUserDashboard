@@ -7,6 +7,10 @@
 
 body, html {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: url("../../img/dashboard.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
   font-size: 1rem;
   line-height: 1.5;
   overflow-x: hidden;
@@ -72,100 +76,100 @@ body, html {
   }
 }
 
+.main-wrapper {
+  margin-top: 85px;
+  padding: 0 5rem;
+}
+
 @media (min-width: 481px) and (max-width: 767px) {
-  .navbar-container .nav-index .navbar-nav .admin-logout {
-    margin-top: 8px;
+  .main-wrapper {
+    padding: 0;
+    margin-top: 0;
   }
 }
 
 @media (min-width: 320px) and (max-width: 479px) {
-  .navbar-container .nav-index .navbar-nav .admin-logout {
-    margin-top: 8px;
+  .main-wrapper {
+    padding: 0;
+    margin-top: 0;
   }
 }
 
-#validation-messages .asterisk {
-  color: red;
+.header {
+  margin-top: 100px;
 }
 
-#validation-messages .message {
-  margin-left: 0px;
+.fa-edit {
+  text-align: center;
 }
 
-#validation-messages .validation-container {
-  margin-top: 1rem;
-}
-
-#main-form {
-  margin-top: 4rem;
-}
-
-@media (min-width: 481px) and (max-width: 767px) {
-  #main-form {
-    margin: 90px;
-  }
-}
-
-@media (min-width: 320px) and (max-width: 479px) {
-  #main-form {
-    margin: 0px;
-  }
-}
-
-#main-form .form-container .edit-form {
-  padding: 20px;
-}
-
-#main-form .form-container .form-row {
-  padding-bottom: 10px;
-}
-
-#main-form .form-container .save-btn {
-  padding-bottom: 20px;
+.container-table {
+  height: 65vh;
+  overflow: auto;
+  background: #efefef;
+  border-radius: 5px;
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
-  #main-form .form-container .edit-password {
-    margin-top: 2.5rem;
+  .container-table {
+    height: 73vh;
+    padding-left: 0px;
+    padding-right: 0px;
   }
-}
-
-@media (min-width: 768px) and (max-width: 1024px) {
-  #main-form .form-container {
-    border: black solid 1px;
-    border-radius: 5px;
-  }
-}
-
-@media (min-width: 1025px) and (max-width: 1280px) {
-  #main-form .form-container {
-    border: black solid 1px;
-    border-radius: 5px;
-  }
-}
-
-@media (min-height: 1281px) {
-  #main-form .form-container {
-    border: black solid 1px;
-    border-radius: 5px;
-  }
-}
-
-#main-form .body-container {
-  margin-top: 2rem;
-  margin-bottom: 5rem;
 }
 
 @media (min-width: 481px) and (max-width: 767px) {
-  #main-form .body-container {
-    margin: 0px;
+  .container-table {
+    padding: 0px;
+    border: none !important;
   }
 }
 
 @media (min-width: 320px) and (max-width: 479px) {
-  #main-form .body-container {
-    margin: 0px;
+  .container-table {
+    padding: 0px;
+    border: none !important;
+    height: 91vh;
   }
+}
+
+.container-table .fa-trash {
+  cursor: pointer;
+  text-align: center;
+  margin-left: 1.5rem;
+}
+
+.container-table th {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+  z-index: 1;
+  border-top: 1px;
+  margin: 0px;
+}
+
+@media (max-width: 767px) {
+  .container-table table .th-user-created_at, .container-table table .td-user-created_at {
+    display: none;
+  }
+}
+
+@media (max-width: 556px) {
+  .container-table table .th-user-email, .container-table table .td-user-email {
+    display: none;
+  }
+}
+
+@media (max-width: 737px) {
+  .container-table table {
+    height: 65vh;
+  }
+}
+
+.modal-body p {
+  margin-top: 1rem !important;
+  margin-bottom: 1rem !important;
 }
 
 #footer-small {
@@ -273,4 +277,4 @@ body, html {
     display: none;
   }
 }
-/*# sourceMappingURL=userEdit.css.map */
+/*# sourceMappingURL=userDash.css.map */

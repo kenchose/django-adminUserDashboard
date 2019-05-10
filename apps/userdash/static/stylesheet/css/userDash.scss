@@ -19,6 +19,10 @@ $breakpoint-phone:"(min-width:320px) and (max-width:479px)";
 
 body, html {
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background:url('../../img/dashboard.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
     font-size:1rem;
     line-height: 1.5;
     overflow-x:hidden;
@@ -40,7 +44,6 @@ body, html {
                 position: relative; //needs relative for psuedo element to work
                 text-decoration: none;
                 display:inline-block;
-                // margin-left: 20px;
             }
             .nav-link:hover {
                 color: #5bc0eb !important;
@@ -76,80 +79,89 @@ body, html {
                 @media #{$breakpoint-laptops} {
                     margin-left:1rem;
                 }
-                @media #{$breakpoint-phone-large} {
-                    margin-top:8px;
-                }
-                @media #{$breakpoint-phone} {
-                    margin-top:8px;
-                }
             }
         }
     }
 }
 
 
-#validation-messages {
-    .asterisk {
-        color:red;
-    }
-    .message {
-        margin-left:0px;
-    }    
-    .validation-container {
-        margin-top: 1rem;
-    }
-}
 
-
-
-#main-form {
-    margin-top:4rem;
+.main-wrapper {
+    margin-top: 85px;
+    padding:0 5rem;
     @media #{$breakpoint-phone-large} {
-        margin:90px;
-    }  
+        padding:0 ;
+        margin-top:0;
+    }
     @media #{$breakpoint-phone} {
-        margin:0px;
-    }  
-    .form-container {
-        .edit-form {
-            padding:20px;
-        }        
-        .form-row {
-            padding-bottom:10px;
-        }
-        .save-btn {
-            padding-bottom: 20px;
-        }
-        .edit-password {
-            @media #{$breakpoint-tablets} {
-                margin-top:2.5rem;
-            }
-        }
-        @media #{$breakpoint-tablets} {
-            border: black solid 1px;
-            border-radius: 5px;
-        }  
-        @media #{$breakpoint-laptops} {
-            border: black solid 1px;
-            border-radius: 5px;
-        }  
-        @media #{$breakpoint-desktops} {
-            border: black solid 1px;
-            border-radius: 5px;
-        }  
-    }    
-    .body-container {
-        margin-top:2rem;
-        margin-bottom:5rem;  
-        @media #{$breakpoint-phone-large} {
-            margin:0px;
-        }  
-        @media #{$breakpoint-phone} {
-            margin:0px;
-        }  
+        padding:0;
+        margin-top:0;
     }
 }
 
+
+.header {
+    margin-top:100px;
+}
+
+
+.fa-edit {
+    text-align: center;
+}
+ 
+.container-table {
+    height: 65vh;
+    @media #{$breakpoint-tablets} {
+        height:73vh;
+        padding-left:0px;
+        padding-right:0px;
+    }
+    overflow: auto;
+    background: #efefef;
+    border-radius:5px;
+    @media #{$breakpoint-phone-large} {
+        padding:0px;
+        border:none !important;
+    };
+    @media #{$breakpoint-phone} {
+        padding:0px;
+        border:none !important;
+        height:91vh;
+    };
+    .fa-trash {
+        cursor:pointer;
+        text-align: center;
+        margin-left: 1.5rem;
+    }
+    th {
+        position: sticky;
+        top:0;
+        background-color:#fff;
+        z-index: 1;
+        border-top:1px;
+        margin: 0px;
+    }
+    table {
+        @media (max-width:767px) {
+            .th-user-created_at, .td-user-created_at{
+                display:none;
+            }
+        }
+        @media (max-width:556px) {
+            .th-user-email, .td-user-email {
+                display:none;
+            }
+        }
+        @media (max-width:737px) {
+            height:65vh;
+        }
+    }
+}
+
+.modal-body p{
+    margin-top:1rem !important;
+    margin-bottom:1rem !important;
+}
 
 #footer-small {
     min-width:100%;

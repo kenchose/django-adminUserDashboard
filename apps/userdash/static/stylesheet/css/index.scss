@@ -1,4 +1,15 @@
+$breakpoint-desktops: "(min-height:1281px)";
+$breakpoint-laptops: "(min-width: 1025px) and (max-width: 1280px)";
+$breakpoint-tablets:"(min-width:768px) and (max-width:1024px)";
+$breakpoint-phone-large:"(min-width:481px) and (max-width:767px)";
+$breakpoint-phone:"(min-width:320px) and (max-width:479px)";
+// @media #{$breakpoint-desktops}
+// @media #{$breakpoint-laptops} 
+// @media #{$breakpoint-tablets} 
+// @media #{$breakpoint-phone-large} 
+// @media #{$breakpoint-phone} 
 :root {
+
     --background: rgba(0, 214, 175, .5); 
 }
 
@@ -129,12 +140,18 @@ nav {
 }
 
 .alert {
-    z-index:99;
+    z-index:2;
     margin-top:76px;
 }
 
 .header-content {
     z-index:2;
+    @media #{$breakpoint-phone-large} {
+        margin-top:58px;
+    }
+    @media #{$breakpoint-phone} {
+        margin-top:90px;
+    }
     h1 {
         font-size:50px;
         margin-bottom:0;
@@ -150,13 +167,28 @@ nav {
         font-size:1.2rem;
         padding: 10px 20px;
         text-decoration: none;
+        @media (max-width:812px) {
+            display:none;
+        }
+        @media #{$breakpoint-phone-large} {
+            display:none;
+        }
+        @media #{$breakpoint-phone} {
+            display:none;
+        }    
     }
-    @media (max-width:960px) {
+    @media #{$breakpoint-phone} {
         padding-right:3rem;
         padding-left:3rem;
+        padding-top:5rem;
+    }
+    @media #{$breakpoint-phone-large} {
+        padding-right:3rem;
+        padding-left:3rem;
+        padding-top:5rem;
     }
     @media (max-width:662px) {
-        padding-top:4rem;
+        padding-top:1rem;
     }
 }
 
@@ -175,10 +207,50 @@ nav {
     }
 }
 
-footer {
-    // .footer-container {
-    //     min-width:90vw;
-    // }
+#footer-small {
+    min-width:100%;
+    z-index:99;
+    background: #eee;
+    padding-top:5px;
+    position:fixed;
+    bottom:0px;
+    .fa {
+        padding:0px;
+        margin:0px;
+    }
+    .fa-copyright {
+        color:black;
+        padding-bottom:8px;
+    }
+    .dropdown-toggle {
+        margin-top:6px;
+    }
+    #email {
+        color:#ed7b7b;
+        opacity:1;
+        float:left;
+        padding: 5px 10px 10px;    
+    }
+    
+    #github {
+        color:#ed7b7b;
+        opacity:1;
+        float:left;
+        padding: 5px 10px 10px;
+    }
+    
+    #linkedin {
+        color:#ed7b7b;
+        opacity:1;
+        float:left;
+        padding: 5px 10px 10px;
+    }
+    @media (min-width:427px) {
+        display:none;
+    }
+}
+
+#footer-normal {
     min-width:100%;
     z-index:99;
     background: #eee;
@@ -212,5 +284,7 @@ footer {
         float:left;
         padding: 5px 10px 10px;
     }
+    @media (max-width:426px) {
+        display:none;
+    }
 }
-

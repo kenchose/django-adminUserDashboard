@@ -8,7 +8,7 @@
         <link rel="shortcut icon" href="{% static 'favicon/favicon.ico' %}" type="image/x-icon"> 
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet" type="text/css" href="./../../static/stylesheet/css/welcome.css">
+        <link rel="stylesheet" type="text/css" href="./../../static/stylesheet/css/index.css">
         <title>Home Page</title>
     </head>
     <body>
@@ -54,7 +54,7 @@
             <div class="header-content container">
                 <h1>Welcome to C<span><img  class='cockpit-logo' src="../../static/img/cockpit-logo.png" alt="brand-logo"></span>ckpit</h1>
                 <p>Finally get down and take care of business easier with C<span><img  class='cockpit-p' src="../../static/img/cockpit-logo.png" alt="brand-logo"></span>ckpit. Be updated with work and make sure everyone is on the same page. Meet your new colleagues and directly message them!</p>
-                <a href="#" class='btn '>Read More</a>
+                <a href="#" class='btn'>Read More</a>
             </div>
         </header>
 
@@ -76,14 +76,32 @@
                 </div>
             </div>
         </section>
-        
-        <footer>
+        <footer id="footer-normal">
             <div class="container footer-container">
                 <div class="row">
                     <div class="col">
                         <a href="#"><i id="linkedin" class="fab fa-linkedin fa-2x"></i></a> 
                         <a href="#"><i id="email" class="fas fa-envelope fa-2x"></i></a> 
                         <a href="#"><i id="github" class="fab fa-github fa-2x"></i></a> 
+                        <p class="h5 pt-2 float-right text-light"><i class="far fa-copyright"> 2019 Cockpit Crew</i></p> 
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <footer id="footer-small">
+            <div class="container footer-container">
+                <div class="row">
+                    <div class="col">
+                        <div class="btn-group dropup">
+                            <button type="button" class="btn btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Contacts
+                            </button>
+                            <div class="dropdown-menu">
+                                <a href="#"><i id="linkedin" class="fab fa-linkedin fa-2x"></i></a> 
+                                <a href="#"><i id="email" class="fas fa-envelope fa-2x"></i></a> 
+                                <a href="#"><i id="github" class="fab fa-github fa-2x"></i></a> 
+                            </div>
+                        </div>
                         <p class="h5 pt-2 float-right text-light"><i class="far fa-copyright"> 2019 Cockpit Crew</i></p> 
                     </div>
                 </div>

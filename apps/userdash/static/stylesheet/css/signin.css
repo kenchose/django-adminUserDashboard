@@ -8,7 +8,7 @@
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   height: 100vh;
-  font-size: 1rem;
+  font-size: 14px;
   margin: 0px !important;
   line-height: 1.5;
   color: #eee;
@@ -95,45 +95,98 @@ nav .navbar-nav .nav-link {
   height: 100%;
 }
 
-footer {
+#footer-small {
+  min-width: 100%;
   z-index: 99;
   background: #eee;
   padding-top: 5px;
   position: fixed;
   bottom: 0px;
+}
+
+#footer-small .fa {
+  padding: 0px;
+  margin: 0px;
+}
+
+#footer-small .fa-copyright {
+  color: black;
+  padding-bottom: 8px;
+}
+
+#footer-small .dropdown-toggle {
+  margin-top: 6px;
+}
+
+#footer-small #email {
+  color: #ed7b7b;
+  opacity: 1;
+  float: left;
+  padding: 5px 10px 10px;
+}
+
+#footer-small #github {
+  color: #ed7b7b;
+  opacity: 1;
+  float: left;
+  padding: 5px 10px 10px;
+}
+
+#footer-small #linkedin {
+  color: #ed7b7b;
+  opacity: 1;
+  float: left;
+  padding: 5px 10px 10px;
+}
+
+@media (min-width: 427px) {
+  #footer-small {
+    display: none;
+  }
+}
+
+#footer-normal {
   min-width: 100%;
+  z-index: 99;
+  background: #eee;
+  padding-top: 5px;
+  position: fixed;
+  bottom: 0px;
 }
 
-footer .footer-container {
-  min-width: 90vw;
+#footer-normal .fa {
+  padding: 0px;
+  margin: 0px;
 }
 
-footer .fa-copyright {
+#footer-normal .fa-copyright {
   color: black;
 }
 
-footer #email {
+#footer-normal #email {
   color: #ed7b7b;
   opacity: 1;
   float: left;
   padding: 5px 10px 10px;
 }
 
-footer #github {
+#footer-normal #github {
   color: #ed7b7b;
   opacity: 1;
   float: left;
   padding: 5px 10px 10px;
 }
 
-footer #linkedin {
+#footer-normal #linkedin {
   color: #ed7b7b;
   opacity: 1;
   float: left;
   padding: 5px 10px 10px;
 }
 
-.asterisk {
-  color: red;
+@media (max-width: 426px) {
+  #footer-normal {
+    display: none;
+  }
 }
-/*# sourceMappingURL=sign-in.css.map */
+/*# sourceMappingURL=signin.css.map */

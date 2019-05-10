@@ -10,6 +10,8 @@ body, html {
   font-size: 1rem;
   line-height: 1.5;
   overflow-x: hidden;
+  background: url("../../img/admindash.jpg") no-repeat center;
+  background-size: cover;
   height: 100%;
 }
 
@@ -72,100 +74,123 @@ body, html {
   }
 }
 
-@media (min-width: 481px) and (max-width: 767px) {
-  .navbar-container .nav-index .navbar-nav .admin-logout {
-    margin-top: 8px;
-  }
+#main-wrapper {
+  padding: 0 7rem;
+  margin: 65px 0;
 }
 
-@media (min-width: 320px) and (max-width: 479px) {
-  .navbar-container .nav-index .navbar-nav .admin-logout {
-    margin-top: 8px;
-  }
-}
-
-#validation-messages .asterisk {
-  color: red;
-}
-
-#validation-messages .message {
-  margin-left: 0px;
-}
-
-#validation-messages .validation-container {
-  margin-top: 1rem;
-}
-
-#main-form {
-  margin-top: 4rem;
-}
-
-@media (min-width: 481px) and (max-width: 767px) {
-  #main-form {
-    margin: 90px;
-  }
-}
-
-@media (min-width: 320px) and (max-width: 479px) {
-  #main-form {
-    margin: 0px;
-  }
-}
-
-#main-form .form-container .edit-form {
-  padding: 20px;
-}
-
-#main-form .form-container .form-row {
-  padding-bottom: 10px;
-}
-
-#main-form .form-container .save-btn {
-  padding-bottom: 20px;
+#main-wrapper .add-btn:hover {
+  text-decoration: none;
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
-  #main-form .form-container .edit-password {
-    margin-top: 2.5rem;
+  #main-wrapper {
+    padding: 0 6rem;
+    margin: 110px 0;
   }
-}
-
-@media (min-width: 768px) and (max-width: 1024px) {
-  #main-form .form-container {
-    border: black solid 1px;
-    border-radius: 5px;
-  }
-}
-
-@media (min-width: 1025px) and (max-width: 1280px) {
-  #main-form .form-container {
-    border: black solid 1px;
-    border-radius: 5px;
-  }
-}
-
-@media (min-height: 1281px) {
-  #main-form .form-container {
-    border: black solid 1px;
-    border-radius: 5px;
-  }
-}
-
-#main-form .body-container {
-  margin-top: 2rem;
-  margin-bottom: 5rem;
 }
 
 @media (min-width: 481px) and (max-width: 767px) {
-  #main-form .body-container {
-    margin: 0px;
+  #main-wrapper {
+    padding: 0px;
+    margin: 80px 0;
   }
 }
 
 @media (min-width: 320px) and (max-width: 479px) {
-  #main-form .body-container {
-    margin: 0px;
+  #main-wrapper {
+    padding: 0px;
+    margin: 81px 0;
   }
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+  #main-wrapper .head-container {
+    display: none;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 479px) {
+  #main-wrapper .head-container {
+    display: none;
+  }
+}
+
+#main-wrapper .container-table {
+  height: 63vh;
+  overflow: auto;
+  background: #efefef;
+  border-radius: 5px;
+}
+
+@media (min-width: 320px) and (max-width: 479px) {
+  #main-wrapper .container-table {
+    padding: 0;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+  #main-wrapper .container-table {
+    padding: 0;
+  }
+}
+
+#main-wrapper .container-table .fa-trash {
+  cursor: pointer;
+  text-align: center;
+  margin-left: 1.5rem;
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  #main-wrapper .container-table .fa-trash {
+    margin: 0px;
+    padding-left: 14px;
+  }
+}
+
+#main-wrapper .container-table th {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+  z-index: 1;
+  border-top: 1px;
+  margin: 0px;
+}
+
+@media (min-width: 320px) and (max-width: 479px) {
+  #main-wrapper .container-table table .th-user-created_at, #main-wrapper .container-table table .td-user-created_at, #main-wrapper .container-table table .td-user-id {
+    display: none;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+  #main-wrapper .container-table table .th-user-created_at, #main-wrapper .container-table table .td-user-created_at, #main-wrapper .container-table table .td-user-id {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  #main-wrapper .container-table table .th-user-created_at, #main-wrapper .container-table table .td-user-created_at, #main-wrapper .container-table table .td-user-id {
+    display: none;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 479px) {
+  #main-wrapper .container-table table .th-user-email, #main-wrapper .container-table table .td-user-email, #main-wrapper .container-table table .th-user-id {
+    display: none;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+  #main-wrapper .container-table table .th-user-email, #main-wrapper .container-table table .td-user-email, #main-wrapper .container-table table .th-user-id {
+    display: none;
+  }
+}
+
+.modal-body p {
+  margin-top: 1rem !important;
+  margin-bottom: 1rem !important;
 }
 
 #footer-small {
@@ -273,4 +298,4 @@ body, html {
     display: none;
   }
 }
-/*# sourceMappingURL=userEdit.css.map */
+/*# sourceMappingURL=adminDashboard.css.map */

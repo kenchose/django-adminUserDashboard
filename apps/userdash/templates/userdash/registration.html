@@ -54,23 +54,23 @@
                 <form action="/register" method="post">
                     {% csrf_token %}
                     <div class="form-row">
-                        <div class="form-group col">
+                        <div class="form-group col-sm-6">
                             <label for="first_name"><span class='asterisk'>*</span>First name</label>
                             <input type="text" name="first_name" id="first_name" class="form-control">
                         </div>
-                        <div class="form-group col">
+                        <div class="form-group col-sm-6">
                             <label for="last_name"><span class='asterisk'>*</span>Last name</label>
                             <input type="text" name="last_name" id="last_name" class="form-control">
                         </div>
                     </div>
                     <div class="form-row">
-                        <div class="form-group col">
+                        <div class="form-group col-sm-12">
                             <label for="email"><span class='asterisk'>*</span>Email</label>
                             <input type="email" name="email" id="email" class="form-control">
                         </div>
                     </div>
                     <div class="form-row">
-                        <div class="form-group col">
+                        <div class="form-group col-sm-12">
                             <label for="password"><span class='asterisk'>*</span>Password</label>
                             <input type="password" name="password" id="password" class="form-control">
                             <small class="form-text text-muted">
@@ -79,7 +79,7 @@
                         </div>
                     </div>
                     <div class="form-row">
-                        <div class="form-group col">
+                        <div class="form-group col-sm-12">
                             <label for="password_confirmation"><span class='asterisk'>*</span>Password confirmation</label>
                             <input type="password" name="password_confirmation" id="password_confirmation" class="form-control">
                         </div>
@@ -93,15 +93,15 @@
                         </div>
                     </div>
                     <div class="form-row">
-                        <div class="form-group col">
-                            <button type="submit" class="btn btn-info col create-btn form-control">Create Account</button>
+                        <div class="form-group col-sm-12">
+                            <button type="submit" class="btn btn-info col-sm-12 create-btn form-control text-center">Create Account</button>
                         </div>
                     </div>
                     <a href="/signin" class="form-group"><u>Already have an account? Login</u></a>
                 </form> 
             </div> 
         </div>
-        <footer>
+        <footer id="footer-normal">
             <div class="container footer-container">
                 <div class="row footer-row">
                     <div class="col footer-col">
@@ -109,6 +109,25 @@
                         <a href="#"><i id="email" class="fas fa-envelope fa-2x"></i></a> 
                         <a href="#"><i id="github" class="fab fa-github fa-2x"></i></a> 
                         <p class="h5 ml-5 pt-2 float-right text-light"><i class="far fa-copyright mr-3"> 2019 Cockpit Crew</i></p> 
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <footer id="footer-small">
+            <div class="container footer-container">
+                <div class="row">
+                    <div class="col">
+                        <div class="btn-group dropup">
+                            <button type="button" class="btn btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Contacts
+                            </button>
+                            <div class="dropdown-menu">
+                                <a href="#"><i id="linkedin" class="fab fa-linkedin fa-2x"></i></a> 
+                                <a href="#"><i id="email" class="fas fa-envelope fa-2x"></i></a> 
+                                <a href="#"><i id="github" class="fab fa-github fa-2x"></i></a> 
+                            </div>
+                        </div>
+                        <p class="h5 pt-2 float-right text-light"><i class="far fa-copyright"> 2019 Cockpit Crew</i></p> 
                     </div>
                 </div>
             </div>

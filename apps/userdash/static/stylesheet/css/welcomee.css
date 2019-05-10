@@ -1,3 +1,7 @@
+:root {
+  --background: rgba(0, 214, 175, .5);
+}
+
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -9,16 +13,8 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 1rem;
   line-height: 1.5;
+  color: #333;
   overflow-x: hidden;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-}
-
-.wrapper {
-  min-height: 100vh;
-  min-width: 100%;
-  padding-top: 100px;
 }
 
 nav {
@@ -27,6 +23,13 @@ nav {
 
 nav .navbar-nav .nav-link {
   margin-left: 20px;
+}
+
+.nav-index {
+  position: absolute;
+  z-index: 99;
+  width: 100%;
+  top: 0;
 }
 
 .navbar .navbar-nav .nav-link {
@@ -60,27 +63,143 @@ nav .navbar-nav .nav-link {
   transform: scaleX(1);
 }
 
-.nav-index {
+.cockpit-logo {
+  width: 30px;
+  height: 30px;
+}
+
+.cockpit-p {
+  width: 15px;
+  height: 15px;
+}
+
+.v-header {
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #fff;
+  max-width: 960px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin: auto;
+  text-align: center;
+}
+
+.wrapper {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  min-height: 90vh;
+  margin: auto;
+  text-align: center;
+}
+
+.fullscreen-video-wrap {
   position: absolute;
-  z-index: 99;
-  width: 100%;
   top: 0;
+  left: 0;
+  background-position: center;
+  background-size: contain;
+  width: 100%;
+  height: 103vh;
+  overflow: hidden;
 }
 
-.form-container a {
-  color: black;
+.fullscreen-video-wrap video {
+  min-width: 100%;
+  min-height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  z-index: -2;
 }
 
-.form-container .create-btn {
-  margin-bottom: 20px;
+.header-overlay {
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #225470;
+  z-index: 1;
+  opacity: 0.85;
 }
 
-.form-container .form-row {
-  padding-bottom: 10px;
+@media (max-width: 991px) {
+  .header-overlay {
+    height: 90vh;
+  }
 }
 
-.form-container .asterisk {
-  color: red;
+.alert {
+  z-index: 2;
+  margin-top: 76px;
+}
+
+.header-content {
+  z-index: 2;
+}
+
+.header-content h1 {
+  font-size: 50px;
+  margin-bottom: 0;
+}
+
+.header-content p {
+  font-size: 1.5rem;
+  display: block;
+  padding-bottom: 2rem;
+}
+
+.header-content .btn {
+  color: #fff;
+  background: #34b3a0;
+  font-size: 1.2rem;
+  padding: 10px 20px;
+  text-decoration: none;
+}
+
+@media (max-width: 960px) {
+  .header-content {
+    padding-right: 3rem;
+    padding-left: 3rem;
+  }
+}
+
+@media (max-width: 662px) {
+  .header-content {
+    padding-top: 4rem;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+  .read-more {
+    dispaly: none;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 479px) {
+  .read-more {
+    dispaly: none;
+  }
+}
+
+.section {
+  padding: 3rem 0;
+  background: #333;
+  color: #fff;
+}
+
+.section .section-content {
+  padding: 1rem;
+}
+
+@media (min-width: 992px) {
+  .nav-index {
+    position: relative;
+  }
 }
 
 #footer-small {
@@ -177,4 +296,4 @@ nav .navbar-nav .nav-link {
     display: none;
   }
 }
-/*# sourceMappingURL=register.css.map */
+/*# sourceMappingURL=welcomee.css.map */

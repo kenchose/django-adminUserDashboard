@@ -76,80 +76,71 @@ body, html {
                 @media #{$breakpoint-laptops} {
                     margin-left:1rem;
                 }
-                @media #{$breakpoint-phone-large} {
-                    margin-top:8px;
-                }
-                @media #{$breakpoint-phone} {
-                    margin-top:8px;
-                }
             }
         }
     }
 }
 
 
-#validation-messages {
-    .asterisk {
-        color:red;
+.fa-pencil-alt {
+    text-align: center;
+}
+
+.user-info-wrap {
+    margin-left:0 auto;
+    p{
+        word-wrap: break-word; 
     }
-    .message {
-        margin-left:0px;
-    }    
-    .validation-container {
-        margin-top: 1rem;
+    .post-input {
+        margin: 1rem 0;
     }
 }
 
+#user-header {
+    margin-top:70px;
+}
 
-
-#main-form {
-    margin-top:4rem;
-    @media #{$breakpoint-phone-large} {
-        margin:90px;
-    }  
-    @media #{$breakpoint-phone} {
-        margin:0px;
-    }  
-    .form-container {
-        .edit-form {
-            padding:20px;
-        }        
-        .form-row {
-            padding-bottom:10px;
-        }
-        .save-btn {
-            padding-bottom: 20px;
-        }
-        .edit-password {
-            @media #{$breakpoint-tablets} {
-                margin-top:2.5rem;
-            }
-        }
-        @media #{$breakpoint-tablets} {
-            border: black solid 1px;
-            border-radius: 5px;
-        }  
-        @media #{$breakpoint-laptops} {
-            border: black solid 1px;
-            border-radius: 5px;
-        }  
-        @media #{$breakpoint-desktops} {
-            border: black solid 1px;
-            border-radius: 5px;
-        }  
-    }    
-    .body-container {
-        margin-top:2rem;
-        margin-bottom:5rem;  
-        @media #{$breakpoint-phone-large} {
+.message-container {
+    .comment {
+        padding:1rem 2rem;
+    }
+    .comment-container {
+        height:45vh;
+        overflow:scroll;
+        border: solid black 1px;
+        border-radius: 5px;
+        overflow-x:hidden;
+        .comment-message {
             margin:0px;
-        }  
-        @media #{$breakpoint-phone} {
-            margin:0px;
-        }  
+        }    
+        small {
+            font-size:12px;
+        }    
+    }
+    .comment-input {
+        padding:0px;
+        margin:1rem 0 6rem;
+    }
+    hr {
+        height:1px;
+        background-color:#eee;
+        margin:45px 0;
+    }
+    .created-message {
+        margin-bottom:6px;
+    }
+    small {
+        font-size:12px;
     }
 }
 
+#last-hr:last-child {
+    display:none;
+}
+
+#user-messages {
+    margin:90px 0 70px;
+}
 
 #footer-small {
     min-width:100%;

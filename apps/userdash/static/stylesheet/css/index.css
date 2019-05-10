@@ -134,12 +134,24 @@ nav .navbar-nav .nav-link {
 }
 
 .alert {
-  z-index: 99;
+  z-index: 2;
   margin-top: 76px;
 }
 
 .header-content {
   z-index: 2;
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+  .header-content {
+    margin-top: 58px;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 479px) {
+  .header-content {
+    margin-top: 90px;
+  }
 }
 
 .header-content h1 {
@@ -161,16 +173,43 @@ nav .navbar-nav .nav-link {
   text-decoration: none;
 }
 
-@media (max-width: 960px) {
+@media (max-width: 812px) {
+  .header-content .btn {
+    display: none;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+  .header-content .btn {
+    display: none;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 479px) {
+  .header-content .btn {
+    display: none;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 479px) {
   .header-content {
     padding-right: 3rem;
     padding-left: 3rem;
+    padding-top: 5rem;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+  .header-content {
+    padding-right: 3rem;
+    padding-left: 3rem;
+    padding-top: 5rem;
   }
 }
 
 @media (max-width: 662px) {
   .header-content {
-    padding-top: 4rem;
+    padding-top: 1rem;
   }
 }
 
@@ -190,7 +229,7 @@ nav .navbar-nav .nav-link {
   }
 }
 
-footer {
+#footer-small {
   min-width: 100%;
   z-index: 99;
   background: #eee;
@@ -199,33 +238,89 @@ footer {
   bottom: 0px;
 }
 
-footer .fa {
+#footer-small .fa {
   padding: 0px;
   margin: 0px;
 }
 
-footer .fa-copyright {
+#footer-small .fa-copyright {
+  color: black;
+  padding-bottom: 8px;
+}
+
+#footer-small .dropdown-toggle {
+  margin-top: 6px;
+}
+
+#footer-small #email {
+  color: #ed7b7b;
+  opacity: 1;
+  float: left;
+  padding: 5px 10px 10px;
+}
+
+#footer-small #github {
+  color: #ed7b7b;
+  opacity: 1;
+  float: left;
+  padding: 5px 10px 10px;
+}
+
+#footer-small #linkedin {
+  color: #ed7b7b;
+  opacity: 1;
+  float: left;
+  padding: 5px 10px 10px;
+}
+
+@media (min-width: 427px) {
+  #footer-small {
+    display: none;
+  }
+}
+
+#footer-normal {
+  min-width: 100%;
+  z-index: 99;
+  background: #eee;
+  padding-top: 5px;
+  position: fixed;
+  bottom: 0px;
+}
+
+#footer-normal .fa {
+  padding: 0px;
+  margin: 0px;
+}
+
+#footer-normal .fa-copyright {
   color: black;
 }
 
-footer #email {
+#footer-normal #email {
   color: #ed7b7b;
   opacity: 1;
   float: left;
   padding: 5px 10px 10px;
 }
 
-footer #github {
+#footer-normal #github {
   color: #ed7b7b;
   opacity: 1;
   float: left;
   padding: 5px 10px 10px;
 }
 
-footer #linkedin {
+#footer-normal #linkedin {
   color: #ed7b7b;
   opacity: 1;
   float: left;
   padding: 5px 10px 10px;
 }
-/*# sourceMappingURL=welcome.css.map */
+
+@media (max-width: 426px) {
+  #footer-normal {
+    display: none;
+  }
+}
+/*# sourceMappingURL=index.css.map */

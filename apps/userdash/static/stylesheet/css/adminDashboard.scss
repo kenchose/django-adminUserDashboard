@@ -11,19 +11,24 @@ $breakpoint-phone:"(min-width:320px) and (max-width:479px)";
 
 
 
+
 * {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
 }
 
+
 body, html {
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size:1rem;
     line-height: 1.5;
     overflow-x:hidden;
+    background:url('../../img/admindash.jpg') no-repeat center;
+    background-size:cover;
     height:100%;
 }
+
 
 .wrapper {
     min-height:100%;
@@ -76,80 +81,97 @@ body, html {
                 @media #{$breakpoint-laptops} {
                     margin-left:1rem;
                 }
-                @media #{$breakpoint-phone-large} {
-                    margin-top:8px;
-                }
-                @media #{$breakpoint-phone} {
-                    margin-top:8px;
-                }
             }
         }
     }
 }
 
 
-#validation-messages {
-    .asterisk {
-        color:red;
+
+
+#main-wrapper {
+    .add-btn:hover {
+        text-decoration: none;
     }
-    .message {
-        margin-left:0px;
-    }    
-    .validation-container {
-        margin-top: 1rem;
+    padding:0 7rem;
+    margin:65px 0;
+    @media #{$breakpoint-tablets} {
+        padding:0 6rem;
+        margin:110px 0;
     }
-}
-
-
-
-#main-form {
-    margin-top:4rem;
     @media #{$breakpoint-phone-large} {
-        margin:90px;
-    }  
+        padding:0px;
+        margin:80px 0;
+    }
     @media #{$breakpoint-phone} {
-        margin:0px;
-    }  
-    .form-container {
-        .edit-form {
-            padding:20px;
-        }        
-        .form-row {
-            padding-bottom:10px;
+        padding:0px;
+        margin: 81px 0;
+    }
+    .head-container {
+        @media #{$breakpoint-phone-large} {
+            display:none;
         }
-        .save-btn {
-            padding-bottom: 20px;
+        @media #{$breakpoint-phone} {
+            display:none;
         }
-        .edit-password {
+    }
+    .container-table {
+        height: 63vh;
+        overflow: auto;
+        background: #efefef;
+        border-radius:5px;
+        @media #{$breakpoint-phone} {
+            padding:0;
+        }
+        @media #{$breakpoint-phone-large} {
+            padding:0;
+        }
+
+        .fa-trash {
+            cursor:pointer;
+            text-align: center;
+            margin-left: 1.5rem;
             @media #{$breakpoint-tablets} {
-                margin-top:2.5rem;
+                margin:0px;
+                padding-left:14px;
             }
         }
-        @media #{$breakpoint-tablets} {
-            border: black solid 1px;
-            border-radius: 5px;
-        }  
-        @media #{$breakpoint-laptops} {
-            border: black solid 1px;
-            border-radius: 5px;
-        }  
-        @media #{$breakpoint-desktops} {
-            border: black solid 1px;
-            border-radius: 5px;
-        }  
-    }    
-    .body-container {
-        margin-top:2rem;
-        margin-bottom:5rem;  
-        @media #{$breakpoint-phone-large} {
-            margin:0px;
-        }  
-        @media #{$breakpoint-phone} {
-            margin:0px;
-        }  
+        th {
+            position: sticky;
+            top:0;
+            background-color:#fff;
+            z-index: 1;
+            border-top:1px;
+            margin: 0px;
+        }
+        table {
+            .th-user-created_at, .td-user-created_at, .td-user-id{
+                @media #{$breakpoint-phone} {
+                    display:none;
+                }
+                @media #{$breakpoint-phone-large} {
+                    display:none;
+                }
+                @media #{$breakpoint-tablets} {
+                    display:none;
+                }
+            }
+            .th-user-email, .td-user-email, .th-user-id {
+                @media #{$breakpoint-phone} {
+                        display:none;
+                }
+                @media #{$breakpoint-phone-large} {
+                    display:none;
+                }
+            }
+        }
     }
 }
 
+.modal-body p{
+    margin-top:1rem !important;
+    margin-bottom:1rem !important;
+}
 
 #footer-small {
     min-width:100%;
