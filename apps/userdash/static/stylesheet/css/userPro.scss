@@ -115,9 +115,8 @@ body, html {
     }
     .comment-container {
         height:45vh;
+        border-top: solid black 1px;
         overflow:scroll;
-        border: solid black 1px;
-        border-radius: 5px;
         overflow-x:hidden;
         .comment-message {
             margin:0px;
@@ -125,21 +124,46 @@ body, html {
         small {
             font-size:12px;
         }    
+        @media #{$breakpoint-tablets} {
+            border: solid black 1px;
+            border-radius: 5px;
+        }
+        @media #{$breakpoint-laptops} {
+            border: solid black 1px;
+            border-radius: 5px;
+        }
+        @media #{$breakpoint-desktops} {
+            border: solid black 1px;
+            border-radius: 5px;
+        }
     }
     .comment-input {
         padding:0px;
         margin:1rem 0 6rem;
     }
     hr {
-        height:1px;
-        background-color:#eee;
-        margin:45px 0;
+        margin:2rem 0;
+        border: 0;
+        height: 1px;
+        max-width:100vw;
+        background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+        &:last-child {
+            display:none;
+        }
     }
     .created-message {
         margin-bottom:6px;
     }
     small {
         font-size:12px;
+    }
+    @media #{$breakpoint-phone-large} {
+        padding-left:0px;
+        padding-right:0px;
+    }
+    @media #{$breakpoint-phone} {
+        padding-left:0px;
+        padding-right:0px;
     }
 }
 

@@ -83,6 +83,10 @@ nav .navbar-nav .nav-link {
   color: red;
 }
 
+.message {
+  padding: 0 1rem;
+}
+
 #footer-small {
   min-width: 100%;
   z-index: 99;
@@ -177,4 +181,4 @@ nav .navbar-nav .nav-link {
     display: none;
   }
 }
-/*# sourceMappingURL=register.css.map */
+/*# sourceMappingURL=registration.css.map */

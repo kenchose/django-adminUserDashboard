@@ -87,31 +87,24 @@ body, html {
   color: #5bc0eb;
 }
 
-.main-wrapper {
+#main-wrapper {
   margin-top: 85px;
-  padding: 0 5rem;
+  margin: 65px 0;
+  margin-bottom: 100px;
 }
 
 @media (min-width: 481px) and (max-width: 767px) {
-  .main-wrapper {
+  #main-wrapper {
     padding: 0;
     margin-top: 0;
   }
 }
 
 @media (min-width: 320px) and (max-width: 479px) {
-  .main-wrapper {
+  #main-wrapper {
     padding: 0;
     margin-top: 0;
   }
-}
-
-.header {
-  margin-top: 100px;
-}
-
-.fa-edit {
-  text-align: center;
 }
 
 .container-table {
@@ -140,14 +133,8 @@ body, html {
   .container-table {
     padding: 0px;
     border: none !important;
-    height: 91vh;
+    height: 100%;
   }
-}
-
-.container-table .fa-trash {
-  cursor: pointer;
-  text-align: center;
-  margin-left: 1.5rem;
 }
 
 .container-table th {
@@ -160,14 +147,20 @@ body, html {
   margin: 0px;
 }
 
-@media (max-width: 767px) {
-  .container-table table .th-user-created_at, .container-table table .td-user-created_at {
+@media (min-width: 768px) and (max-width: 1024px) {
+  .container-table table .th-user-created_at, .container-table table .th-user-id, .container-table table .td-user-created_at, .container-table table .td-user-id {
     display: none;
   }
 }
 
-@media (max-width: 556px) {
-  .container-table table .th-user-email, .container-table table .td-user-email {
+@media (min-width: 481px) and (max-width: 767px) {
+  .container-table table .th-user-email, .container-table table .th-user-id, .container-table table .th-created_at, .container-table table .td-user-email, .container-table table .td-user-id, .container-table table .td-created_at {
+    display: none;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 479px) {
+  .container-table table .th-user-email, .container-table table .th-user-id, .container-table table .th-created_at, .container-table table .td-user-email, .container-table table .td-user-id, .container-table table .td-created_at {
     display: none;
   }
 }
@@ -176,11 +169,6 @@ body, html {
   .container-table table {
     height: 65vh;
   }
-}
-
-.modal-body p {
-  margin-top: 1rem !important;
-  margin-bottom: 1rem !important;
 }
 
 #footer-small {

@@ -77,8 +77,12 @@ nav .navbar-nav .nav-link {
   opacity: 0.7;
 }
 
-.form-container .reg-link {
-  color: #F3EFE0;
+.form-container .asterisk {
+  color: red;
+}
+
+.form-container a {
+  color: #eee;
 }
 
 .wrapper {
@@ -189,4 +193,4 @@ nav .navbar-nav .nav-link {
     display: none;
   }
 }
-/*# sourceMappingURL=signin.css.map */
+/*# sourceMappingURL=sign-in.css.map */

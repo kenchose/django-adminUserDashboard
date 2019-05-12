@@ -21,11 +21,13 @@ $breakpoint-phone:"(min-width:320px) and (max-width:479px)";
 
 body, html {
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background:url('../../img/admindash.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size:cover;
     font-size:1rem;
     line-height: 1.5;
     overflow-x:hidden;
-    background:url('../../img/admindash.jpg') no-repeat center;
-    background-size:cover;
     height:100%;
 }
 
@@ -87,6 +89,10 @@ body, html {
 }
 
 
+.list-unstyled {
+    padding:0px;
+    margin:0px;
+}
 
 
 #main-wrapper {
@@ -95,17 +101,19 @@ body, html {
     }
     padding:0 7rem;
     margin:65px 0;
+    margin-bottom:140px;
     @media #{$breakpoint-tablets} {
         padding:0 6rem;
         margin:110px 0;
+        margin-bottom:140px;
     }
     @media #{$breakpoint-phone-large} {
-        padding:0px;
-        margin:80px 0;
+        padding:0;
+        margin: 0;
     }
     @media #{$breakpoint-phone} {
-        padding:0px;
-        margin: 81px 0;
+        padding:0;
+        margin:0;
     }
     .head-container {
         @media #{$breakpoint-phone-large} {
@@ -120,11 +128,23 @@ body, html {
         overflow: auto;
         background: #efefef;
         border-radius:5px;
-        @media #{$breakpoint-phone} {
-            padding:0;
-        }
+        @media #{$breakpoint-tablets} {
+            height:73vh;
+            padding-left:0px;
+            padding-right:0px;
+        }    
         @media #{$breakpoint-phone-large} {
             padding:0;
+            border:none !important;
+            min-width:100%;
+            height:100%;
+
+        }
+        @media #{$breakpoint-phone} {
+            padding:0;
+            border:none !important;
+            height:100%;    
+            min-width:100%;
         }
 
         .fa-trash {
@@ -145,26 +165,31 @@ body, html {
             margin: 0px;
         }
         table {
-            .th-user-created_at, .td-user-created_at, .td-user-id{
-                @media #{$breakpoint-phone} {
-                    display:none;
-                }
-                @media #{$breakpoint-phone-large} {
-                    display:none;
-                }
-                @media #{$breakpoint-tablets} {
+            @media #{$breakpoint-tablets} {
+                .th-user-created_at, .th-user-id, .td-user-created_at, .td-user-id{
                     display:none;
                 }
             }
-            .th-user-email, .td-user-email, .th-user-id {
-                @media #{$breakpoint-phone} {
-                        display:none;
-                }
-                @media #{$breakpoint-phone-large} {
+            @media #{$breakpoint-phone-large} {
+                .th-user-email, .th-user-id, .th-user-created_at, .td-user-email, .td-user-id, .td-user-created_at {
                     display:none;
                 }
             }
+            @media #{$breakpoint-phone} {
+                .th-user-email, .th-user-id, .th-user-created_at, .td-user-email, .td-user-id, .td-user-created_at {
+                    display:none;
+                }
+            }
+            @media (min-width:1025px) {
+                .th-user-id, .td-user-id {
+                    display:none;
+                }
+            }
+            // @media (max-width:737px) {
+            //     height:65vh;
+            // }
         }
+    
     }
 }
 
@@ -258,4 +283,5 @@ body, html {
     @media #{$breakpoint-phone} {
         display:none;
     }
-}
+}   
+

@@ -27,7 +27,7 @@
                     <div class="collapse navbar-collapse menu" id="navbarSupportedContent" >
                         <ul class="navbar-nav ml-auto">
                             <li class="nav-item">
-                                {% if curr_user.admin == 'Admin'%}
+                                {% if curr_user.admin == "Admin" %}
                                     <a href="/dashboard/admin" class="nav-link">Home</a>
                                 {% else %}
                                     <a href="/dashboard" class='nav-link'>Home</a>
@@ -48,7 +48,7 @@
                             <li class = "navbar-item">
                                 <form action="/logout" method="post">
                                     {% csrf_token %}
-                                    {% if curr_user.admin == Admin %}
+                                    {% if curr_user.admin == "Admin" %}
                                         <button type="submit" class="btn btn-warning admin-logout">Logout</button>
                                     {% else %}
                                         <button type="submit" class="btn user-logout">Logout</button>
@@ -61,13 +61,13 @@
             </div>
             
             <section id='message'>
-                <div class="container mt-3">  
+                <div class="container">  
                     <div class="d-inline">
                         <div class="text-danger text-left">
                             <ul class="list-unstyled">
                                 {% if messages %}
                                     {% for message in messages %}
-                                        <li class= "form-group">
+                                        <li class= "form-group  message-list">
                                             <h6>{{message}}</h6>
                                         </li>
                                     {% endfor %}

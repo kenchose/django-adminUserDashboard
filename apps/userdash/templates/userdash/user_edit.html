@@ -27,7 +27,7 @@
                     <div class="collapse navbar-collapse menu" id="navbarSupportedContent" >
                         <ul class="navbar-nav ml-auto">
                             <li class="nav-item">
-                                {% if curr_user.admin == 'Admin'%}
+                                {% if curr_user.admin == "Admin" %}
                                     <a href="/dashboard/admin" class="nav-link">Home</a>
                                 {% else %}
                                     <a href="/dashboard" class='nav-link'>Home</a>
@@ -45,7 +45,7 @@
                             <li class = "navbar-item">
                                 <form action="/logout" method="post">
                                     {% csrf_token %}
-                                    {% if curr_user.admin == Admin %}
+                                    {% if curr_user.admin == "Admin" %}
                                     <button type="submit" class="btn btn-warning admin-logout">Logout</button>
                                     {% else %}
                                         <button type="submit" class="btn user-logout">Logout</button>
@@ -105,9 +105,8 @@
                                     </div>
                                 </div>
                                 <div class="form-row">
-                                    <div class="form-group col-sm-4">
-                                        <button type='submit' class="btn bg-info text-white form-control save-btn">Save</button>
-                                    </div>
+                                    <button type='submit' class="col-4 btn bg-info text-white form-control save-btn">Save</button>
+                                    <a href="/users/show/{{user.id}}"><button class="offset-4 btn bg-info text-white from-control cancel-btn">Cancel</button></a>
                                 </div>
                             </form>
                         </div>

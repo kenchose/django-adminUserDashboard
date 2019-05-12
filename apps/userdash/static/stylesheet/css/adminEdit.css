@@ -89,7 +89,19 @@ body, html {
   border-radius: 5px;
 }
 
-@media (max-width: 991px) {
+@media (min-width: 768px) and (max-width: 1024px) {
+  .form-container {
+    margin-bottom: 35px;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+  .form-container {
+    margin-bottom: 35px;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 479px) {
   .form-container {
     margin-bottom: 35px;
   }

@@ -109,9 +109,8 @@ body, html {
 
 .message-container .comment-container {
   height: 45vh;
+  border-top: solid black 1px;
   overflow: scroll;
-  border: solid black 1px;
-  border-radius: 5px;
   overflow-x: hidden;
 }
 
@@ -123,15 +122,43 @@ body, html {
   font-size: 12px;
 }
 
+@media (min-width: 768px) and (max-width: 1024px) {
+  .message-container .comment-container {
+    border: solid black 1px;
+    border-radius: 5px;
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+  .message-container .comment-container {
+    border: solid black 1px;
+    border-radius: 5px;
+  }
+}
+
+@media (min-height: 1281px) {
+  .message-container .comment-container {
+    border: solid black 1px;
+    border-radius: 5px;
+  }
+}
+
 .message-container .comment-input {
   padding: 0px;
   margin: 1rem 0 6rem;
 }
 
 .message-container hr {
+  margin: 2rem 0;
+  border: 0;
   height: 1px;
-  background-color: #eee;
-  margin: 45px 0;
+  max-width: 100vw;
+  background-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0)), color-stop(rgba(0, 0, 0, 0.75)), to(rgba(0, 0, 0, 0)));
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+
+.message-container hr:last-child {
+  display: none;
 }
 
 .message-container .created-message {
@@ -140,6 +167,20 @@ body, html {
 
 .message-container small {
   font-size: 12px;
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+  .message-container {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 479px) {
+  .message-container {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
 }
 
 #last-hr:last-child {
@@ -255,4 +296,4 @@ body, html {
     display: none;
   }
 }
-/*# sourceMappingURL=user_profile.css.map */
+/*# sourceMappingURL=userPro.css.map */

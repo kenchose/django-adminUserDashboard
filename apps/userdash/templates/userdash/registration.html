@@ -9,7 +9,7 @@
         <script src= 'http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-        <link rel="stylesheet" type='text/css' href="./../../static/stylesheet/css/register.css">
+        <link rel="stylesheet" type='text/css' href="./../../static/stylesheet/css/registration.css">
         <title>Register</title>
     </head>
     <body >
@@ -39,10 +39,10 @@
         <div class="wrapper">
             <div class="container">  
                 <div class="text-danger text-left">
-                    <ul class="list-unstyled">
+                    <ul class="list-unstyled message">
                         {% if messages %}
                             {% for message in messages %}
-                            <li class= "form-group row message">
+                            <li class= "form-group row">
                                 <h6><span class='asterisk'>*</span>{{message}}</h6>
                             </li>
                             {% endfor %}

@@ -8,7 +8,7 @@
         <link rel="shortcut icon" href="{% static 'favicon/favicon.ico' %}" type="image/x-icon"> 
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet" type='text/css' href="../../static/stylesheet/css/user_profile.css">
+        <link rel="stylesheet" type='text/css' href="../../static/stylesheet/css/userPro.css">
         <title>User Profile</title>
     </head>
     <body>
@@ -27,7 +27,7 @@
                     <div class="collapse navbar-collapse menu" id="navbarSupportedContent" >
                         <ul class="navbar-nav ml-auto">
                             <li class="nav-item">
-                                {% if curr_user.admin == 'Admin'%}
+                                {% if curr_user.admin == "Admin"%}
                                     <a href="/dashboard/admin" class="nav-link">Home</a>
                                 {% else %}
                                     <a href="/dashboard" class='nav-link'>Home</a>
@@ -45,7 +45,7 @@
                             <li class = "navbar-item">
                                 <form action="/logout" method="post">
                                     {% csrf_token %}
-                                    {% if curr_user.admin == Admin %}
+                                    {% if curr_user.admin == "Admin" %}
                                         <button type="submit" class="btn btn-warning admin-logout">Logout</button>
                                     {% else %}
                                         <button type="submit" class="btn user-logout">Logout</button>
@@ -162,7 +162,7 @@
                                 </div>
                             </form>
                         </div>
-                        <hr id="last-hr">
+                        <hr>
                     {% endfor %}
                 </div>
             </section>

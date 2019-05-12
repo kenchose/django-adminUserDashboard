@@ -95,9 +95,10 @@ body, html {
 
 
 
-.main-wrapper {
+#main-wrapper {
     margin-top: 85px;
-    padding:0 5rem;
+    margin:65px 0;
+    margin-bottom:100px;
     @media #{$breakpoint-phone-large} {
         padding:0 ;
         margin-top:0;
@@ -108,26 +109,17 @@ body, html {
     }
 }
 
-
-.header {
-    margin-top:100px;
-}
-
-
-.fa-edit {
-    text-align: center;
-}
  
 .container-table {
     height: 65vh;
+    overflow: auto;
+    background: #efefef;
+    border-radius:5px;
     @media #{$breakpoint-tablets} {
         height:73vh;
         padding-left:0px;
         padding-right:0px;
     }
-    overflow: auto;
-    background: #efefef;
-    border-radius:5px;
     @media #{$breakpoint-phone-large} {
         padding:0px;
         border:none !important;
@@ -135,13 +127,13 @@ body, html {
     @media #{$breakpoint-phone} {
         padding:0px;
         border:none !important;
-        height:91vh;
+        height:100%;
     };
-    .fa-trash {
-        cursor:pointer;
-        text-align: center;
-        margin-left: 1.5rem;
-    }
+    // .fa-trash { normal user cannot delete
+    //     cursor:pointer;
+    //     text-align: center;
+    //     margin-left: 1.5rem;
+    // }
     th {
         position: sticky;
         top:0;
@@ -151,13 +143,18 @@ body, html {
         margin: 0px;
     }
     table {
-        @media (max-width:767px) {
-            .th-user-created_at, .td-user-created_at{
+        @media #{$breakpoint-tablets} {
+            .th-user-created_at, .th-user-id, .td-user-created_at, .td-user-id{
                 display:none;
             }
         }
-        @media (max-width:556px) {
-            .th-user-email, .td-user-email {
+        @media #{$breakpoint-phone-large} {
+            .th-user-email, .th-user-id, .th-created_at, .td-user-email, .td-user-id, .td-created_at {
+                display:none;
+            }
+        }
+        @media #{$breakpoint-phone} {
+            .th-user-email, .th-user-id, .th-created_at, .td-user-email, .td-user-id, .td-created_at {
                 display:none;
             }
         }
@@ -167,10 +164,6 @@ body, html {
     }
 }
 
-.modal-body p{
-    margin-top:1rem !important;
-    margin-bottom:1rem !important;
-}
 
 #footer-small {
     min-width:100%;
